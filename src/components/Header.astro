@@ -45,7 +45,7 @@ const heroImage = import('../assets/background-operate.png');
 		</div>
 	</nav>
 	<div>
-		{heroImage && <Image width={1020} height={510} src={heroImage} alt="Me in operating room" />}
+		{heroImage && <Image width={1020} height={510} src={heroImage} alt="Me in operating room" loading={'eager'} />}
 	</div>
 </header>
 <style>
