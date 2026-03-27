@@ -1,9 +1,8 @@
 ---
 title: 'Update API Server'
 pubDate: '2025-01-01'
-categories: ['git-updater', 'wordpress-2']
-tags: ['git-updater', 'wordpress']
-description: 'In the post on [Git Updater Lite](https://thefrage'
+categories: ['git-updater', 'wordpress']
+description: ''
 ---
 
 In the post on [Git Updater Lite](https://thefragens.com/git-updater-lite/) I referred to Git Updater as the update server. I believe this to be somewhat inaccurate as what Git Updater is serving corresponds to an update API response. Perhaps a better description of what Git Updater's role here is as an Update API Server.

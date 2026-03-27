@@ -1,10 +1,9 @@
 ---
 title: 'Git Updater Lite'
 pubDate: '2024-12-01'
-categories: ['code', 'git-updater', 'wordpress-2']
-tags: ['git-updater', 'wordpress']
-coverImage: "GitUpdaterLite_Logo-Original-Horiz-1-scaled.png"
-description: 'Given the recent concerns regarding publishing plu'
+categories: ['code', 'git-updater', 'wordpress']
+heroImage: './images/GitUpdaterLite_Logo-Original-Horiz-1-scaled.png'
+description: ''
 ---
 
 Given the recent concerns regarding publishing plugins or themes on wordpress.org, there has been much interest in other methods of distribution and updating within the ecosystem. [Git Updater](https://git-updater.com) is a method of providing this type of service but it does have a drawback. The user must create an Updates API Server by installing and activating the Git Updater plugin and integrating any plugins/themes via the Additions tab.

@@ -2,8 +2,7 @@
 title: 'Setting up WebDAV Share in Mac OS X Server'
 pubDate: '2011-03-11'
 categories: ['osx-server']
-tags: ['osx-server']
-description: 'As I attempt to transition from a laptop to an iPa'
+description: ''
 ---
 
 As I attempt to transition from a laptop to an iPad, with no specific reason other than the iPad is sooooo kewl; I need to create my own online storage. Yes I have a [Dropbox](http://www.dropbox.com) account, but I don't control Dropbox. Here's what I did, YMMV.

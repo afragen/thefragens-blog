@@ -1,9 +1,8 @@
 ---
 title: 'Running SpamAssassin locally'
 pubDate: '2007-08-16'
-categories: ['mac-osx']
-tags: ['spamassassin']
-description: 'While I haven''t yet gotten an iPhone I''m making pr'
+categories: ['mac-osx', 'spamassassin']
+description: ''
 ---
 
 While I haven't yet gotten an iPhone I'm making preparations. I realized that I was going to need to do something about email spam so that I could use an email address on my domain with the iPhone. My problem is that since I don't run my mail server I've got no way to pull spam off the server before I have to download it. That is until now. My initial test was with my Mom's email account. She had to have been getting over 500 spam/day. She was gone for a couple of weeks and there were over 6000 messages in her account on the server. Anyone care to guess how many were legit? A bit of googling and I found [DisSpam](http://freshmeat.net/projects/disspam/). It looked like a reasonable solution.

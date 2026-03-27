@@ -1,9 +1,8 @@
 ---
 title: 'Baby Steps to Healthcare Reform'
 pubDate: '2009-10-21'
-categories: ['medicine']
-tags: ['medicine', 'politics']
-description: 'Since I''m sure all members of Congress will have t'
+categories: ['medicine', 'politics']
+description: ''
 ---
 
 Since I'm sure all members of Congress will have the opportunity to read and comprehend the entirety of whatever is the current healthcare legislation the following small steps to improve the situation will be meaningless. I have 3 simple proposals that could fit on a single page. Heck, it fits in a single post.

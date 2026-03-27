@@ -1,9 +1,8 @@
 ---
-title: 'chroot''d SFTP on Mac OS X server'
+title: 'chroot&#039;d SFTP on Mac OS X server'
 pubDate: '2011-12-16'
 categories: ['code', 'osx-server']
-tags: ['code', 'osx-server']
-description: 'So here you are finding that you need to grant som'
+description: ''
 ---
 
 So here you are finding that you need to grant someone else SFTP access to your server. There are lots of reasons to do this, in my case it's because I needed to grant access to someone's web designer. We initially worked it out by him emailing me files and me SFTP'ing them up to the server in the correct location. Now he needs direct access to fix some things and I want to give him only what he needs without compromising security. Enter the chroot jail. After lots of googling and some encouragement from the Mac OS X Server email list, I've got it working. Here's how it works. 

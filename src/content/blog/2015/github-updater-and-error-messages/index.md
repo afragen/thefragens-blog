@@ -1,9 +1,9 @@
 ---
 title: 'GitHub Updater and Error Messages'
 pubDate: '2015-03-06'
-categories: ['git-updater', 'wordpress-2']
-coverImage: "GHU_error_message.png"
-description: '[GitHub Updater](https://github.com/afragen/github'
+categories: ['git-updater', 'wordpress']
+heroImage: './images/GHU_error_message.png'
+description: ''
 ---
 
 [GitHub Updater](https://github.com/afragen/github-updater) now gives some feedback when the API responds with an error. What I've done is capture the HTTP error code and add that to an `admin_head` hook. I've also included some data if the error is the result of banging against GitHub API's rate limit for unauthenticated accesses.

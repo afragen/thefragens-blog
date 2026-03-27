@@ -1,10 +1,9 @@
 ---
 title: 'WordPress Debugging'
 pubDate: '2018-08-23'
-categories: ['code', 'wordpress-2']
-tags: ['code', 'debug', 'wordpress']
-coverImage: "wp-config.png"
-description: 'It is inevitable. At some point when running a Wor'
+categories: ['code', 'wordpress', 'debug']
+heroImage: './images/wp-config.png'
+description: ''
 ---
 
 It is inevitable. At some point when running a WordPress site you will have a conflict, an error, or worst case - a PHP Fatal leading to a WSOD (White Screen of Death).

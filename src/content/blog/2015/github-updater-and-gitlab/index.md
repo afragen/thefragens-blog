@@ -1,10 +1,9 @@
 ---
-title: 'GitHub Updater & GitLab'
+title: 'GitHub Updater &#038; GitLab'
 pubDate: '2015-05-24'
-categories: ['code', 'git-updater', 'wordpress-2']
-tags: ['github', 'githubupdater', 'gitlab', 'wordpress', 'wp-plugin']
-coverImage: "images.png"
-description: '## GitLab Support  I''ve finally been able to add s'
+categories: ['code', 'git-updater', 'wordpress', 'github', 'githubupdater', 'gitlab', 'wp-plugin']
+heroImage: './images/images.png'
+description: ''
 ---
 
 ## GitLab Support

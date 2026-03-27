@@ -1,9 +1,8 @@
 ---
 title: 'Dovecot Permissions'
 pubDate: '2010-08-07'
-categories: ['mac-osx', 'osx-server']
-tags: ['dovecot', 'mac-osx', 'osx-server']
-description: 'Well, I finally bit the bullet and installed OS X '
+categories: ['mac-osx', 'osx-server', 'dovecot']
+description: ''
 ---
 
 Well, I finally bit the bullet and installed OS X Snow Leopard Server. Most of what I absolutely **need** to get working is mail services. One of the peculiarities of Dovecot is that each users mail folder is owned by that user. I think in Cyrus they were all owned by *mail* or *_cyrus*. Anyway, I found that a couple of my files didn't have the correct permissions and I found out by trying to open in webmail. It gave me errors I'd never seen before. Where I found better errors was in mailaccess.log where I saw a _dovecot_ service with a _failed: Permission denied_ error. I managed to find where the files lived and as I have quite a few mail users I didn't want to go through individually so I figured out a script to do it. 

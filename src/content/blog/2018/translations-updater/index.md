@@ -1,9 +1,9 @@
 ---
 title: 'Translations Updater'
 pubDate: '2018-10-09'
-categories: ['code', 'wordpress-2']
-coverImage: "93A1DB01-27D4-422E-AE7A-5C69755DE8A5.png"
-description: 'As part of the [GitHub Updater](https://github.com'
+categories: ['code', 'wordpress']
+heroImage: './images/93A1DB01-27D4-422E-AE7A-5C69755DE8A5.png'
+description: ''
 ---
 
 As part of the [GitHub Updater](https://github.com/afragen/github-updater) I introduced a process for independent language pack updating. The normal process is to include translation files, as part of your plugins, in a `/languages` directory inside of your plugin and load them via `load_plugin_textdomain()`. This also works for themes.

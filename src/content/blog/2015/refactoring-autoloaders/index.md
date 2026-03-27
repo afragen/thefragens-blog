@@ -1,9 +1,9 @@
 ---
 title: 'Refactoring and Autoloaders'
 pubDate: '2015-02-03'
-categories: ['code', 'wordpress-2']
-coverImage: "screenshot_02.png"
-description: 'There are always a couple of plugins that require '
+categories: ['code', 'wordpress']
+heroImage: './images/screenshot_02.png'
+description: ''
 ---
 
 There are always a couple of plugins that require either constant care and upkeep or you just want to keep making them better. I have 2 plugins that I put more care and feeding into than others. These are [GitHub Updater](https://github.com/afragen/github-updater) and [The Events Calendar Category Colors](https://wordpress.org/plugins/the-events-calendar-category-colors/). Both of these projects are free and open sourced. They both live on GitHub and this allows for both of these plugins to be much better than I, alone, could make them.

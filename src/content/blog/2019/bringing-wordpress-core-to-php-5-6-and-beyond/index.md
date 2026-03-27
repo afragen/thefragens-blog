@@ -1,9 +1,8 @@
 ---
 title: 'Bringing WordPress Core to PHP 5.6 and Beyond'
 pubDate: '2019-04-24'
-categories: ['wordpress-2']
-tags: ['wordcamp', 'wordpress']
-description: 'In the 2018 State of the Word, Matt told us the pl'
+categories: ['wordpress', 'wordcamp']
+description: ''
 ---
 
 In the 2018 State of the Word, Matt told us the plan was to move the minimum PHP version for WordPress Core to 5.6 in April 2019 and to PHP 7 in December 2019. I won't discuss the irony of WordPress 5.2 being the update that kills support for PHP 5.2, but the coincidence is remarkable.

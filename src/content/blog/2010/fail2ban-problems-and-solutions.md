@@ -1,9 +1,8 @@
 ---
 title: 'Fail2ban Problems and Solutions'
 pubDate: '2010-12-01'
-categories: ['code', 'osx-server']
-tags: ['code', 'fail2ban', 'osx-server']
-description: 'If you use [Fail2ban](http://www.fail2ban.org/wiki'
+categories: ['code', 'osx-server', 'fail2ban']
+description: ''
 ---
 
 If you use [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page) then you are probably aware of the fact that you must add a rule number to the ipfw deny rule for `actionban` in `ipfw.conf`. 

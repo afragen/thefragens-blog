@@ -2,7 +2,7 @@
 title: 'RIP Steve'
 pubDate: '2011-10-06'
 categories: ['life-unscripted']
-description: '![20111005-171004.jpg](images/20111005-171004.jpg)'
+description: ''
 ---
 
 ![20111005-171004.jpg](images/20111005-171004.jpg)

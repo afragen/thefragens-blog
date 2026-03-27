@@ -1,7 +1,7 @@
 ---
-title: 'West Virginia Surgeon''s strike'
+title: 'West Virginia Surgeon&#039;s strike'
 pubDate: '2003-01-03'
-description: 'It''s about time that the medical community banded '
+description: ''
 ---
 
 It's about time that the medical community banded together to show everyone how they are being screwed by the malpractice insurance industry. These guys are paying over $100,000 per year in medical malpractice insurance and it's a crime. 

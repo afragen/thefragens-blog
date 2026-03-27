@@ -1,10 +1,9 @@
 ---
 title: 'Automatic Plugin &amp; Theme Updating From GitHub – Part 3'
 pubDate: '2014-12-16'
-categories: ['code', 'git-updater', 'wordpress-2']
-tags: ['github', 'plugins', 'themes', 'wp-plugin']
-coverImage: "images.jpeg"
-description: 'I''ve been doing a lot of tweaking to [GitHub Updat'
+categories: ['code', 'git-updater', 'wordpress', 'github', 'plugins', 'themes', 'wp-plugin']
+heroImage: './images/images.jpeg'
+description: ''
 ---
 
 I've been doing a lot of tweaking to [GitHub Updater](https://github.com/afragen/github-updater). The plugin now runs on the front-end and only for privileged users. This allows for a couple of things.

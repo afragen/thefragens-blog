@@ -1,10 +1,9 @@
 ---
 title: 'Automatic Plugin &amp; Theme Updating From GitHub – Part 1'
 pubDate: '2014-08-01'
-categories: ['code', 'git-updater', 'wordpress-2']
-tags: ['github', 'plugins', 'themes']
-coverImage: "github.jpeg"
-description: 'About 10 months ago I decided to [scratch an itch]'
+categories: ['code', 'git-updater', 'wordpress', 'github', 'plugins', 'themes']
+heroImage: './images/github.jpeg'
+description: ''
 ---
 
 About 10 months ago I decided to [scratch an itch](https://github.com/afragen/github-updater). I was running 3 or 4 different WordPress websites, including this one. I was also playing around customizing these sites by creating some one-off plugins and child themes. At the time I was doing a lot of cowboy coding on my own domains. Mostly because I didn't know better. 

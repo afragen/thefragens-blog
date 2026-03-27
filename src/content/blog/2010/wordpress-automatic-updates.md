@@ -1,9 +1,8 @@
 ---
 title: 'WordPress Automatic Updates'
 pubDate: '2010-06-18'
-categories: ['osx-server']
-tags: ['computer', 'osx-server', 'wordpress']
-description: 'I think I finally have the automatic updates featu'
+categories: ['osx-server', 'computer', 'wordpress']
+description: ''
 ---
 
 I think I finally have the automatic updates feature of WordPress working. Previously, when asked for my login info for the FTP connection I would get some vague connection error. It's a permissions issue. Some permissions for files/folders need to be set for web server user, in my case Apache2, or `_www` on OS X Server. The answer mostly comes from looking for [why WordPress asks for connection information](http://www.chrisabernethy.com/why-wordpress-asks-connection-info/). Be sure to read the comments. Definitely add the following to `wp-config.php`.

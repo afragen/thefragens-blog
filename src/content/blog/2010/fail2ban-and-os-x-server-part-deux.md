@@ -1,9 +1,8 @@
 ---
 title: 'Fail2ban and OS X Server, Part Deux'
 pubDate: '2010-11-04'
-categories: ['code', 'computer', 'osx-server']
-tags: ['dovecot', 'fail2ban', 'osx-server', 'snow-leopard']
-description: 'As some of you might know I run my own installatio'
+categories: ['code', 'computer', 'osx-server', 'dovecot', 'fail2ban', 'snow-leopard']
+description: ''
 ---
 
 As some of you might know I run my own installation of OS X Server. I've since updated it to Snow Leopard Server and I think I've got most of it running well. As I check my server logs frequently I find that there are all sorts of script kiddies attempting to log in to my server in various ways. The traditional method was to simply try an ssh session with a username and password combination. 

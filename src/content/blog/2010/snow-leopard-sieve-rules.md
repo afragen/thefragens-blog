@@ -1,9 +1,8 @@
 ---
 title: 'Snow Leopard Sieve Rules'
 pubDate: '2010-08-07'
-categories: ['osx-server']
-tags: ['dovecot', 'sieve']
-description: 'How to edit _sieve_ rules in Snow Leopard by hand.'
+categories: ['osx-server', 'dovecot', 'sieve']
+description: ''
 ---
 
 How to edit _sieve_ rules in Snow Leopard by hand. This is not really recommended especially because it seems that SL server does not utilize all the sieve rules and the ones that it does utilize are in a slightly different format than exists in [Sieve documentation][1]. 

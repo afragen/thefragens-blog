@@ -1,9 +1,8 @@
 ---
 title: 'Nationalized Healthcare and the Free Market'
 pubDate: '2009-03-05'
-categories: ['medicine']
-tags: ['medicine', 'politics']
-description: 'Nationalized/Universal healthcare will happen. Oba'
+categories: ['medicine', 'politics']
+description: ''
 ---
 
 Nationalized/Universal healthcare will happen. Obama ran on it and he intends to deliver. What's more, I can see a manner in which the country will flock to it under the current free market insurance system. 

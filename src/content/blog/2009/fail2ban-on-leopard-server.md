@@ -1,9 +1,8 @@
 ---
 title: 'Fail2ban on Leopard Server'
 pubDate: '2009-09-24'
-categories: ['code', 'osx-server']
-tags: ['code', 'fail2ban', 'osx-server']
-description: 'So here I am running my own server -- for almost 2'
+categories: ['code', 'osx-server', 'fail2ban']
+description: ''
 ---
 
 So here I am running my own server -- for almost 2 years now. It's been a real learning experience and I've tried to share. My latest add-on has been [fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page). I got tired of looking into my logs and seeing where script kiddies or bots were trying to take control of my server. Fortunately, none have. After a bit of googling, I found fail2ban. It's a collection of python scripts.

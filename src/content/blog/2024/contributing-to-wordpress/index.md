@@ -1,10 +1,9 @@
 ---
 title: 'Contributing to WordPress, a Letter to Matt'
 pubDate: '2024-09-28'
-categories: ['web-hosting', 'wordcamp', 'wordpress-2']
-tags: ['life-unscripted', 'wordpress']
-coverImage: "L1000405.jpg"
-description: 'Matt -  I had the pleasure of attending WCUS in Po'
+categories: ['web-hosting', 'wordcamp', 'wordpress', 'life-unscripted']
+heroImage: './images/L1000405.jpg'
+description: ''
 ---
 
 Matt - 

@@ -1,9 +1,8 @@
 ---
 title: 'On the Fence'
 pubDate: '2013-01-20'
-categories: ['life-unscripted']
-tags: ['economy']
-description: 'My brother wrote and sent the following out to som'
+categories: ['life-unscripted', 'economy']
+description: ''
 ---
 
 My brother wrote and sent the following out to some friends via email. I'm re-posting with his permission. For the record, he's brilliant and not overly political. This was originally sent on Sept 6, 2012. 

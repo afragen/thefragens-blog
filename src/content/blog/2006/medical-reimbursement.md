@@ -1,7 +1,7 @@
 ---
 title: 'Medical Reimbursement'
 pubDate: '2006-04-05'
-description: '[Dr. Bob](http://docisinblog.com)/ has written a w'
+description: ''
 ---
 
 [Dr. Bob](http://docisinblog.com)/ has written a wonderful series on the [maze](http://docisinblog.com/archives/2006/04/01/maze-pt-1) that is medical reimbursement and wonders of [correct coding](http://docisinblog.com/archives/2006/04/04/maze-pt-2). 

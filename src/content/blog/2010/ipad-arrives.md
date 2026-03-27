@@ -1,9 +1,8 @@
 ---
 title: 'iPad Arrives'
 pubDate: '2010-04-05'
-categories: ['computer']
-tags: ['apple', 'computer', 'ipad', 'iphone']
-description: 'Well, with the Easter weekend over and Apple''s iPa'
+categories: ['computer', 'apple', 'ipad', 'iphone']
+description: ''
 ---
 
 Well, with the Easter weekend over and Apple's iPad gaining more headlines than anything else, I have to say I want one, but I can wait. I actually got to touch one. Someone at the hospital brought it with them.

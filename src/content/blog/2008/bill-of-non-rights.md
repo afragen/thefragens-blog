@@ -2,8 +2,7 @@
 title: 'Bill of NON-Rights'
 pubDate: '2008-07-31'
 categories: ['life-unscripted']
-tags: ['life-unscripted']
-description: 'I received this in an email from a friend. It is r'
+description: ''
 ---
 
 I received this in an email from a friend. It is reproduced here without permission. 

@@ -2,8 +2,8 @@
 title: 'Local by Flywheel (Pressmatic) and Symlinks'
 pubDate: '2018-06-06'
 categories: ['code', 'computer']
-coverImage: "LbF-logo.png"
-description: 'I''ve changed development environments a couple of '
+heroImage: './images/LbF-logo.png'
+description: ''
 ---
 
 I've changed development environments a couple of times. I started out using DesktopServer, a wonderful app. Gradually I grew disappointed with their update schedule and v4.0 ever on the horizon. One of the things I didn't like was my inability to choose the PHP version I was developing in. I know there must be a way but it wasn't obvious.

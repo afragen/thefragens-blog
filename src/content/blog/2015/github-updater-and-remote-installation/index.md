@@ -1,9 +1,9 @@
 ---
 title: 'GitHub Updater and Remote Installation'
 pubDate: '2015-02-09'
-categories: ['code', 'git-updater', 'wordpress-2']
-coverImage: "Unknown.jpeg"
-description: 'So [GitHub Updater](https://github.com/afragen/git'
+categories: ['code', 'git-updater', 'wordpress']
+heroImage: './images/Unknown.jpeg'
+description: ''
 ---
 
 So [GitHub Updater](https://github.com/afragen/github-updater) v4.0.0 is out. It includes a huge refactoring and now requires PHP 5.3 or better. GitHub Updater now uses namespacing and PSR 4 autoloading. I read a recent [WP Tavern article](http://wptavern.com/wp-pusher-aims-to-provide-pain-free-deployment-of-wordpress-themes-and-plugins-from-github) and showed me what others are doing in the same space. I was intrigued. [WP Pusher](https://wppusher.com) has done terrific work in creating a solution to remote installation and updating. I wondered, how difficult would it be to add remote installation of WordPress plugins or themes to the existing framework. It turns out, not that difficult.

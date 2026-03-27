@@ -1,9 +1,8 @@
 ---
 title: 'WordPress on Hiatus'
 pubDate: '2024-10-26'
-categories: ['life-unscripted', 'wordpress-2']
-tags: ['life-unscripted', 'wordpress']
-description: 'I have put my contributions to WP Core on hiatus. '
+categories: ['life-unscripted', 'wordpress']
+description: ''
 ---
 
 I have put my contributions to WP Core on hiatus.

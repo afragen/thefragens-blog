@@ -2,8 +2,7 @@
 title: 'Saving Medicare?'
 pubDate: '2008-07-07'
 categories: ['medicine']
-tags: ['medicine']
-description: 'I''ve been getting to the point lately that the sys'
+description: ''
 ---
 
 I've been getting to the point lately that the system needs to undergo some catastrophic collapse before it will get better. As the [Happy Hospitalist][1] says: 

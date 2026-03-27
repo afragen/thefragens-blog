@@ -1,7 +1,7 @@
 ---
 title: 'Consultants and Transfers'
 pubDate: '2004-12-25'
-description: '[**GruntDoc**](http://www.gruntdoc.com/) says: [**'
+description: ''
 ---
 
 [**GruntDoc**](http://www.gruntdoc.com/) says: [**Consultants and Transfers**](http://www.gruntdoc.com/archives/000833.php)

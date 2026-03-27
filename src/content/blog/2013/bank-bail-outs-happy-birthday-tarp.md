@@ -1,9 +1,8 @@
 ---
 title: 'Bank Bail Outs - Happy Birthday TARP'
 pubDate: '2013-01-20'
-categories: ['life-unscripted']
-tags: ['economy']
-description: 'Another lesson on economics from my brilliant sibl'
+categories: ['life-unscripted', 'economy']
+description: ''
 ---
 
 Another lesson on economics from my brilliant sibling. This initially an email to a mutual friend and college classmate sent on October 3, 2012. 

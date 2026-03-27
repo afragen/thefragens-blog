@@ -1,9 +1,8 @@
 ---
 title: 'Add Alarm to Events Calendar PRO'
 pubDate: '2012-05-06'
-categories: ['code']
-tags: ['code', 'wordpress', 'wp-plugin']
-description: 'Thanks to Joey Kudish and Jonah at Modern Tribe, I'
+categories: ['code', 'wordpress', 'wp-plugin']
+description: ''
 ---
 
 Thanks to Joey Kudish and Jonah at Modern Tribe, Inc., I've converted my original hacked together code to add an alarm to a calendar event created using the [Events Calendar PRO](http://tri.be/wordpress-events-calendar-pro/) WordPress plugin into a plugin of my own. You can see/follow the original discussion on the [Modern Tribe forum](http://tri.be/support/forums/topic/add-alarm-to-event/). 

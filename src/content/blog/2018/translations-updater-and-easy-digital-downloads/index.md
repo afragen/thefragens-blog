@@ -1,10 +1,9 @@
 ---
 title: 'Translations Updater and Easy Digital Downloads'
 pubDate: '2018-10-17'
-categories: ['code', 'wordpress-2']
-tags: ['edd', 'translations']
-coverImage: "edd-sitting.png"
-description: 'My [Translations Updater](https://github.com/afrag'
+categories: ['code', 'wordpress', 'edd', 'translations']
+heroImage: './images/edd-sitting.png'
+description: ''
 ---
 
 My [Translations Updater](https://github.com/afragen/translations-updater) Composer library also works for any plugins or themes that are using [EDD Software Licensing](https://easydigitaldownloads.com/downloads/software-licensing/). I have recently written about the basic purpose and function of the [Translations Updater library](https://thefragens.com/translations-updater/).

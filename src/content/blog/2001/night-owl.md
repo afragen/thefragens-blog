@@ -1,7 +1,7 @@
 ---
 title: 'Night Owl'
 pubDate: '2001-12-05'
-description: 'Sophie is getting to be a regular night owl. It ge'
+description: ''
 ---
 
 Sophie is getting to be a regular night owl. It gets harder and harder to put her to bed.

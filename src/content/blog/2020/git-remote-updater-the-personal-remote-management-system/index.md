@@ -1,9 +1,8 @@
 ---
 title: 'Git Remote Updater, the Personal Remote Management System'
 pubDate: '2020-02-03'
-categories: ['code', 'git-updater', 'wordpress-2']
-tags: ['code', 'development', 'gitupdater', 'wordcamp', 'wordpress']
-description: 'The need or desire to use a personal remote manage'
+categories: ['code', 'git-updater', 'wordpress', 'development', 'gitupdater', 'wordcamp']
+description: ''
 ---
 
 The need or desire to use a personal remote management service makes a few assumptions.

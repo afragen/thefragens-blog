@@ -1,7 +1,7 @@
 ---
 title: 'So you really want to take ER call?'
 pubDate: '2006-03-09'
-description: '[Surgeon held over patient''s death](http://news.bb'
+description: ''
 ---
 
 [Surgeon held over patient's death](http://news.bbc.co.uk/1/hi/england/tyne/4789160.stm) from the BBC. So let me get this straight. Some guy stabs himself in the chest and later dies and they want to blame the surgeon? 

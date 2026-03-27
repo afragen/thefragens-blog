@@ -1,9 +1,9 @@
 ---
 title: 'Install a Zipfile with GitHub Updater'
 pubDate: '2018-09-28'
-categories: ['code', 'git-updater', 'wordpress-2']
-coverImage: "zip-archive-mac-os-x.jpg"
-description: 'If you maintain your codebase on GitHub, or anothe'
+categories: ['code', 'git-updater', 'wordpress']
+heroImage: './images/zip-archive-mac-os-x.jpg'
+description: ''
 ---
 
 If you maintain your codebase on GitHub, or another git host, the standard download of your repository from within GitHub is an automatically generated zipfile created from your repository. GitHub Updater uses this generated zipfile when it updates or installs a repository from GitHub.

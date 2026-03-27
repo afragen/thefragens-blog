@@ -1,9 +1,8 @@
 ---
 title: 'Server-Side Email Filtering With Sieve'
 pubDate: '2010-05-14'
-categories: ['code', 'mac-osx', 'osx-server']
-tags: ['apple', 'code', 'iphone', 'mac-osx', 'osx-server', 'sieve']
-description: 'Another post for the peripheral brain. When I firs'
+categories: ['code', 'mac-osx', 'osx-server', 'apple', 'iphone', 'sieve']
+description: ''
 ---
 
 Another post for the peripheral brain. When I first set up my own server lo these years ago, I never really thought about email message filtering. After all, I had rules in Mail.app that would send my incoming message to wherever I wanted them. Besides, I was much more concerned with eliminating spam. 

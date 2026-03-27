@@ -1,7 +1,7 @@
 ---
 title: 'Current Medical Malpractice and Liability Environment'
 pubDate: '2002-10-09'
-description: 'This was the best talk at the [ACS Conference](htt'
+description: ''
 ---
 
 This was the best talk at the [ACS Conference](http://www.facs.org/) so far. Given by Richard E. Anderson, MD, FACP, who is the Medical Director of [The Doctors Company](http://www.thedoctorscompany.com/), a medical malpractice insurer. He did much to dispell the highly inflammatory finding of the IOM's study that found 98,000 patient deaths per year secondary to physician negligence. 

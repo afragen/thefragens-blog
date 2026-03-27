@@ -1,7 +1,7 @@
 ---
 title: 'No more white coats?!'
 pubDate: '2007-09-18'
-description: '* [ End for traditional doctor''s coat](http://news'
+description: ''
 ---
 
 * [ End for traditional doctor's coat](http://news.bbc.co.uk/2/hi/health/6998195.stm) 

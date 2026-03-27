@@ -1,7 +1,7 @@
 ---
 title: 'JAMA article on CPOE'
 pubDate: '2005-03-11'
-description: '[GruntDoc](http://www.gruntdoc.com/archives/000953'
+description: ''
 ---
 
 [GruntDoc](http://www.gruntdoc.com/archives/000953.php) 

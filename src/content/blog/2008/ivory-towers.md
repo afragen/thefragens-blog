@@ -2,8 +2,7 @@
 title: 'Ivory Towers'
 pubDate: '2008-03-24'
 categories: ['medicine']
-tags: ['medicine']
-description: 'An _Ivory Tower_ is supposed to be the tertiary re'
+description: ''
 ---
 
 An _Ivory Tower_ is supposed to be the tertiary referral center where they know everything and can take care of all difficult patients. So why is it when I have a specific need for a higher level of care that one of my _local_ Level 1 trauma centers, University of California, San Diego, balked. 

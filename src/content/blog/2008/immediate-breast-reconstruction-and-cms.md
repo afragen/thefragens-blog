@@ -2,8 +2,7 @@
 title: 'Immediate Breast Reconstruction and CMS'
 pubDate: '2008-04-15'
 categories: ['medicine']
-tags: ['medicine']
-description: 'OK, first off this part of my practice is over and'
+description: ''
 ---
 
 OK, first off this part of my practice is over and I've moved on. But let me relay a story of how CMS (that's Medicare for the uninitiated) works. I was asked by one of my local _breast surgeons_ if I would see a patient for immediate breast reconstruction with implants. The patient was to undergo bilateral mastectomies. No problem. I see the patient. Surgery scheduled and goes fine. I submit my claim forms to CMS and I only get paid for the consult. 

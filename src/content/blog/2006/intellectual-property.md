@@ -1,7 +1,7 @@
 ---
 title: 'Intellectual Property'
 pubDate: '2006-01-17'
-description: 'There are many companies that when you work for th'
+description: ''
 ---
 
 There are many companies that when you work for them part of the all your thoughts, ideas, and inventions are the property of the company. I have to believe that the *employees* of these companies have signed employment agreements and are fully aware of these clauses. 

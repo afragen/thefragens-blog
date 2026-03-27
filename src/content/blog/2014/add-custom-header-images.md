@@ -1,9 +1,8 @@
 ---
 title: 'Add Custom Header Images'
 pubDate: '2014-05-17'
-categories: ['code', 'wordpress-2']
-tags: ['plugin', 'wordpress']
-description: 'After using this plugin for quite a while I decide'
+categories: ['code', 'wordpress', 'plugin']
+description: ''
 ---
 
 After using this plugin for quite a while I decided to refactor it and submit it to the WordPress Plugin repo. I figured maybe someone else might find it useful. 

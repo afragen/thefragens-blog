@@ -1,8 +1,8 @@
 ---
 title: 'GitHub Updater 4.1.0'
 pubDate: '2015-02-14'
-categories: ['code', 'git-updater', 'wordpress-2']
-description: '[GitHub Updater v4.1.0](https://github.com/afragen'
+categories: ['code', 'git-updater', 'wordpress']
+description: ''
 ---
 
 [GitHub Updater v4.1.0](https://github.com/afragen/github-updater/archive/4.1.0.zip) has been pushed and tagged.

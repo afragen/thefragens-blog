@@ -1,9 +1,8 @@
 ---
 title: 'Transferring WordPress'
 pubDate: '2014-04-27'
-categories: ['computer', 'web-hosting']
-tags: ['dreamhost']
-description: 'So the benefit of having many domains to play with'
+categories: ['computer', 'web-hosting', 'dreamhost']
+description: ''
 ---
 
 So the benefit of having many domains to play with is that I get to test things out before I put them on a _live_ site. I was able to successfully transfer a multisite WordPress installation to @Dreamhost. Here's what I did.

@@ -1,7 +1,7 @@
 ---
 title: 'Breast CA for Cosmetic Surgeons'
 pubDate: '2005-06-06'
-description: 'I was in Newport Beach today giving a talk on Brea'
+description: ''
 ---
 
 I was in Newport Beach today giving a talk on Breast Cancer for the [American Society of Cosmetic Breast Surgery][http://ascbs.org/]. It's actually a very good meeting. The talk went well and since I gave it last year there were many more general surgeons in attendance and many more questions. I try to drive home 3 basic points. 

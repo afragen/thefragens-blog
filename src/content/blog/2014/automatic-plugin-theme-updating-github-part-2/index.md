@@ -1,10 +1,9 @@
 ---
 title: 'Automatic Plugin &amp; Theme Updating From GitHub – Part 2'
 pubDate: '2014-08-21'
-categories: ['code', 'git-updater', 'wordpress-2']
-tags: ['github', 'plugins', 'themes']
-coverImage: "github2.jpeg"
-description: 'In Part 1, I tried to describe some of the why and'
+categories: ['code', 'git-updater', 'wordpress', 'github', 'plugins', 'themes']
+heroImage: './images/github2.jpeg'
+description: ''
 ---
 
 In Part 1, I tried to describe some of the why and a little of the how I've gotten to this point with [GitHub Updater](https://github.com/afragen/github-updater). In this point I'll try to go into a bit about how the plugin works. 

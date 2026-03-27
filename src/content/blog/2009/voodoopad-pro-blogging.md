@@ -1,9 +1,8 @@
 ---
 title: 'VoodooPad Pro Blogging'
 pubDate: '2009-05-07'
-categories: ['code', 'mac-osx']
-tags: ['blogging', 'code', 'mac-osx']
-description: 'Please note that VoodooPad Pro has been renamed to'
+categories: ['code', 'mac-osx', 'blogging']
+description: ''
 ---
 
 Please note that VoodooPad Pro has been renamed to VoodooPad. It's time to package up all my [VoodooPad](http://flyingmeat.com/voodoopad/) blogging scripts and assorted web export plugins so that I can

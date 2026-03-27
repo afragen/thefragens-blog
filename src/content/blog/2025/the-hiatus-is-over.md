@@ -1,9 +1,8 @@
 ---
 title: 'The Hiatus is Over'
 pubDate: '2025-06-10'
-categories: ['fair', 'git-updater', 'wordpress-2']
-tags: ['code', 'fair', 'git-updater']
-description: 'Since the beginning of the year I have taken a hiatus'
+categories: ['fair', 'git-updater', 'wordpress', 'code']
+description: ''
 ---
 
 Since the beginning of the year I have taken a [hiatus](https://thefragens.com/wordpress-on-hiatus/) from working on WordPress Core. That is over. I'm back working for the benefit of WordPress, though not necessarily on WordPress. I was one of the 20 signatories of [the letter](https://www.therepository.email/wordpress-contributors-and-community-leaders-call-for-governance-reform-in-rare-open-letter). I was actively involved in the development of the AspireUpdate plugin for [AspirePress](https://aspirepress.org) and I'm currently actively involved in the [FAIR Package Manager Project](https://www.therepository.email/fair-to-decentralize-wordpress-backed-by-linux-foundation-and-contributors) from almost the beginning. There are many people involved in this project and while some are still not ready to openly declare their involvement for fear of retaliation; I'm sorta bulletproof as I don't rely on WordPress for my livelihood.

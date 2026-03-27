@@ -1,9 +1,8 @@
 ---
-title: 'iCal - Exchange Time Zone Fix - Chapter 2'
+title: 'iCal &#8211; Exchange Time Zone Fix &#8211; Chapter 2'
 pubDate: '2008-08-15'
 categories: ['applescript', 'code', 'mac-osx']
-tags: ['applescript', 'code', 'mac-osx']
-description: 'It was a few months ago that I originally wrote th'
+description: ''
 ---
 
 It was a few months ago that I originally wrote the first incarnation of the [MailExchange2iCal script](https://thefragens.com/2008/04/ical-exchange-time-zone-fix/). Since then I've been in contact with a few users trying to make it work for them and I've found a number of peculiarities in the types of email invites sent by Exchange/Outlook. The biggest problem was that the time zone data for the event was improperly formatted. This caused all sorts of problems for Mac users. Let's start at the beginning. Sometimes integration of a Mac in the corporate environment is a bit difficult and takes a bit of ingenuity. This is especially true when dealing with Exchange. The current versions of iCal and iCal Server are CalDAV and iCalendar compliant. Only Outlook 2007 is said to be CalDAV and iCalendar compliant. Previous versions of Outlook are not compliant and don’t play well with other calendar applications. Here’s the actual [time zone (TZID)](http://www.kanzaki.com/docs/ical/tzid.html) spec and [the spec for how it should be formatted](http://www.kanzaki.com/docs/ical/tzid-p.html). You can see by looking at it that the TZID that Outlook produces is non-compliant. A quick Google search shows an [article](http://www.roughlydrafted.com/2007/07/21/using-iphone-ical-caldav-calendar-servers-and-mac-os-x-leopard-2/) or [two](http://hardware.itbusinessnet.com/articles/viewarticle.jsp?id=46651-1&afterinter=true) that explain this very well. I've found that there are at least 3 different types of invites that can be sent by Exchange/Outlook.

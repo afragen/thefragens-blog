@@ -1,9 +1,8 @@
 ---
 title: 'Setting up WordPress local docker environment for Apple Silicon'
 pubDate: '2022-09-05'
-categories: ['code', 'mac-osx', 'wordpress-2']
-tags: ['apple-silicon', 'code', 'mac-osx', 'wordpress']
-description: '[WordPress Local Environment](https://make.wordpre'
+categories: ['code', 'mac-osx', 'wordpress', 'apple-silicon']
+description: ''
 ---
 
 [WordPress Local Environment](https://make.wordpress.org/core/2019/08/05/wordpress-local-environment/)

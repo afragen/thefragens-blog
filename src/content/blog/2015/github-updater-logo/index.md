@@ -1,9 +1,9 @@
 ---
 title: 'GitHub Updater Logo'
 pubDate: '2015-03-04'
-categories: ['git-updater', 'wordpress-2']
-coverImage: "GitHub_Updater_logo-e1425494828563.png"
-description: 'So just a couple of weeks later and I now have a l'
+categories: ['git-updater', 'wordpress']
+heroImage: './images/GitHub_Updater_logo-e1425494828563.png'
+description: ''
 ---
 
 So just a couple of weeks later and I now have a logo for [GitHub Updater](https://github.com/afragen/github-updater).  

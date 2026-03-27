@@ -1,9 +1,8 @@
 ---
 title: 'WP Core Development with Local Lightning'
 pubDate: '2019-07-27'
-categories: ['code', 'wordpress-2']
-tags: ['code', 'development', 'wordpress']
-description: 'Firstly, this is only meant as a _how I do it_. I'''
+categories: ['code', 'wordpress', 'development']
+description: ''
 ---
 
 Firstly, this is only meant as a _how I do it_. I'm using MacOS.

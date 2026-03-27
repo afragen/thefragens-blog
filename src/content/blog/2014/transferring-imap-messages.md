@@ -1,9 +1,8 @@
 ---
 title: 'Transferring IMAP Messages'
 pubDate: '2014-05-26'
-categories: ['osx-server', 'web-hosting']
-tags: ['dreamhost', 'imap']
-description: 'Well I''m on to my final phase in transferring from'
+categories: ['osx-server', 'web-hosting', 'dreamhost', 'imap']
+description: ''
 ---
 
 Well I'm on to my final phase in transferring from my own server to @DreamHost. Actually, transferring mail and not loosing messages jacked up my anxiety level significantly. I've done a lot of testing and found that [imapsync](http://imapsync.lamiral.info) works great. After tweaking the command, I came up with the following. 

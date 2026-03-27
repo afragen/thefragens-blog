@@ -1,7 +1,7 @@
 ---
 title: 'Interesting Precedent'
 pubDate: '2005-04-18'
-description: '[Aggravated DocSurg](http://docsurg.blogspot.com/2'
+description: ''
 ---
 
 [Aggravated DocSurg](http://docsurg.blogspot.com/2005/04/interesting-precedent.html) 

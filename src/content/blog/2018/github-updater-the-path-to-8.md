@@ -1,8 +1,8 @@
 ---
 title: 'GitHub Updater - the Path to 8'
 pubDate: '2018-06-27'
-categories: ['code', 'git-updater', 'wordpress-2']
-description: 'In July it will have been 5 years since the first '
+categories: ['code', 'git-updater', 'wordpress']
+description: ''
 ---
 
 In July it will have been 5 years since the first commit to GitHub Updater. In its 5 year span it has grown significantly in its evolution from a single file plugin to the complex integrated object oriented plugin that exists today.

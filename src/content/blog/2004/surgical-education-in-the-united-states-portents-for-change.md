@@ -1,7 +1,7 @@
 ---
 title: 'Surgical Education in the United States: Portents for Change'
 pubDate: '2004-12-03'
-description: '[Surgical Education in the United States: Portents'
+description: ''
 ---
 
 [Surgical Education in the United States: Portents for Change](http://www.medscape.com/viewarticle/491828_print)

@@ -1,10 +1,9 @@
 ---
 title: 'Installing Gitea on a Raspberry Pi'
 pubDate: '2018-08-13'
-categories: ['code']
-tags: ['gitea']
-coverImage: "image.png"
-description: 'While adding an integration for Gitea to [GitHub U'
+categories: ['code', 'gitea']
+heroImage: './images/image.png'
+description: ''
 ---
 
 While adding an integration for Gitea to [GitHub Updater](https://github.com/afragen/github-updater) I stumbled upon the fact that many were installing Gitea on a Raspberry Pi. Now the Raspberry Pi has developed a cult-like following and the Internet is full of innumerable use cases.

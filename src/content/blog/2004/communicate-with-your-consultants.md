@@ -1,7 +1,7 @@
 ---
 title: 'Communicate with your Consultants'
 pubDate: '2004-11-25'
-description: 'I''m on call this week. Oh joy. Call isn''t one of t'
+description: ''
 ---
 
 I'm on call this week. Oh joy. Call isn't one of those things used to build a practice anymore -- but that's a topic for another day. 
