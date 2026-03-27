@@ -1,0 +1,17 @@
+---
+title: 'GitHub Updater and Remote Installation'
+pubDate: '2015-02-09'
+categories: ['code', 'git-updater', 'wordpress-2']
+coverImage: "Unknown.jpeg"
+description: 'So [GitHub Updater](https://github.com/afragen/git'
+---
+
+So [GitHub Updater](https://github.com/afragen/github-updater) v4.0.0 is out. It includes a huge refactoring and now requires PHP 5.3 or better. GitHub Updater now uses namespacing and PSR 4 autoloading. I read a recent [WP Tavern article](http://wptavern.com/wp-pusher-aims-to-provide-pain-free-deployment-of-wordpress-themes-and-plugins-from-github) and showed me what others are doing in the same space. I was intrigued. [WP Pusher](https://wppusher.com) has done terrific work in creating a solution to remote installation and updating. I wondered, how difficult would it be to add remote installation of WordPress plugins or themes to the existing framework. It turns out, not that difficult.
+
+## GitHub Updater and Remote Installation
+
+What's next for v4.1.0? The `develop` branch has a working method of remote installation of both public and private GitHub or Bitbucket repositories. I must confess, the hardest part was getting everything in the Settings API functioning. I used some code from [WordPress Zero Spam](https://wordpress.org/plugins/zero-spam/) by Ben Marshall and borrowed a couple of lines from [TGM Plugin Activation](http://tgmpluginactivation.com) by Thomas Griffin. I was quite familiar with WordPress Zero Spam; I've been a contributor on GitHub. Ben has done a nice job of creating a modularized approach to coding a tabbed Settings interface. Thomas and Gary Jones have done a great job with TGM Plugin Activation and I highly recommend it when other plugins are required for any other single plugin to function. 
+
+I am very familiar with Gary's work as he has helped tremendously with GitHub Updater. After setting up the tabs in the Settings page I was able to simply create the correct endpoint for GitHub and Bitbucket. I thought allowing for private repository remote installation my prove more difficult but a couple of modifications in other parts of the plugin made this relatively painless. Well, painless once I figured out what I needed to do and where in the existing code I needed to do it. :wink: Thanks to a couple of lines from TGM Plugin Activation I could figure out what I needed to do to create a new instance of both the Plugin_Upgrader and Theme_Upgrader for remote installation. 
+
+So now it's all wrapped up in a nice little package. Remote installation and automatic updating in GitHub Updater. So go grab a copy from the develop branch, or just change the branch designation of your existing copy to be automatically updated, and try to break it. If you do be sure to put an issue up on GitHub and let me know. Remember to change your header back to `GitHub Branch: master` unless you want to stay on the develop branch. I must say this is all pretty slick. It certainly makes downloading a repo from GitHub, renaming it correctly, and then uploading it a single click experience. Remember, if you've installed a private plugin or theme, you must visit the settings page and enter the appropriate credentials, GitHub Access Token and/or checkbox to ensure that automatic updating works. Please let me know your thoughts.

@@ -1,0 +1,13 @@
+---
+title: 'Running SpamAssassin locally'
+pubDate: '2007-08-16'
+categories: ['mac-osx']
+tags: ['spamassassin']
+description: 'While I haven''t yet gotten an iPhone I''m making pr'
+---
+
+While I haven't yet gotten an iPhone I'm making preparations. I realized that I was going to need to do something about email spam so that I could use an email address on my domain with the iPhone. My problem is that since I don't run my mail server I've got no way to pull spam off the server before I have to download it. That is until now. My initial test was with my Mom's email account. She had to have been getting over 500 spam/day. She was gone for a couple of weeks and there were over 6000 messages in her account on the server. Anyone care to guess how many were legit? A bit of googling and I found [DisSpam](http://freshmeat.net/projects/disspam/). It looked like a reasonable solution.
+
+> DisSpam is a personal solution to combat unwanted email (i.e. not for mail servers/ISPs). It is a Perl script that accesses POP3 mailboxes and can block/forward mail based on SpamAssassin, built-in blacklist (RBL) checks, or configurable expression matches. It can be run through a variety of ways, including cron, and uses a very simple yet versatile configuration file.
+
+Yes, it does mean that I have to access the email accounts in a cron job but it's been working great. I won't go into all the details of setting up SpamAssassin but between the combination of CPAN and the terminal everything's working. Recently I've noticed that DisSpam, when it calls SpamAssassin, will download the entire message before it checks to see if it's already been checked before. If you've got DisSpam configured to only check messages once it will store a hash of the headers and if it finds the hash then it won't pass the message through SpamAssassin again. The problem was I found one of my accounts had a bunch of photos in messages still on the server and it was a long time to download the entire message before checking to see if it had already been checked. I was able to tweak the code so that it would only download the message headers and check that against the hash file and not download the entire message unless necessary. It brings up an exponential increase in speed when there are lots of messages on the server or when some of the messages are very large. I've created a patch file for it, [patch\_disspam](https://thefragens.com/pub/). In the patch are also some additions to the code that will report some statistics and performance. So far it's working great. :-)

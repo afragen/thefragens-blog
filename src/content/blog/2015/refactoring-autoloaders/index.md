@@ -1,0 +1,17 @@
+---
+title: 'Refactoring and Autoloaders'
+pubDate: '2015-02-03'
+categories: ['code', 'wordpress-2']
+coverImage: "screenshot_02.png"
+description: 'There are always a couple of plugins that require '
+---
+
+There are always a couple of plugins that require either constant care and upkeep or you just want to keep making them better. I have 2 plugins that I put more care and feeding into than others. These are [GitHub Updater](https://github.com/afragen/github-updater) and [The Events Calendar Category Colors](https://wordpress.org/plugins/the-events-calendar-category-colors/). Both of these projects are free and open sourced. They both live on GitHub and this allows for both of these plugins to be much better than I, alone, could make them.
+
+## GitHub Updater
+
+I've written a number of posts lately about GitHub Updater so let me just say that recently I've been get PRs for translations and I think it's very cool. I continue to refactor GitHub Updater and requiring PHP 5.3 is probably not a big deal as most users of it developers and are probably already using at least this version. Eventually I'll add namespacing support, when I figure it out. :-)
+
+## The Events Calendar Category Colors
+
+The Events Calendar Category Colors is an add-on plugin to Modern Tribe's [The Events Calendar](https://wordpress.org/plugins/the-events-calendar/). I've been very fortunate to have lots of help and assistance from Modern Tribe and especially from [Barry Hughes](https://twitter.com/barrykenobi). Modern Tribe develops The Events Calendar (TEC) on GitHub. This allows be to see what's coming and what I see coming is a major refactoring of the plugin in anticipation of PSR 4 autoloading. This is clearly in anticipation of WordPress moving their minimum PHP requirement to 5.3. I can also see that namespacing is coming. This has spurred me to figure out how users of current and past versions of TEC will continue to use The Events Calendar Category Colors without fatal errors. Modern Tribe has used a method of creating class aliases, mostly so they don't inadvertently break anything. In looking at this I found that I could use a similar method to support their upcoming release and previous releases. While Modern Tribe isn't yet using namespacing, I've decided to use namespacing. I've done this mostly because I wrote a generic [Autoloader](https://github.com/afragen/autoloader) class and to use it in multiple plugins I would either need to rename the funtions to be unique or I could just create a unique namespace for each plugin. Because of this The Events Calendar Category Colors will require at least PHP 5.3. Of course, Barry re-wrote it better. ;-) Using `spl_autoload_register` is a great function to simply your code and hopefully make it more memory efficient by only loading classes when needed. As such, more complex plugins will benefit from this more than simple plugins. Technically, `spl_autoload_register` is in PHP 5.2. So here I am working on refactoring The Events Calendar Category Colors to run in a namespaced environment. You can follow my progress as development is on [GitHub](https://github.com/afragen/the-events-calendar-category-colors). As usual Barry's already been a great help and sounding board. There is a side benefit to keeping this plugin refactored and running as efficiently as possible. It makes it much easier to eventually drop it in to The Events Calendar core, if Modern Tribe has such thoughts. ;-)

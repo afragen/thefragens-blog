@@ -1,0 +1,19 @@
+---
+title: 'Fail2ban on Leopard Server'
+pubDate: '2009-09-24'
+categories: ['code', 'osx-server']
+tags: ['code', 'fail2ban', 'osx-server']
+description: 'So here I am running my own server -- for almost 2'
+---
+
+So here I am running my own server -- for almost 2 years now. It's been a real learning experience and I've tried to share. My latest add-on has been [fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page). I got tired of looking into my logs and seeing where script kiddies or bots were trying to take control of my server. Fortunately, none have. After a bit of googling, I found fail2ban. It's a collection of python scripts.
+
+> Fail2ban scans log files like /var/log/pwdfail or /var/log/apache/error_log and bans IP that makes too many password failures. It updates firewall rules to reject the IP address.
+
+There are a few tricks I've discovered along the way to make it work on my installation and likely on Mac OS X Server in general. First is that fail2ban creates a PID and socket file in a directory that it fails to create. Yeah, that's a [bug](https://sourceforge.net/tracker/?func=detail&aid=2013282&group_id=121032&atid=689044). Since I didn't want to mess around with the actual scripts in the program, I created a plist that issues the `mkdir /var/run/fail2ban` command. I placed this in /System/Library/LaunchDaemons and set it to Run at Load. [Lingon](https://sourceforge.net/projects/lingon/files/) is your friend, but's now inactive. :-( After creating the file you have to use the command line to move it to the /System/Library/LaunchDaemons directory. I also created another launchd plist to reload fail2ban every day. I did this because I run multiple virtual websites and the error logs for those sites get rotated and the names have some time code or something tacked on the end of the filename. OK, problem 1 solved. Next I discovered that since fail2ban is really running on a multitude of linux boxes all the different methods of IP tracking, sorting etc. were really useless on my OS X Server. I run ipfw firewall and fortunately there's a module for that in fail2ban. Unfortunately it's not quite set up correctly, at least it wasn't for me. I had to tweak it a bit. What this means is that your `action` is always going to be `ipfw`. I tweaked the `ipfw.conf` file a bit. Now it does the following.
+
+1. Logs it's action to ipfw.log
+2. Adds a rulenum to the ipfw command. I did this because some other rule in my setup was allowing the IP before my deny could take effect. By lowering the rulenum my deny now fires off first.
+3. Abstracted the protocol (tcp, udp) to pass as a variable. Just in case something you want to block isn't `tcp`.
+
+I also created another filter as I found many times some machine would excessively hit my Apache server looking for nonexistent files. Since it sounds like something a bot would do I decided to ban it. This was the simple creation of a new filter. I created a `jail.local` file to hold all my prefs and through trial and error discovered that the examples of how to `call` for a jail weren't working for me. Perhaps I just didn't understand the examples. I soon discovered that parameters for the `jail action` needed to be passed inside of square brackets in the prefs. I'm sure, if you've gotten this far that you're either very confused by this whole post or that you've had an epiphany. To further the epiphany along [I've uploaded my file changes](http://pub.thefragens.com/install_fail2ban_mods.tar.gz). You should be able to figure out what file goes where from the folder structure of the upload. A couple of things in summary to remember. First, turn on your server's firewall. Then make sure you change your server's local IP address in the files to match your own. That's the setting for `localhost`. Good luck. If you have any questions leave a comment.
