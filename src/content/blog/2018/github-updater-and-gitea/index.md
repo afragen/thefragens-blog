@@ -4,7 +4,7 @@ pubDate: '2018-07-25'
 categories: ['code', 'computer', 'git-updater', 'wordpress-2']
 tags: ['gitea', 'githubupdater']
 coverImage: "gitea_logo.png"
-description: '[Gitea](https://gogitea.io) is the new kid on the '
+description: 'Gitea is the new kid on the block'
 ---
 
 [Gitea](https://gogitea.io) is the new kid on the block for creating a self-hosted git server. Gitea is written in [Go](https://golang.com) and is highly performant with very low overhead. In fact, Gitea is so efficient you can run it on a Raspberry Pi. There’s another post coming about that. ;)
