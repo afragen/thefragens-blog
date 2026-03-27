@@ -61,7 +61,7 @@ The REST API endpoint returns a JSON response that provides all the information 
 
 ```
 require_once __DIR__ . '/vendor/afragen/git-updater-lite/Lite.php';
-( new FragenGit_UpdaterLite( __FILE__ ) )->run();
+( new Fragen\Git_Updater\Lite( __FILE__ ) )->run();
 ```
 
 - Update your plugin or theme on the on the git host to this fully integrated version.
