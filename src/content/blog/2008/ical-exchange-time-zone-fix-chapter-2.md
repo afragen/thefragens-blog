@@ -34,7 +34,7 @@ My script, now re-named `iCal-Invite-Fix.scpt`, will need to be customized for e
 - For instance, I'm in Southern California and the correct time zone should be written as `US/Pacific` or `America/Los_Angeles`. You can find this information by selecting the time zone drop down menu in the upper right corner of your iCal window and select `Other...`. If you look in iCal's upper right corner for the time zone menu bar the last example will appear as `America/Los Angeles`.
 - `myCalendar` is the name of the calendar that normally receives the events. It is needed for the cancellation to function.
 
-![ical-fix-properties2.jpg](images/ical-fix-properties2.jpg) Save the script and either set it up to run from a mail rule or as I do call it from the System AppleScript menu. You will need to save the script in ~/Library/Scripts/Applications/Mail/ folder. Create this folder if it doesn’t exist. To set the script up to run automatically you will need to create a new Mail rule as follows.
+Save the script and either set it up to run from a mail rule or as I do call it from the System AppleScript menu. You will need to save the script in ~/Library/Scripts/Applications/Mail/ folder. Create this folder if it doesn’t exist. To set the script up to run automatically you will need to create a new Mail rule as follows.
 
 1. Mail -> Preferences -> Rules -> Add Rule
 2. Description "iCal Invite Fix"
