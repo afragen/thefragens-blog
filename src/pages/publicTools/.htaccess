@@ -1,0 +1,5 @@
+# Force download of these files
+<FilesMatch "\.(root|ftsc|fttb)$" >
+    ForceType application/octet-stream
+    Header add Content-Disposition "attachment"
+</FilesMatch>
