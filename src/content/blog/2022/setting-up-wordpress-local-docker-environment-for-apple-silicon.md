@@ -2,7 +2,7 @@
 title: 'Setting up WordPress local docker environment for Apple Silicon'
 pubDate: '2022-09-05'
 categories: ['code', 'apple', 'wordpress']
-description: ''
+description: 'A step-by-step checklist for standing up the official wordpress-develop Docker environment on Apple Silicon, covering Homebrew, git, Docker, nvm, npm, docker-compose overrides, and shortcut commands for initializing, cleaning up, running PHPUnit tests, and applying Trac patches.'
 ---
 
 [WordPress Local Environment](https://make.wordpress.org/core/2019/08/05/wordpress-local-environment/)

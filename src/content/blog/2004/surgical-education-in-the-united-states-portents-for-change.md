@@ -1,7 +1,7 @@
 ---
 title: 'Surgical Education in the United States: Portents for Change'
 pubDate: '2004-12-03'
-description: ''
+description: 'A Medscape article is highlighted that documents alarming surgeon shortage figures and argues that declining reimbursement, malpractice costs, and subspecialty migration threaten to strip general surgery of its professional identity.'
 categories: ['uncategorized']
 ---
 

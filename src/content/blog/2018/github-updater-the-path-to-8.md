@@ -2,7 +2,7 @@
 title: 'GitHub Updater - the Path to 8'
 pubDate: '2018-06-27'
 categories: ['code', 'git-updater', 'wordpress']
-description: ''
+description: 'Version 8 of GitHub Updater raises the minimum PHP requirement to 5.6, introduces a more modular architecture with new hooks, adds automatic plugin renaming on activation, and improves the Settings UI with icons, tooltips, and WP-CLI and webhook support.'
 ---
 
 In July it will have been 5 years since the first commit to GitHub Updater. In its 5 year span it has grown significantly in its evolution from a single file plugin to the complex integrated object oriented plugin that exists today.

@@ -1,7 +1,7 @@
 ---
 title: 'Rearranging the office'
 pubDate: '2003-03-27'
-description: ''
+description: 'The practice is expanding into a new suite, and while one office battle was lost, new space was secured for both the author and his mother -- with a move of the general surgery practice under consideration once the current lease expires.'
 categories: ['uncategorized']
 ---
 

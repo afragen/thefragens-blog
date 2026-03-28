@@ -2,7 +2,7 @@
 title: 'iCal - Exchange Time Zone Fix'
 pubDate: '2008-04-17'
 categories: ['apple', 'code']
-description: ''
+description: 'A single AppleScript solution is presented to fix the broken time zone information that Microsoft Exchange injects into iCal meeting invites, preventing Mac users from missing meetings by correcting the TZID before the event is imported.'
 ---
 
 As any Mac user who deals with Microsoft Exchange invites will tell you _Exchange screws up the time zone information_. What this means is that you will likely miss your meetings. Not a good thing. [Justin Hartman](http://justinhartman.com/2008/03/31/apple-ical-microsoft-exchange-fix-for-leopard/) has recently given you his solution to this problem. I haven't tested it but in looking at it I'm certain it works just fine. I say this because he's fixing the problem is a similar manner. It's just that he's using a combination of shell scripts and AppleScripts. I've got it down to a single AppleScript. There is one `property` at the head of the script that needs to be fixed depending upon the location of your Exchange server. What you need to do is copy in the correct property from what iCal expects to see as time zone information. 

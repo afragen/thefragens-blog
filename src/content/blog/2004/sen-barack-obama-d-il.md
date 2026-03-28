@@ -1,7 +1,7 @@
 ---
 title: 'Sen. Barack Obama (D-IL)'
 pubDate: '2004-11-04'
-description: ''
+description: 'A brief note on Barack Obama handily winning his Illinois Senate seat after his breakout keynote at the 2004 Democratic convention, with a prediction that this sharp politician is worth keeping an eye on.'
 categories: ['uncategorized']
 ---
 

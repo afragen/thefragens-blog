@@ -2,7 +2,7 @@
 title: 'Add Custom Header Images'
 pubDate: '2014-05-17'
 categories: ['code', 'wordpress']
-description: ''
+description: 'A refactored WordPress plugin submitted to the plugin repository automatically registers all images uploaded to a page called The Headers as selectable or randomized header images, replacing any defaults.'
 ---
 
 After using this plugin for quite a while I decided to refactor it and submit it to the WordPress Plugin repo. I figured maybe someone else might find it useful. 

@@ -1,7 +1,7 @@
 ---
 title: 'It''s Finally Over'
 pubDate: '2004-11-04'
-description: ''
+description: 'Relief that the 2004 election is over, with a call to set aside anger and partisanship and a suggestion that those shocked by the results need to better understand and listen to rural America.'
 categories: ['uncategorized']
 ---
 

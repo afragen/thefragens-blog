@@ -3,7 +3,7 @@ title: 'Contributing to WordPress, a Letter to Matt'
 pubDate: '2024-09-28'
 categories: ['hosting', 'wordpress', 'life-unscripted']
 heroImage: './images/L1000405.jpg'
-description: ''
+description: 'An open letter to Matt Mullenweg arguing the WP Engine controversy has harmed the community and proposing cost-sharing for WordPress.org infrastructure, placing the site under the WordPress Foundation, and broadening what counts as a contribution under Five for the Future.'
 ---
 
 Matt - 

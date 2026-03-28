@@ -2,7 +2,7 @@
 title: 'chroot''d SFTP on Mac OS X server'
 pubDate: '2011-12-16'
 categories: ['code', 'apple']
-description: ''
+description: 'A detailed walkthrough for setting up a chroot jail for SFTP on Mac OS X Server, covering sshd_config changes, directory ownership rules, using bindfs via Homebrew to mount folders into the jail, and an extra step required after upgrading to Mountain Lion Server.'
 ---
 
 So here you are finding that you need to grant someone else SFTP access to your server. There are lots of reasons to do this, in my case it's because I needed to grant access to someone's web designer. We initially worked it out by him emailing me files and me SFTP'ing them up to the server in the correct location. Now he needs direct access to fix some things and I want to give him only what he needs without compromising security. Enter the chroot jail. After lots of googling and some encouragement from the Mac OS X Server email list, I've got it working. Here's how it works. 

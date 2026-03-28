@@ -1,7 +1,7 @@
 ---
 title: 'JAMA article on CPOE'
 pubDate: '2005-03-11'
-description: ''
+description: 'A JAMA study finding that a widely used CPOE system facilitated 22 types of medication error risks is highlighted, challenging the assumption that such systems reliably prevent errors, while the author notes he has been tapped as physician liaison for a Cerner Millennium rollout at his hospital.'
 categories: ['uncategorized']
 ---
 

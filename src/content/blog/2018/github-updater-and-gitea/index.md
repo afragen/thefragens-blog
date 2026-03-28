@@ -3,7 +3,7 @@ title: 'GitHub Updater and Gitea'
 pubDate: '2018-07-25'
 categories: ['code', 'git-updater', 'wordpress']
 heroImage: './images/gitea_logo.png'
-description: ''
+description: 'GitHub Updater gained support for Gitea, a lightweight self-hosted Go-based git server, through a collaborative pull request with community contributor Marco Berchart, with the integration being the simplest to add yet thanks to the Gitea API closely mirroring the GitHub API.'
 ---
 
 [Gitea](https://gogitea.io) is the new kid on the block for creating a self-hosted git server. Gitea is written in [Go](https://golang.com) and is highly performant with very low overhead. In fact, Gitea is so efficient you can run it on a Raspberry Pi. There’s another post coming about that. ;)

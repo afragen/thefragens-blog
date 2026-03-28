@@ -1,7 +1,7 @@
 ---
 title: 'Sophie Talk'
 pubDate: '2003-03-11'
-description: ''
+description: 'At just over two years old, a daughter is forming multi-word sentences and speaking with great seriousness -- even if the actual words remain largely undecipherable to her captivated parents.'
 categories: ['uncategorized']
 ---
 

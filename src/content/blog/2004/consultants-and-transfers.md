@@ -1,7 +1,7 @@
 ---
 title: 'Consultants and Transfers'
 pubDate: '2004-12-25'
-description: ''
+description: 'Building on a GruntDoc post about consultant rudeness, the author argues that calling surgical consults purely to spread liability -- rather than for genuine clinical need -- is neither efficient nor conscientious medicine.'
 categories: ['uncategorized']
 ---
 

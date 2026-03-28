@@ -1,7 +1,7 @@
 ---
 title: 'Busy Day'
 pubDate: '2001-12-19'
-description: ''
+description: 'After a full day of surgeries and an evening consult, arriving home in time to read to one child and watch the other take her first steps made it all worthwhile.'
 categories: ['uncategorized']
 ---
 

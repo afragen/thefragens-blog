@@ -3,7 +3,7 @@ title: 'Looking for a Logo'
 pubDate: '2015-02-27'
 categories: ['git-updater', 'life-unscripted', 'wordpress']
 heroImage: './images/GitHub_Updater_logo_concept.png'
-description: ''
+description: 'A WordCamp sponsorship request prompted the search for an official logo for GitHub Updater, leading to a hand-drawn concept sketch and the start of work with a professional logo designer.'
 ---
 
 So here I am being a sponsor for @WordCampSD. I received an email asking for a logo. Oops. I don't really have one. I was asked for a company name and the only company I belong to is Desert Trauma Surgeons. I'm not a partner so I can't really use their logo.

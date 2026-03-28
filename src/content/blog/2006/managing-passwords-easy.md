@@ -1,7 +1,7 @@
 ---
 title: 'Managing Passwords Easy'
 pubDate: '2006-07-25'
-description: ''
+description: 'A recommendation for 1Passwd, a Mac app that leverages the system Keychain to manage web passwords with support for multiple logins per site and responsive developers.'
 categories: ['uncategorized']
 ---
 

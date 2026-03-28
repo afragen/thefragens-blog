@@ -3,7 +3,7 @@ title: 'Local by Flywheel (Pressmatic) and Symlinks'
 pubDate: '2018-06-06'
 categories: ['code']
 heroImage: './images/LbF-logo.png'
-description: ''
+description: 'A walkthrough of using symlinks with Local by Flywheel to mirror a local git repository into the wp-content plugins or themes folder, with a bash script to automate recreating the symlinks after the Volumes addon sets up shared folders so IDE editing and version control work together seamlessly.'
 ---
 
 I've changed development environments a couple of times. I started out using DesktopServer, a wonderful app. Gradually I grew disappointed with their update schedule and v4.0 ever on the horizon. One of the things I didn't like was my inability to choose the PHP version I was developing in. I know there must be a way but it wasn't obvious.

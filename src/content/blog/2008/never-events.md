@@ -2,7 +2,7 @@
 title: 'Never Events'
 pubDate: '2008-04-18'
 categories: ['medicine']
-description: ''
+description: 'CMS expanded its list of so-called never events — hospital-acquired conditions it will no longer reimburse — and a surgeon argues the policy is a cost-cutting measure disguised as patient safety, since many of these conditions cannot be prevented 100% of the time.'
 ---
 
 In October, 2007 CMS (Medicare) proposed a list of eight _preventable_ conditions that result in a prolongation and increase in cost of care to the hospitalized patient. These are what CMS terms **_never events_**. CMS is trying to couch this in terms of _patient safety_ but if you look at the list, there are only a few of these items that are 100% preventable. 

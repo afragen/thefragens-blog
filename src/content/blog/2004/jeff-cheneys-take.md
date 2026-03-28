@@ -1,7 +1,7 @@
 ---
 title: 'Jeff Cheney''s take'
 pubDate: '2004-10-31'
-description: ''
+description: 'A reflection on a civil email debate with a friend about 2004 election issues, along with frustration at bloggers who parrot political talking points without independent thought.'
 categories: ['uncategorized']
 ---
 

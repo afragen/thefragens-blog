@@ -1,7 +1,7 @@
 ---
 title: 'Snowboarding'
 pubDate: '2006-03-02'
-description: ''
+description: 'A quick note about heading to Park City for a family snowboarding weekend organized by brother Alan, bringing all the siblings and their kids together at The Canyons resort.'
 categories: ['uncategorized']
 ---
 

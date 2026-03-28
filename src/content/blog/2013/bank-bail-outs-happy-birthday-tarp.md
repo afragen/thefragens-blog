@@ -2,7 +2,7 @@
 title: 'Bank Bail Outs - Happy Birthday TARP'
 pubDate: '2013-01-20'
 categories: ['life-unscripted', 'economy']
-description: ''
+description: 'A sibling breaks down the three major TARP programs on their fourth anniversary, showing that while bank and AIG investments returned a profit to taxpayers, the GM bailout remained billions underwater due to bankruptcy proceedings that controversially prioritized union claims over other creditors.'
 ---
 
 Another lesson on economics from my brilliant sibling. This initially an email to a mutual friend and college classmate sent on October 3, 2012. 

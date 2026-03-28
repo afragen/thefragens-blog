@@ -2,7 +2,7 @@
 title: 'WordCamp Orange County 2016'
 pubDate: '2016-07-13'
 categories: ['wordpress']
-description: ''
+description: 'Slides from the WordCamp OC 2016 talk on contributing to open source are embedded via the Embed PDF Viewer plugin and also linked from SpeakerDeck, with a WordPress TV video to be added once published.'
 ---
 
 Below are my slides for WordCamp OC 2016. They are rather generic. When the talk comes out on WordPress TV I will update here to include a link.  

@@ -1,7 +1,7 @@
 ---
 title: 'West Virginia Surgeon''s strike'
 pubDate: '2003-01-03'
-description: ''
+description: 'West Virginia surgeons took coordinated leaves of absence from hospital practice to protest malpractice insurance rates exceeding $100,000 per year, and this post explains the mechanics of their action and why it does not constitute patient abandonment.'
 categories: ['uncategorized']
 ---
 

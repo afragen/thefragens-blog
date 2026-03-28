@@ -1,7 +1,7 @@
 ---
 title: 'Medical Reimbursement'
 pubDate: '2006-04-05'
-description: ''
+description: 'A pointer to a blog series demystifying the maze of medical coding and reimbursement for a general audience that has little understanding of how physicians actually get paid.'
 categories: ['uncategorized']
 ---
 

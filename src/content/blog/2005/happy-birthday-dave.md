@@ -1,7 +1,7 @@
 ---
 title: 'Happy Birthday Dave!'
 pubDate: '2005-05-03'
-description: ''
+description: 'A short belated birthday message to Dave Winer on his 50th birthday, with thanks for the opportunity to beta test Pike years earlier.'
 categories: ['uncategorized']
 ---
 

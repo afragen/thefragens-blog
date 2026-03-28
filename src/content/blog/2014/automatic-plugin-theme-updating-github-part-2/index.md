@@ -3,7 +3,7 @@ title: 'Automatic Plugin & Theme Updating From GitHub – Part 2'
 pubDate: '2014-08-21'
 categories: ['code', 'git-updater', 'wordpress']
 heroImage: './images/github2.jpeg'
-description: ''
+description: 'A technical deep-dive into how GitHub Updater scans plugin and theme headers, queries the GitHub and Bitbucket APIs with transient caching to avoid rate limits, and hooks into WordPress core update mechanisms with minimal overhead for both developers and end users.'
 ---
 
 In Part 1, I tried to describe some of the why and a little of the how I've gotten to this point with [GitHub Updater](https://github.com/afragen/github-updater). In this point I'll try to go into a bit about how the plugin works. 

@@ -1,7 +1,7 @@
 ---
 title: 'No more white coats?!'
 pubDate: '2007-09-18'
-description: ''
+description: 'A reaction to a UK government plan to ban the traditional white coat and restrict clothing to reduce hospital infections, arguing the policy lacks research support and that consistent hand-washing would produce far better results.'
 categories: ['uncategorized']
 ---
 

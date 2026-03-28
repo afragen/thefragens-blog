@@ -3,7 +3,7 @@ title: 'Automatic Plugin & Theme Updating From GitHub – Part 1'
 pubDate: '2014-08-01'
 categories: ['code', 'git-updater', 'wordpress']
 heroImage: './images/github.jpeg'
-description: ''
+description: 'The origin story of GitHub Updater traces the plugin from its roots as a frustration with manually FTP-ing updates across multiple sites, through a series of forks and collaborations with Gary Jones, Seth Carstens, and Paul Clark, to a combined plugin-and-theme updater.'
 ---
 
 About 10 months ago I decided to [scratch an itch](https://github.com/afragen/github-updater). I was running 3 or 4 different WordPress websites, including this one. I was also playing around customizing these sites by creating some one-off plugins and child themes. At the time I was doing a lot of cowboy coding on my own domains. Mostly because I didn't know better. 

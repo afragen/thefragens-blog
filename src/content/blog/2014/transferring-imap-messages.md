@@ -2,7 +2,7 @@
 title: 'Transferring IMAP Messages'
 pubDate: '2014-05-26'
 categories: ['apple', 'hosting', 'code']
-description: ''
+description: 'The final phase of migrating to Dreamhost involved using imapsync with a caching and sync command to transfer all IMAP mail, completing successfully for all users after a minor hiccup with moving mail accounts between domains.'
 ---
 
 Well I'm on to my final phase in transferring from my own server to @DreamHost. Actually, transferring mail and not loosing messages jacked up my anxiety level significantly. I've done a lot of testing and found that [imapsync](http://imapsync.lamiral.info) works great. After tweaking the command, I came up with the following. 

@@ -2,7 +2,7 @@
 title: 'Mean People Suck'
 pubDate: '2008-05-12'
 categories: ['life-unscripted']
-description: ''
+description: 'A personal reflection on how meanness is always a choice and the hurt it causes can outlast any apology, with a hope that a young son learns early to let slights go and give people second chances.'
 ---
 
 Mean people suck. It has always seemed to me that it's much easier to be nice to people than to be mean. 

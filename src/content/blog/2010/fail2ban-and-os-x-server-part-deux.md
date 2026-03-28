@@ -2,7 +2,7 @@
 title: 'Fail2ban and OS X Server, Part Deux'
 pubDate: '2010-11-04'
 categories: ['code', 'apple']
-description: ''
+description: 'An overview of custom Fail2ban modifications for Snow Leopard Server adding jails for SMTP, POP, IMAP, VNC, and invalid web requests, distributed as a downloadable tarball with an installation script and LaunchDaemon plists to keep Fail2ban running reliably.'
 ---
 
 As some of you might know I run my own installation of OS X Server. I've since updated it to Snow Leopard Server and I think I've got most of it running well. As I check my server logs frequently I find that there are all sorts of script kiddies attempting to log in to my server in various ways. The traditional method was to simply try an ssh session with a username and password combination. 

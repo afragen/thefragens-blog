@@ -1,7 +1,7 @@
 ---
 title: 'Cuban flu'
 pubDate: '2007-01-16'
-description: ''
+description: 'A surgical analysis of Fidel Castro reported acute diverticulitis and multiple operations, arguing that skipping the standard Hartmann procedure in favor of immediate bowel reconnection was a critical error that caused all subsequent complications.'
 categories: ['uncategorized']
 ---
 

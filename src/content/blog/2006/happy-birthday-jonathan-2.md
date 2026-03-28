@@ -1,7 +1,7 @@
 ---
 title: 'Happy Birthday Jonathan!'
 pubDate: '2006-03-16'
-description: ''
+description: 'A quick birthday note to son Jonathan on his 11th birthday, with the real celebration deferred to the coming weekend.'
 categories: ['uncategorized']
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'What I Wanted'
 pubDate: '2002-02-08'
-description: ''
+description: 'A frustrated venting after a radiologist performed the wrong exam without calling to confirm the order, leaving the patient with an unnecessary charge and the surgeon without the study he needed.'
 categories: ['uncategorized']
 ---
 

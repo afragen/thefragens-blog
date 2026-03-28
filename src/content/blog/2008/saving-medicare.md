@@ -2,7 +2,7 @@
 title: 'Saving Medicare?'
 pubDate: '2008-07-07'
 categories: ['medicine']
-description: ''
+description: 'The post argues that physicians brought the Medicare reimbursement crisis on themselves by accepting low contracted rates, and endorses letting the 10.6% cuts stand in hopes the financial pain will finally compel doctors and hospitals to cancel their Medicare contracts and force real systemic change.'
 ---
 
 I've been getting to the point lately that the system needs to undergo some catastrophic collapse before it will get better. As the [Happy Hospitalist][1] says: 

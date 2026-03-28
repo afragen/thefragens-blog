@@ -1,7 +1,7 @@
 ---
 title: 'My Trip to the Apple Store'
 pubDate: '2005-06-06'
-description: ''
+description: 'A first visit to the Apple Store at Fashion Island results in spending more than ten times the planned budget, prompting the rueful observation that it is probably a good thing there is not one nearby.'
 categories: ['uncategorized']
 ---
 

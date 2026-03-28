@@ -2,7 +2,7 @@
 title: 'Baby Steps to Healthcare Reform'
 pubDate: '2009-10-21'
 categories: ['medicine', 'politics']
-description: ''
+description: 'Three concise healthcare reform proposals are offered — eliminating pre-existing condition exclusions, allowing insurers to sell across all US markets, and adopting a loser-pays malpractice standard — with particular emphasis on how loser-pays would curb frivolous suits and the hidden costs of defending dropped claims.'
 ---
 
 Since I'm sure all members of Congress will have the opportunity to read and comprehend the entirety of whatever is the current healthcare legislation the following small steps to improve the situation will be meaningless. I have 3 simple proposals that could fit on a single page. Heck, it fits in a single post.

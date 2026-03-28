@@ -1,7 +1,7 @@
 ---
 title: 'Birthday One'
 pubDate: '2001-12-22'
-description: ''
+description: 'A warm snapshot of a first birthday celebration featuring family, stuffed animals, an ignored cupcake, and the exciting coincidence of first wobbly steps.'
 categories: ['uncategorized']
 ---
 

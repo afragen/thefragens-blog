@@ -2,7 +2,7 @@
 title: 'Medical Staff – Hospital Alignment'
 pubDate: '2017-02-15'
 categories: ['medicine']
-description: ''
+description: 'The growing misalignment between hospital medical staffs and administration is examined, with a hybrid solution proposed involving employed physicians and service line co-management agreements to improve engagement and quality metrics.'
 ---
 
 I've been on staff and practicing at Desert Regional Medical Center for almost 20 years. During that time I have taken ED call for General Surgery and for half of that time for both Trauma and General Surgery. I have noticed many significant changes during that time. Over the course of the past few decades the practice of hospital medicine has shifted significantly. Initially, ER call was the primary method of increasing your practice and with the payor mix there was never really an issue of either paid call or not having enough physicians taking call. Beginning around 15 years ago the reimbursement for physician services changed dramatically. It soon became obvious that office expenses were ever increasing and reimbursement was ever decreasing. The economics of the private practice physician was quickly becoming economically unfeasible. Fundamentally the problem arises as many medical staffs, ours included, do not seem to understand the symbiotic relationship between themselves and the hospital. Many have openly expressed that _the hospital wouldn't exist without us._ They don't seem to understand that our livelihood also depends on a strong, viable hospital providing services and infrastructure that we depend upon. Most have no clear understanding of HCAPS scores, quality dashboards, PSI-90, or any other metrics by which hospitals are measured.

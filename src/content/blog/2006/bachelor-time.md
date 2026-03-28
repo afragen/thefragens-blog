@@ -1,7 +1,7 @@
 ---
 title: 'Bachelor Time'
 pubDate: '2006-07-14'
-description: ''
+description: 'The family has headed to the islands for the rest of the summer, leaving the author at home alone for about a month with a mix of longing and reassurance that they will have a wonderful time.'
 categories: ['uncategorized']
 ---
 

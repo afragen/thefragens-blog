@@ -1,7 +1,7 @@
 ---
 title: 'Thanks Alan!'
 pubDate: '2005-01-02'
-description: ''
+description: 'A thank-you recap of a snowy Park City ski trip hosted by brother Alan for his 40th birthday, highlighted by the kids thriving in ski school and a private chef who cooked nightly dinners for the group of seventeen.'
 categories: ['uncategorized']
 ---
 

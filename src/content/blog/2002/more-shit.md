@@ -1,7 +1,7 @@
 ---
 title: 'More shit'
 pubDate: '2002-08-06'
-description: ''
+description: 'A detailed account of taking a critically ill patient back to the OR for bowel leakage, discovering interloop abscesses and a small bowel perforation, and managing the case with an ileostomy, colostomy revision, and an open abdomen using a Bogota Bag.'
 categories: ['uncategorized']
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Silicone Breast Implants Are Back?'
 pubDate: '2005-04-14'
-description: ''
+description: 'An FDA advisory panel voted 7-2 to recommend lifting the ban on Mentor silicone breast implants with strict conditions, including a board-certification requirement the author argues constitutes an unlawful restraint of trade given the varied specialties of surgeons who routinely place implants.'
 categories: ['uncategorized']
 ---
 

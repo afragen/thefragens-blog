@@ -1,7 +1,7 @@
 ---
 title: 'Bargaining with HMOs'
 pubDate: '2005-03-26'
-description: ''
+description: 'Responding to a surgeon colleague facing an unacceptable HMO contract, the post argues that relentlessly declining physician reimbursement will turn most doctors into salaried employees, threatening professional drive and innovation, and predicts a major US healthcare collapse before things improve.'
 categories: ['uncategorized']
 ---
 

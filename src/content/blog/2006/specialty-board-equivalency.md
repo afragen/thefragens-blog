@@ -1,7 +1,7 @@
 ---
 title: 'Specialty Board Equivalency'
 pubDate: '2006-09-22'
-description: ''
+description: 'A California Superior Court ordered the Medical Board to grant the American Board of Cosmetic Surgery specialty board equivalency after it met all 19 regulatory requirements, a win that lets cosmetic surgeons advertise board certification and raises questions about future turf disputes with plastic surgeons.'
 categories: ['uncategorized']
 ---
 

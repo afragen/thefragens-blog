@@ -1,7 +1,7 @@
 ---
 title: 'Night Owl'
 pubDate: '2001-12-05'
-description: ''
+description: 'A charming observation on a one-year-old who refuses to go to bed because everything around her is simply too new and interesting to sleep through.'
 categories: ['uncategorized']
 ---
 

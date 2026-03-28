@@ -2,7 +2,7 @@
 title: 'iPad Arrives'
 pubDate: '2010-04-05'
 categories: ['apple']
-description: ''
+description: 'First impressions of the original iPad after handling one at the hospital, noting its light weight, bright display, and usable keyboard, while looking forward to the upcoming iPhone 4.0 announcement.'
 ---
 
 Well, with the Easter weekend over and Apple's iPad gaining more headlines than anything else, I have to say I want one, but I can wait. I actually got to touch one. Someone at the hospital brought it with them.

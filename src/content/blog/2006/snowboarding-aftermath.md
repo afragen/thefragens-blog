@@ -1,7 +1,7 @@
 ---
 title: 'Snowboarding aftermath'
 pubDate: '2006-03-06'
-description: ''
+description: 'A brief recap of a great snowboarding trip to Utah where the weather was beautiful, Jonathan did well on the board, and everyone returned home thoroughly sore.'
 categories: ['uncategorized']
 ---
 

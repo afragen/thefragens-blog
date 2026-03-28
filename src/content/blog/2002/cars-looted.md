@@ -1,7 +1,7 @@
 ---
 title: 'Cars looted'
 pubDate: '2002-05-09'
-description: ''
+description: 'On a birthday morning, the family discovered their cars had been burglarized overnight, with valuables including a purse, checkbook, credit cards, and a Game Boy stolen -- prompting a long day of account cancellations and a hard-learned lesson.'
 categories: ['uncategorized']
 ---
 

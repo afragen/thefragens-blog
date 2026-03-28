@@ -1,7 +1,7 @@
 ---
 title: 'VoodooPad as CMS'
 pubDate: '2005-12-14'
-description: ''
+description: 'VoodooPad, a desktop wiki application, is highlighted as a surprisingly capable CMS for static sites through its template-driven Web Export feature, while also mentioning involvement with Squib, an open-source Ruby on Rails replacement for Radio UserLand.'
 categories: ['uncategorized']
 ---
 

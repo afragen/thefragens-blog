@@ -1,7 +1,7 @@
 ---
 title: 'Mission San Juan Capistrano'
 pubDate: '2004-10-12'
-description: ''
+description: 'A family visit to Mission San Juan Capistrano, prompted by a fourth-grade school project, proves well worth the trip, with a tip to arrive at opening time to beat the crowds and get better photos.'
 categories: ['uncategorized']
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'So you really want to take ER call?'
 pubDate: '2006-03-09'
-description: ''
+description: 'A reaction to a BBC report about a surgeon held responsible for the death of a self-stabbing patient, arguing that removing a penetrating chest object is inherently risky and that personal responsibility should fall on the patient, not the surgeon.'
 categories: ['uncategorized']
 ---
 

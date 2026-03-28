@@ -1,7 +1,7 @@
 ---
 title: 'Breast CA for Cosmetic Surgeons'
 pubDate: '2005-06-06'
-description: ''
+description: 'A recap of a breast cancer talk given to the American Society of Cosmetic Breast Surgery, covering three core points: refer cancer cases to specialists, investigate suspicious exam findings before any cosmetic procedure, and always obtain a screening mammogram first.'
 categories: ['uncategorized']
 ---
 

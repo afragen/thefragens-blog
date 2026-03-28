@@ -2,7 +2,7 @@
 title: 'The Events Calendar Outlook Import Fix'
 pubDate: '2014-08-01'
 categories: ['code', 'wordpress']
-description: ''
+description: 'A WordPress plugin was created to remove the X-WR-CALNAME header from The Events Calendar iCalendar output, fixing the Outlook behavior of creating a new calendar instead of adding the event to the default one.'
 ---
 
 In [The Events Calendar](https://wordpress.org/plugins/the-events-calendar) the ability to add an event to your calendar via an iCalendar file is now in the core plugin. This used to be a feature only in the Events Calendar PRO plugin. Out of the box this works great for either Google Calendar or Apple's Calendar. However, in Outlook, adding the event would create a whole new calendar instead of adding the event to the user's default calendar. 

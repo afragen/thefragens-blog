@@ -1,7 +1,7 @@
 ---
 title: 'Gambling in the OR'
 pubDate: '2005-08-08'
-description: ''
+description: 'A candid pre-operative reflection on the uncertainty of relying on a nuclear medicine GI bleeding scan to guide surgery for an AVM, with fingers crossed that the bleeding stops before the operation is finished.'
 categories: ['uncategorized']
 ---
 

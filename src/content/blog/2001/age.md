@@ -1,7 +1,7 @@
 ---
 title: 'Age'
 pubDate: '2001-12-24'
-description: ''
+description: 'A brief, somber note on learning that a family friend at 101 years old is developing serious heart failure.'
 categories: ['uncategorized']
 ---
 

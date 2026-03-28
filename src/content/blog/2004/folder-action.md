@@ -1,7 +1,7 @@
 ---
 title: 'Folder Action'
 pubDate: '2004-01-19'
-description: ''
+description: 'An experiment using an OS X Folder Action to automate blog upstreaming reveals it only fires on direct file additions or deletions in the watched folder, not in subfolders, making its practical value questionable.'
 categories: ['uncategorized']
 ---
 

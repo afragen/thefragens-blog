@@ -2,7 +2,7 @@
 title: 'False Positive'
 pubDate: '2010-05-05'
 categories: ['apple', 'code']
-description: ''
+description: 'A command-line workflow for reviewing and releasing SpamAssassin-quarantined email on OS X Server using TextExpander snippets to automate copying, unzipping, previewing, and releasing messages, making the entire process manageable from an iPhone or iPad.'
 ---
 
 Just a personal reminder to keep in the memory bank. When running OS X Server and SpamAssassin, if you have spam set up to be quarantined it gets stored in `/var/virusmails`. A method of viewing and releasing quarantined mail mostly from the command line follows. First, to do anything with the quarantined message you need to know it's `mail-file`. That's usually something like `spam-kFLGPbnGHO3a.gz`. Using [TextExpander's snippets](http://www.smileonmymac.com/TextExpander/touch/index.html) and the clipboard I have the following snippets. 

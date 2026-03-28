@@ -1,7 +1,7 @@
 ---
 title: 'Interesting Precedent'
 pubDate: '2005-04-18'
-description: ''
+description: 'Responding to Aggravated DocSurg, the author argues that the FDA advisory panel overstepped its mandate by restricting silicone implant sales to board-certified plastic surgeons only, since credentialing is a hospital responsibility, and predicts the FDA will have to back down.'
 categories: ['uncategorized']
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Vacuum'
 pubDate: '2002-02-17'
-description: ''
+description: 'A brief musing on the one-sided nature of blogging -- writing into the void with no expectation of a response, and finding that oddly therapeutic.'
 categories: ['uncategorized']
 ---
 

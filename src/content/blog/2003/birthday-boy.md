@@ -1,7 +1,7 @@
 ---
 title: 'Birthday Boy'
 pubDate: '2003-03-11'
-description: ''
+description: 'Son Jonathan is turning eight and has been given a motivating challenge: reach reading and writing fluency and earn a new iMac connected to the home wireless network.'
 categories: ['uncategorized']
 ---
 

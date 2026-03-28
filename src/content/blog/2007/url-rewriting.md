@@ -2,7 +2,7 @@
 title: 'URL Rewriting'
 pubDate: '2007-11-12'
 categories: ['code']
-description: ''
+description: 'A reposted tutorial covering Apache mod_rewrite, explaining how to transform messy dynamic URLs into clean, human-readable ones using basic redirects, regular expressions, trailing-slash rules, and match modifiers.'
 ---
 
 This is a real late addition. _The following is a tutorial from Ross Shannon on URL rewriting. Like [Marlyse][8] I'm repeating the content for my future use._ 

@@ -1,7 +1,7 @@
 ---
 title: 'Hindsights'
 pubDate: '2006-01-13'
-description: ''
+description: 'Guy Kawasaki commencement speech highlights are shared as a top-ten countdown of life lessons, ranging from cherishing family and obeying absolutes to pursuing joy rather than mere happiness.'
 categories: ['uncategorized']
 ---
 

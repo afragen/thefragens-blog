@@ -1,7 +1,7 @@
 ---
 title: 'More sed'
 pubDate: '2007-01-04'
-description: ''
+description: 'A brief note about using sed to inject verification meta tags into the head section of a freshly rendered HTML page, with a candid admission that sed is powerful but not quick to write.'
 categories: ['uncategorized']
 ---
 

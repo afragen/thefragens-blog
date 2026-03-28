@@ -2,7 +2,7 @@
 title: 'Snow Leopard Sieve Rules'
 pubDate: '2010-08-07'
 categories: ['apple', 'code']
-description: ''
+description: 'A guide to manually editing Sieve email filter rules on Mac OS X Snow Leopard Server using terminal commands to locate and modify user-specific sieve script files, including a workaround requiring HTTPS for wiki settings changes to take effect.'
 ---
 
 How to edit _sieve_ rules in Snow Leopard by hand. This is not really recommended especially because it seems that SL server does not utilize all the sieve rules and the ones that it does utilize are in a slightly different format than exists in [Sieve documentation][1]. 

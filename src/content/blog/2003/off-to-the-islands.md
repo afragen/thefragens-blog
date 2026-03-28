@@ -1,7 +1,7 @@
 ---
 title: 'Off to the Islands'
 pubDate: '2003-08-12'
-description: ''
+description: 'Vacation is finally here, and the greatest anticipation is reuniting with a wife and kids who have been away for nearly five weeks.'
 categories: ['uncategorized']
 ---
 

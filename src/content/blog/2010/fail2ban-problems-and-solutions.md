@@ -2,7 +2,7 @@
 title: 'Fail2ban Problems and Solutions'
 pubDate: '2010-12-01'
 categories: ['code', 'apple']
-description: ''
+description: 'A fix for a Fail2ban issue on OS X where multiple bans sharing the same ipfw rule number get cleared prematurely, solved by generating a random rule number via a shell variable, with custom jails and filters available as a downloadable bundle.'
 ---
 
 If you use [Fail2ban](http://www.fail2ban.org/wiki/index.php/Main_Page) then you are probably aware of the fact that you must add a rule number to the ipfw deny rule for `actionban` in `ipfw.conf`. 

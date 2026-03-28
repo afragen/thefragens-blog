@@ -2,7 +2,7 @@
 title: 'WordPress Automatic Updates'
 pubDate: '2010-06-18'
 categories: ['apple', 'wordpress']
-description: ''
+description: 'How to get WordPress automatic plugin and theme updates working on OS X Server by fixing Apache file ownership with chown and adding a direct filesystem method constant to wp-config.php, with a note that the fix works for plugins and themes but not core WordPress updates.'
 ---
 
 I think I finally have the automatic updates feature of WordPress working. Previously, when asked for my login info for the FTP connection I would get some vague connection error. It's a permissions issue. Some permissions for files/folders need to be set for web server user, in my case Apache2, or `_www` on OS X Server. The answer mostly comes from looking for [why WordPress asks for connection information](http://www.chrisabernethy.com/why-wordpress-asks-connection-info/). Be sure to read the comments. Definitely add the following to `wp-config.php`.

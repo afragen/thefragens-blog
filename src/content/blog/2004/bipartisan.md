@@ -1,7 +1,7 @@
 ---
 title: 'Bipartisan'
 pubDate: '2004-11-06'
-description: ''
+description: 'A rhetorical challenge to the common assumption that bipartisanship means the majority must yield to the minority.'
 categories: ['uncategorized']
 ---
 

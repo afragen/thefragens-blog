@@ -2,7 +2,7 @@
 title: 'Nationalized Healthcare and the Free Market'
 pubDate: '2009-03-05'
 categories: ['medicine', 'politics']
-description: ''
+description: 'A scenario is laid out in which nationalized healthcare arrives not through legislation but through a government-sponsored insurance option so much cheaper than private plans that employers adopt it by default, eventually leaving physicians and hospitals with a de facto single payer.'
 ---
 
 Nationalized/Universal healthcare will happen. Obama ran on it and he intends to deliver. What's more, I can see a manner in which the country will flock to it under the current free market insurance system. 

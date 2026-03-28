@@ -1,7 +1,7 @@
 ---
 title: 'Insomnia Posting'
 pubDate: '2002-01-19'
-description: ''
+description: 'A candid note explaining how busy surgical days leave no time for writing until the house is quiet, and even then insomnia keeps the mind racing.'
 categories: ['uncategorized']
 ---
 

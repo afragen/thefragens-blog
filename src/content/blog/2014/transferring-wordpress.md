@@ -2,7 +2,7 @@
 title: 'Transferring WordPress'
 pubDate: '2014-04-27'
 categories: ['hosting']
-description: ''
+description: 'A step-by-step walkthrough of successfully migrating a multisite WordPress installation to Dreamhost using WP Migrate DB Pro for the database and SFTP for plugins and themes, tested on a spare domain before going live.'
 ---
 
 So the benefit of having many domains to play with is that I get to test things out before I put them on a _live_ site. I was able to successfully transfer a multisite WordPress installation to @Dreamhost. Here's what I did.

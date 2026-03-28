@@ -2,7 +2,7 @@
 title: 'RIP Steve'
 pubDate: '2011-10-06'
 categories: ['life-unscripted']
-description: ''
+description: 'A brief personal tribute to Steve Jobs following his death, expressing sadness at losing someone whose creativity and genius enriched so many lives.'
 ---
 
 ![20111005-171004.jpg](images/20111005-171004.jpg)

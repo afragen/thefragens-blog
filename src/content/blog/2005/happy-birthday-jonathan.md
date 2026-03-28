@@ -1,7 +1,7 @@
 ---
 title: 'Happy Birthday Jonathan!'
 pubDate: '2005-03-15'
-description: ''
+description: 'A loving birthday message to son Jonathan on his 10th birthday, reflecting on how profoundly fatherhood has changed life for the better.'
 categories: ['uncategorized']
 ---
 

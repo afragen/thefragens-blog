@@ -2,7 +2,7 @@
 title: 'GitHub Updater and Background Updates'
 pubDate: '2018-06-18'
 categories: ['git-updater', 'wordpress']
-description: ''
+description: 'GitHub Updater now offloads its remote API calls to WP-Cron so update data is fetched in the background, dramatically reducing dashboard wait times while providing status indicators so users know processing is still in progress.'
 ---
 
 [GitHub Updater](https://github.com/afragen/github-updater) is a WordPress plugin that seeks to emulate the wp-admin dashboard updating experience for plugins and themes hosted on other git hosts. Among the most popular git hosts to use for _social coding_, or simply provide an external version control system, are GitHub, Bitbucket, GitLab, and Gitea. In order to provide an identical in-app experience GitHub Updater needs to make 5-6 API calls to the get all the data required. There are ways, and hooks, to bypass some of these API calls and therefore speed up the process, but this can result in a lesser experience.

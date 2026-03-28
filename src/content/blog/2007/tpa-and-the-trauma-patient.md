@@ -1,7 +1,7 @@
 ---
 title: 'TPA and the Trauma Patient'
 pubDate: '2007-08-16'
-description: ''
+description: 'A cautionary case note on the dangers of using TPA in a trauma patient with a bullet wound crossing the liver, which led to three trips to the OR before Factor VII controlled the bleeding and the abdomen was finally closed about 36 hours later.'
 categories: ['uncategorized']
 ---
 

@@ -2,7 +2,7 @@
 title: 'Server-Side Email Filtering With Sieve'
 pubDate: '2010-05-14'
 categories: ['code', 'apple']
-description: ''
+description: 'A step-by-step guide to enabling server-side email filtering with Sieve on Mac OS X Server, covering the Sieve service setup, installation of the avelsieve SquirrelMail plugin, and a fix for an authentication bug in its PHP library.'
 ---
 
 Another post for the peripheral brain. When I first set up my own server lo these years ago, I never really thought about email message filtering. After all, I had rules in Mail.app that would send my incoming message to wherever I wanted them. Besides, I was much more concerned with eliminating spam. 

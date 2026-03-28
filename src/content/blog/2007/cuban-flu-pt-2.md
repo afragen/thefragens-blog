@@ -1,7 +1,7 @@
 ---
 title: 'Cuban flu Pt. 2'
 pubDate: '2007-01-17'
-description: ''
+description: 'A follow-up citing a BBC report that Fidel Castro refused the colostomy procedure, confirming the prediction made in the original post about the root cause of his surgical complications.'
 categories: ['uncategorized']
 ---
 

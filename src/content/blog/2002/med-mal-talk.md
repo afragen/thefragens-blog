@@ -1,7 +1,7 @@
 ---
 title: 'Current Medical Malpractice and Liability Environment'
 pubDate: '2002-10-09'
-description: ''
+description: 'A recap of a compelling ACS Conference talk that challenged the widely-cited claim of 98,000 annual deaths from physician negligence by exposing flaws in the source study, and made the case that effective tort reform is essential to controlling insurance rates and preserving patient access.'
 categories: ['uncategorized']
 ---
 

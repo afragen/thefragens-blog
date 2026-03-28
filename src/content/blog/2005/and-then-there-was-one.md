@@ -1,7 +1,7 @@
 ---
 title: 'And then there was one.'
 pubDate: '2005-12-23'
-description: ''
+description: 'A brief tribute to grandmother Ruth Fragen, who passed away at age 102 after years of unconsciousness following a stroke, remembered as a lawyer who never practiced and an accomplished violinist.'
 categories: ['uncategorized']
 ---
 

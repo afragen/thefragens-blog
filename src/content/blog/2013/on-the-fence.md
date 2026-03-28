@@ -2,7 +2,7 @@
 title: 'On the Fence'
 pubDate: '2013-01-20'
 categories: ['life-unscripted', 'economy']
-description: ''
+description: 'A sibling makes a data-driven argument that federal spending well above its historical 20% of GDP average has put the country on an unsustainable debt path, warning that rising interest rates could eventually crowd out all other government priorities.'
 ---
 
 My brother wrote and sent the following out to some friends via email. I'm re-posting with his permission. For the record, he's brilliant and not overly political. This was originally sent on Sept 6, 2012. 

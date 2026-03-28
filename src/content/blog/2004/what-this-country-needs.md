@@ -1,7 +1,7 @@
 ---
 title: 'What This Country Needs'
 pubDate: '2004-11-04'
-description: ''
+description: 'A note about neighbor John Kimberling and his book making the case that both major parties have failed Americans and that a new third party is needed, with a promise to share thoughts on the argument after reading it.'
 categories: ['uncategorized']
 ---
 

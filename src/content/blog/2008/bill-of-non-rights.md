@@ -2,7 +2,7 @@
 title: 'Bill of NON-Rights'
 pubDate: '2008-07-31'
 categories: ['life-unscripted']
-description: ''
+description: 'A satirical list of eleven things Americans do not have an inherent right to — written by Lewis Napper — is shared as a counterpoint to entitlement culture, emphasizing personal responsibility over government guarantees.'
 ---
 
 I received this in an email from a friend. It is reproduced here without permission. 

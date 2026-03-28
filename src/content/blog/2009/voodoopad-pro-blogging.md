@@ -2,7 +2,7 @@
 title: 'VoodooPad Pro Blogging'
 pubDate: '2009-05-07'
 categories: ['code', 'apple']
-description: ''
+description: 'A complete workflow is documented for using VoodooPad as a static-site CMS, combining Lua script plugins, a web export plugin, and shell scripts to handle file organization, sitemap generation, Atom feed creation, and URL correction, with a sample project package included.'
 ---
 
 Please note that VoodooPad Pro has been renamed to VoodooPad. It's time to package up all my [VoodooPad](http://flyingmeat.com/voodoopad/) blogging scripts and assorted web export plugins so that I can

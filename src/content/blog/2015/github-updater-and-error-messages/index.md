@@ -3,7 +3,7 @@ title: 'GitHub Updater and Error Messages'
 pubDate: '2015-03-06'
 categories: ['git-updater', 'wordpress']
 heroImage: './images/GHU_error_message.png'
-description: ''
+description: 'HTTP error codes from the GitHub and Bitbucket APIs are now surfaced as WordPress admin notices, with a 401 indicating an authorization failure and a 403 indicating a surpassed rate limit along with the reset time.'
 ---
 
 [GitHub Updater](https://github.com/afragen/github-updater) now gives some feedback when the API responds with an error. What I've done is capture the HTTP error code and add that to an `admin_head` hook. I've also included some data if the error is the result of banging against GitHub API's rate limit for unauthenticated accesses.

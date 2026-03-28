@@ -2,7 +2,7 @@
 title: 'Don''t Send iCal Replies'
 pubDate: '2010-04-14'
 categories: ['apple', 'code']
-description: ''
+description: 'A tip for suppressing automatic email replies when accepting or declining iCal invites on Mac OS X, with a downloadable script bundle containing install and uninstall shell scripts and a pointer to the iCal Reply Checker app for those who prefer a GUI.'
 ---
 
 I came across a [great hint in Mac OS X Hints](http://www.macosxhints.com/article.php?story=20100408114405109) today. It seems that there's an easy way to interrupt the process of sending an email reply when accepting iCal invites. As I tend to play around with iCal invites a lot (adding and deleting the same event ad nauseum) -- I love this. 

@@ -1,7 +1,7 @@
 ---
 title: 'Happy Birthday Sophie!'
 pubDate: '2005-12-20'
-description: ''
+description: 'A short birthday note celebrating daughter Sophie turning five years old, with a reminder to eventually add a photo to the post.'
 categories: ['uncategorized']
 ---
 

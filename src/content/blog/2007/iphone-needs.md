@@ -1,7 +1,7 @@
 ---
 title: 'iPhone needs'
 pubDate: '2007-09-08'
-description: ''
+description: 'A doctor explains why the iPhone cannot yet replace his Treo 650 for on-call use due to insufficient alert volume, and offers a five-point wish list of notification improvements that would make it viable for medical professionals.'
 categories: ['uncategorized']
 ---
 

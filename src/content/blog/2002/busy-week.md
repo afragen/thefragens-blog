@@ -1,7 +1,7 @@
 ---
 title: 'Busy week'
 pubDate: '2002-04-19'
-description: ''
+description: 'A hectic week of ten surgical cases concludes with general surgeons convening to draft a proposal to hospital administration seeking compensation for ER call coverage.'
 categories: ['uncategorized']
 ---
 

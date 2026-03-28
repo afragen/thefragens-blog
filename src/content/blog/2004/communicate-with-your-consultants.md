@@ -1,7 +1,7 @@
 ---
 title: 'Communicate with your Consultants'
 pubDate: '2004-11-25'
-description: ''
+description: 'A frustrating on-call experience illustrates why attending physicians must communicate their clinical concerns directly to surgical consultants before the consult visit.'
 categories: ['uncategorized']
 ---
 

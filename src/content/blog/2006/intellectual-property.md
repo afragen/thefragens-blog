@@ -1,7 +1,7 @@
 ---
 title: 'Intellectual Property'
 pubDate: '2006-01-17'
-description: ''
+description: 'A surgeon and independent contractor recounts a dispute with his former employer over ownership of a domain and website he built unpaid on his own initiative, revealing at the end that the former employer is his father.'
 categories: ['uncategorized']
 ---
 

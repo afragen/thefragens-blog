@@ -1,7 +1,7 @@
 ---
 title: 'The joys of being a surgeon'
 pubDate: '2002-11-05'
-description: ''
+description: 'The final day of ER call means four Sunday operations and missing visiting family, offering a candid look at the personal costs of surgical on-call life.'
 categories: ['uncategorized']
 ---
 

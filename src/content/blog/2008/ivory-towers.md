@@ -2,7 +2,7 @@
 title: 'Ivory Towers'
 pubDate: '2008-03-24'
 categories: ['medicine']
-description: ''
+description: 'A regional Level 1 trauma center refused a difficult transfer for specialized endovascular care, sparking reflection on how academic medical centers have drifted from their traditional mission of supporting community surgeons without question.'
 ---
 
 An _Ivory Tower_ is supposed to be the tertiary referral center where they know everything and can take care of all difficult patients. So why is it when I have a specific need for a higher level of care that one of my _local_ Level 1 trauma centers, University of California, San Diego, balked. 

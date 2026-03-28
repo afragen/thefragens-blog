@@ -3,7 +3,7 @@ title: 'Install a Zipfile with GitHub Updater'
 pubDate: '2018-09-28'
 categories: ['code', 'git-updater', 'wordpress']
 heroImage: './images/zip-archive-mac-os-x.jpg'
-description: ''
+description: 'GitHub Updater gained the ability to install plugins and themes directly from a local zipfile path or remote URI, treating the zipfile as just another git host type in the Remote Install workflow to solve build-process dependency issues.'
 ---
 
 If you maintain your codebase on GitHub, or another git host, the standard download of your repository from within GitHub is an automatically generated zipfile created from your repository. GitHub Updater uses this generated zipfile when it updates or installs a repository from GitHub.

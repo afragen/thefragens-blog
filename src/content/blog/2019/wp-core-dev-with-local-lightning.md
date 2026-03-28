@@ -2,7 +2,7 @@
 title: 'WP Core Development with Local Lightning'
 pubDate: '2019-07-27'
 categories: ['code', 'wordpress']
-description: ''
+description: 'Step-by-step instructions for setting up a WordPress core development environment using Local Lightning on macOS, covering both the core.git and develop.git repositories, PHPUnit, patch application, npm build tooling, and Apple Silicon-specific notes for nvm and Node.'
 ---
 
 Firstly, this is only meant as a _how I do it_. I'm using MacOS.

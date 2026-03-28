@@ -1,7 +1,7 @@
 ---
 title: 'Sorry if Your Google Ranking Slipped'
 pubDate: '2006-07-13'
-description: ''
+description: 'A short account of being accused of harming someone else Google ranking, requiring a moment of genuine reflection before concluding that no individual blogger has any influence over how Google ranks pages.'
 categories: ['uncategorized']
 ---
 
