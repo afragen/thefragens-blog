@@ -1,0 +1,66 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../layouts/BlogPost.astro';
+
+type MdPage = {
+	frontmatter: {
+		title: string;
+		description?: string;
+		pubDate?: string;
+		date?: string;
+		updatedDate?: string;
+		heroImage?: string;
+	};
+	Content: astroHTML.JSX.Element;
+};
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	const blogPaths = posts.map((post) => ({
+		params: { slug: post.id },
+		props: { type: 'blog' as const, post },
+	}));
+
+	const pages = import.meta.glob<MdPage>('./**/*.md', { eager: true });
+	const pagePaths = Object.entries(pages).map(([filepath, page]) => {
+		const slug = filepath
+			.replace(/^\.\//, '')
+			.replace(/\.md$/, '')
+			.replace(/\/index$/, '');
+		return {
+			params: { slug },
+			props: { type: 'page' as const, page },
+		};
+	});
+
+	return [...blogPaths, ...pagePaths];
+}
+
+type Props =
+	| { type: 'blog'; post: CollectionEntry<'blog'>; page?: never }
+	| { type: 'page'; page: MdPage; post?: never };
+
+const { type, post, page } = Astro.props;
+
+let Content: any;
+let frontmatter: { title: string; description?: string; pubDate?: Date; updatedDate?: Date; heroImage?: any };
+
+if (type === 'blog') {
+	({ Content } = await render(post));
+	frontmatter = post.data;
+} else {
+	Content = page.Content;
+	const { title, description, pubDate, date, updatedDate, heroImage } = page.frontmatter;
+	frontmatter = {
+		title,
+		description: description ?? '',
+		pubDate: pubDate ? new Date(pubDate) : date ? new Date(date) : new Date(),
+		updatedDate: updatedDate ? new Date(updatedDate) : undefined,
+		heroImage,
+	};
+}
+---
+
+<BlogPost {...frontmatter}>
+	<Content />
+</BlogPost>
