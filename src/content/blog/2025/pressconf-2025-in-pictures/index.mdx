@@ -1,0 +1,20 @@
+---
+layout: ../../../../layouts/GalleryLayout.astro
+title: 'PressConf 2025 in Pictures'
+pubDate: '2025-04-29'
+categories: ['life-unscripted']
+description: ''
+---
+
+import Gallery from '../../../../components/Gallery.astro'
+
+export const imageModules = import.meta.glob('./images/*.{jpg,jpeg,png,gif,webp,avif,svg}', { eager: true })
+export const images = Object.values(imageModules).map(m => m.default)
+
+PressConf is the reincarnation of Pressnomics. It's a non-recorded, single track conference where you have to be in the room. While recordings were not allowed, photos were encouraged.
+
+I took the opportunity to record some memories. B&W pics are only in B&W. I only shot with a fixed 35mm lens. I did a light pass over the images with cropping and some post-processing in [Photomater](https://www.pixelmator.com/photomator/). I'm still getting used to using a rangefinder camera and the focus is much different than the SLRs I'm used to using.
+
+Enjoy!
+
+<Gallery images={images} title="Photos" columns={3} />
