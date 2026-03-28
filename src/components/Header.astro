@@ -7,18 +7,18 @@ const heroImage = import('../assets/background-operate.png');
 ---
 
 <header>
+	<div>
+		{heroImage && <Image width={1020} height={510} src={heroImage} alt="Me in operating room" loading={'eager'} />}
+	</div>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<NavLinks />
 	</nav>
-	<div>
-		{heroImage && <Image width={1020} height={510} src={heroImage} alt="Me in operating room" loading={'eager'} />}
-	</div>
 </header>
 <style>
 	header {
-		margin: 0;
-		padding: 0 1em;
+		margin: 1em;
+		padding: 0 2em;
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
