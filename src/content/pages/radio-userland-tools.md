@@ -3,7 +3,7 @@ title: "Radio Userland Tools"
 pubDate: '2008-04-25'
 ---
 
-### How to install Radio Userland tools
+#### How to install Radio Userland tools
 
 Download the file to your Tools folder at the root level of your Radio UserLand folder. Wait about a minute and the tool will automatically load. You will see the tool's name in the Tools menu. If this doesn't seem to work simply restart Radio.
 
