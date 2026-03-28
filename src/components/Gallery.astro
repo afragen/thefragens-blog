@@ -3,7 +3,11 @@
  * Gallery.astro
  *
  * Presentational gallery using Astro's <Image> component with a built-in
- * lightbox. No external dependencies — pure CSS + vanilla JS.
+ * lightbox. No external dependencies — uses the native <dialog> element for
+ * proper scoping, accessibility, and browser-managed backdrop.
+ *
+ * CSS is fully scoped via Astro's default component scoping. The only
+ * global rule is `dialog::backdrop` which must be global by spec.
  *
  * Props:
  *   images   – ImageMetadata[]  — pass mod.default from import.meta.glob
@@ -31,6 +35,10 @@ type Props = {
 const { images = [], title, columns = 3 } = Astro.props
 const cols = Math.max(2, columns)
 
+// Unique ID per gallery instance so multiple galleries on a page don't collide
+const uid = `gallery-${Math.random().toString(36).slice(2, 8)}`
+const dialogId = `${uid}-lb`
+
 function altFromFilename(src: string): string {
   return src
     .split('/').pop()!
@@ -38,7 +46,6 @@ function altFromFilename(src: string): string {
     .replace(/[-_]/g, ' ')
 }
 
-// Use original src for lightbox (full resolution), optimised Image for thumbnail
 const items = images.map((img) => ({
   img,
   alt: altFromFilename(img.src),
@@ -46,7 +53,7 @@ const items = images.map((img) => ({
 }))
 ---
 
-<section class="gallery">
+<section class="gallery" data-gallery-id={uid}>
   {title && <h2 class="gallery__title">{title}</h2>}
 
   {items.length === 0 ? (
@@ -56,10 +63,12 @@ const items = images.map((img) => ({
       {items.map(({ img, alt, isLandscape }, i) => (
         <figure class:list={['gallery__item', isLandscape ? 'landscape' : 'portrait']}>
           <button
-            class="gallery__link"
+            class="gallery__btn"
             type="button"
-            data-lightbox-index={i}
-            aria-label={`Open ${alt} in lightbox`}
+            data-index={i}
+            aria-label={`View ${alt}`}
+            aria-haspopup="dialog"
+            aria-controls={dialogId}
           >
             <Image
               class="gallery__img"
@@ -71,7 +80,7 @@ const items = images.map((img) => ({
               quality={80}
             />
             <span class="gallery__overlay" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
                 <polyline points="15 3 21 3 21 9"/>
                 <polyline points="9 21 3 21 3 15"/>
                 <line x1="21" y1="3" x2="14" y2="10"/>
@@ -86,17 +95,17 @@ const items = images.map((img) => ({
   )}
 </section>
 
-<!-- Lightbox — rendered once per gallery instance -->
-<div class="lb" role="dialog" aria-modal="true" aria-label="Image lightbox" hidden>
-  <button class="lb__close" aria-label="Close lightbox" type="button">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+<!-- Native <dialog> — browser handles backdrop, focus trap, and Escape key -->
+<dialog class="lb" id={dialogId} aria-label="Image lightbox">
+  <button class="lb__close" aria-label="Close lightbox" type="button" autofocus>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="22" height="22" aria-hidden="true">
       <line x1="18" y1="6" x2="6" y2="18"/>
       <line x1="6" y1="6" x2="18" y2="18"/>
     </svg>
   </button>
 
   <button class="lb__prev" aria-label="Previous image" type="button">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="24" height="24" aria-hidden="true">
       <polyline points="15 18 9 12 15 6"/>
     </svg>
   </button>
@@ -106,101 +115,91 @@ const items = images.map((img) => ({
   </div>
 
   <button class="lb__next" aria-label="Next image" type="button">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="24" height="24" aria-hidden="true">
       <polyline points="9 18 15 12 9 6"/>
     </svg>
   </button>
 
-  <div class="lb__caption" aria-live="polite"></div>
-  <div class="lb__counter" aria-live="polite"></div>
-</div>
+  <footer class="lb__footer">
+    <span class="lb__caption" aria-live="polite"></span>
+    <span class="lb__counter" aria-live="polite"></span>
+  </footer>
+</dialog>
 
-<!-- Serialise image data for the lightbox script -->
+<!-- Image data serialised for the scoped script -->
 <script
   type="application/json"
-  class="gallery__data"
-  set:html={JSON.stringify(items.map(({ img, alt }) => ({
-    src: img.src,
-    alt,
-  })))}
+  data-gallery-data={uid}
+  set:html={JSON.stringify(items.map(({ img, alt }) => ({ src: img.src, alt })))}
 />
 
 <script>
-  // Self-contained lightbox — one per gallery section on the page.
-  // Uses closest() to scope each gallery's buttons to its own lightbox.
-  document.querySelectorAll<HTMLElement>('.gallery').forEach((gallery) => {
-    const lb        = gallery.nextElementSibling as HTMLElement
-    const dataEl    = lb?.nextElementSibling as HTMLScriptElement
-    if (!lb || !dataEl) return
+  document.querySelectorAll<HTMLElement>('[data-gallery-id]').forEach((section) => {
+    const uid     = section.dataset.galleryId!
+    const dialog  = document.getElementById(`${uid}-lb`) as HTMLDialogElement | null
+    const dataEl  = document.querySelector<HTMLScriptElement>(`[data-gallery-data="${uid}"]`)
+    if (!dialog || !dataEl) return
 
-    const images: { src: string; alt: string }[] = JSON.parse(dataEl.textContent ?? '[]')
-    const lbImg     = lb.querySelector<HTMLImageElement>('.lb__img')!
-    const lbCaption = lb.querySelector<HTMLElement>('.lb__caption')!
-    const lbCounter = lb.querySelector<HTMLElement>('.lb__counter')!
-    let current     = 0
-    let isLoading   = false
+    const imageList: { src: string; alt: string }[] = JSON.parse(dataEl.textContent ?? '[]')
+    const lbImg     = dialog.querySelector<HTMLImageElement>('.lb__img')!
+    const lbCaption = dialog.querySelector<HTMLElement>('.lb__caption')!
+    const lbCounter = dialog.querySelector<HTMLElement>('.lb__counter')!
+    let current = 0
 
     function show(index: number) {
-      current = (index + images.length) % images.length
-      const { src, alt } = images[current]
-      isLoading = true
-      lb.classList.add('lb--loading')
-      lbImg.alt = alt
-      lbImg.onload = () => {
-        isLoading = false
-        lb.classList.remove('lb--loading')
-      }
-      lbImg.onerror = () => {
-        isLoading = false
-        lb.classList.remove('lb--loading')
-      }
+      current = (index + imageList.length) % imageList.length
+      const { src, alt } = imageList[current]
+      dialog!.setAttribute('data-loading', '')
+      lbImg.onload = lbImg.onerror = () => dialog!.removeAttribute('data-loading')
       lbImg.src = src
+      lbImg.alt = alt
       lbCaption.textContent = alt
-      lbCounter.textContent = `${current + 1} / ${images.length}`
+      lbCounter.textContent = `${current + 1} / ${imageList.length}`
     }
 
     function open(index: number) {
-      lb.hidden = false
-      document.body.style.overflow = 'hidden'
       show(index)
-      lb.querySelector<HTMLButtonElement>('.lb__close')?.focus()
+      dialog!.showModal()           // native dialog: handles focus trap + Escape
     }
 
     function close() {
-      lb.hidden = true
-      document.body.style.overflow = ''
+      dialog!.close()
       // Return focus to the thumbnail that opened the lightbox
-      gallery
-        .querySelector<HTMLButtonElement>(`[data-lightbox-index="${current}"]`)
-        ?.focus()
+      section.querySelector<HTMLButtonElement>(`[data-index="${current}"]`)?.focus()
     }
 
-    // Open on thumbnail click
-    gallery.querySelectorAll<HTMLButtonElement>('[data-lightbox-index]').forEach((btn) => {
-      btn.addEventListener('click', () => open(Number(btn.dataset.lightboxIndex)))
+    // Thumbnail buttons
+    section.querySelectorAll<HTMLButtonElement>('[data-index]').forEach((btn) => {
+      btn.addEventListener('click', () => open(Number(btn.dataset.index)))
     })
 
     // Prev / next
-    lb.querySelector('.lb__prev')?.addEventListener('click', () => show(current - 1))
-    lb.querySelector('.lb__next')?.addEventListener('click', () => show(current + 1))
+    dialog.querySelector('.lb__prev')?.addEventListener('click', () => show(current - 1))
+    dialog.querySelector('.lb__next')?.addEventListener('click', () => show(current + 1))
 
-    // Close button and backdrop click
-    lb.querySelector('.lb__close')?.addEventListener('click', close)
-    lb.addEventListener('click', (e) => {
-      if (e.target === lb) close()
+    // Close button
+    dialog.querySelector('.lb__close')?.addEventListener('click', close)
+
+    // Click backdrop (the dialog element itself outside the content area)
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) close()
     })
 
-    // Keyboard navigation
-    lb.addEventListener('keydown', (e: KeyboardEvent) => {
-      if (e.key === 'Escape')       close()
-      if (e.key === 'ArrowRight')   show(current + 1)
-      if (e.key === 'ArrowLeft')    show(current - 1)
+    // Escape is handled natively by <dialog> — wire 'close' event for focus return
+    dialog.addEventListener('close', () => {
+      section.querySelector<HTMLButtonElement>(`[data-index="${current}"]`)?.focus()
     })
 
-    // Touch swipe support
+    // Arrow key navigation (dialog already traps focus so keydown fires here)
+    dialog.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(current + 1) }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); show(current - 1) }
+    })
+
+    // Touch swipe
     let touchStartX = 0
-    lb.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX }, { passive: true })
-    lb.addEventListener('touchend', (e) => {
+    dialog.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX }, { passive: true })
+    dialog.addEventListener('touchend', (e) => {
       const dx = e.changedTouches[0].clientX - touchStartX
       if (Math.abs(dx) > 50) dx < 0 ? show(current + 1) : show(current - 1)
     })
@@ -208,7 +207,10 @@ const items = images.map((img) => ({
 </script>
 
 <style>
-  /* ── Gallery grid ────────────────────────────────────────────────────── */
+  /* ── Gallery grid ────────────────────────────────────────────────────────
+     All selectors here are automatically scoped by Astro to this component
+     via data-astro-cid-* attributes. Nothing leaks to the page.
+  ── */
   .gallery {
     --gap: 6px;
     --radius: 5px;
@@ -244,7 +246,7 @@ const items = images.map((img) => ({
     line-height: 0;
   }
 
-  .gallery__link {
+  .gallery__btn {
     display: block;
     position: relative;
     overflow: hidden;
@@ -278,14 +280,14 @@ const items = images.map((img) => ({
     border-radius: var(--radius) var(--radius) 0 0;
   }
 
-  .gallery__link:hover .gallery__img,
-  .gallery__link:focus-visible .gallery__img {
+  .gallery__btn:hover .gallery__img,
+  .gallery__btn:focus-visible .gallery__img {
     transform: scale(1.05);
     filter: brightness(0.8);
   }
 
-  .gallery__link:hover .gallery__overlay,
-  .gallery__link:focus-visible .gallery__overlay {
+  .gallery__btn:hover .gallery__overlay,
+  .gallery__btn:focus-visible .gallery__overlay {
     opacity: 1;
   }
 
@@ -319,24 +321,42 @@ const items = images.map((img) => ({
     .gallery__img { height: 240px; }
   }
 
-  /* ── Lightbox ────────────────────────────────────────────────────────── */
+  /* ── Lightbox (native <dialog>) ──────────────────────────────────────────
+     <dialog> is part of this component's template so Astro scopes these
+     selectors automatically. The only thing that can't be scoped is
+     ::backdrop which is in <style is:global> below.
+  ── */
   .lb {
+    /* Reset browser dialog defaults */
+    border: none;
+    padding: 0;
+    background: transparent;
+    /* position: fixed takes the dialog out of normal flow so it cannot
+       affect the width of sibling elements like <header> and <footer>. */
     position: fixed;
     inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.92);
-    display: flex;
+    max-width: 100vw;
+    max-height: 100dvh;
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+
+    /* Flex layout for the lightbox content */
+    display: none;             /* overridden by [open] below */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
     padding: 1rem;
+    box-sizing: border-box;
   }
 
-  .lb[hidden] { display: none; }
+  .lb[open] {
+    display: flex;
+  }
 
-  .lb--loading .lb__img {
-    opacity: 0.4;
+  .lb[data-loading] .lb__img {
+    opacity: 0.35;
   }
 
   .lb__stage {
@@ -344,25 +364,24 @@ const items = images.map((img) => ({
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 100%;
-    overflow: hidden;
+    min-height: 0;
+    width: 100%;
   }
 
   .lb__img {
     max-width: 100%;
-    max-height: calc(100dvh - 8rem);
+    max-height: 100%;
     object-fit: contain;
     border-radius: 4px;
     transition: opacity 0.2s ease;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
   }
 
-  /* Nav buttons */
+  .lb__close,
   .lb__prev,
-  .lb__next,
-  .lb__close {
+  .lb__next {
     position: fixed;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     color: #fff;
@@ -371,31 +390,31 @@ const items = images.map((img) => ({
     align-items: center;
     justify-content: center;
     padding: 0.5rem;
-    transition: background 0.2s ease;
     line-height: 0;
+    transition: background 0.2s ease;
+    z-index: 1;
   }
 
+  .lb__close:hover,
   .lb__prev:hover,
   .lb__next:hover,
-  .lb__close:hover {
-    background: rgba(255, 255, 255, 0.25);
+  .lb__close:focus-visible,
+  .lb__prev:focus-visible,
+  .lb__next:focus-visible {
+    background: rgba(255, 255, 255, 0.28);
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
   }
 
-  .lb__close {
-    top: 1rem;
-    right: 1rem;
-  }
+  .lb__close { top: 1rem; right: 1rem; }
+  .lb__prev  { left: 1rem;  top: 50%; transform: translateY(-50%); }
+  .lb__next  { right: 1rem; top: 50%; transform: translateY(-50%); }
 
-  .lb__prev {
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .lb__next {
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
+  .lb__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
   }
 
   .lb__caption {
@@ -407,7 +426,7 @@ const items = images.map((img) => ({
   }
 
   .lb__counter {
-    color: #888;
+    color: #777;
     font-size: 0.75rem;
     font-variant-numeric: tabular-nums;
   }
@@ -415,5 +434,17 @@ const items = images.map((img) => ({
   @media (max-width: 600px) {
     .lb__prev { left: 0.25rem; }
     .lb__next { right: 0.25rem; }
+  }
+
+  /*
+   * ::backdrop is part of the browser's UA shadow DOM and cannot receive
+   * Astro's scoping attribute. :global() lets us target it from within this
+   * scoped <style> block without making the entire block global.
+   * The selector is specific enough (dialog.lb::backdrop) that it won't
+   * match any other element on the page.
+   */
+  :global(dialog.lb::backdrop) {
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(2px);
   }
 </style>
