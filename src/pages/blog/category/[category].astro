@@ -173,9 +173,9 @@ const { categoryLabel, posts } = Astro.props;
 		<Header />
 		<main id="main-content">
 			<section>
-				<p class="category-heading">
+				<h1 class="category-heading">
 					<a href="/blog/">All posts</a> &rsaquo; {categoryLabel}
-				</p>
+				</h1>
 				<ul class="posts-grid">
 					{
 						posts.map((post) => (
@@ -203,11 +203,11 @@ const { categoryLabel, posts } = Astro.props;
 												))}
 											</div>
 										)}
-										<h4 class="card-title">
+										<h2 class="card-title">
 											<a class="card-link" href={`/blog/${post.id}/`}>
 												{post.data.title}
 											</a>
-										</h4>
+										</h2>
 										{post.data.description && (
 											<p class="card-description">{post.data.description}</p>
 										)}

@@ -13,7 +13,7 @@ const heroImage = import('../assets/background-operate.png');
 		{heroImage && <Image width={1020} height={510} src={heroImage} alt="Me in operating room" loading={'eager'} />}
 	</div>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<p class="site-title"><a href="/">{SITE_TITLE}</a></p>
 		<NavLinks />
 	</nav>
 </header>
@@ -25,13 +25,14 @@ const heroImage = import('../assets/background-operate.png');
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
-	h2 {
+	.site-title {
 		margin: 0;
-		font-size: 1em;
+		font-size: 1.5em;
+		font-weight: 700;
 	}
 
-	h2 a,
-	h2 a.active {
+	.site-title a,
+	.site-title a.active {
 		text-decoration: none;
 		color: var(--black);
 	}

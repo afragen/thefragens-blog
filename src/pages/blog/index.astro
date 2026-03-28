@@ -197,11 +197,11 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
 												))}
 											</div>
 										)}
-										<h4 class="card-title">
+										<h2 class="card-title">
 											<a class="card-link" href={`/blog/${post.id}/`}>
 												{post.data.title}
 											</a>
-										</h4>
+										</h2>
 										{post.data.description && (
 											<p class="card-description">{post.data.description}</p>
 										)}

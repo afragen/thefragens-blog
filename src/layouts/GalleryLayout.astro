@@ -87,15 +87,6 @@ frontmatter.galleryImages = galleryImages
             alt={frontmatter.title}
           />
         )}
-        <h1>{frontmatter.title}</h1>
-        {frontmatter.pubDate && (
-          <time datetime={frontmatter.pubDate}>
-            {new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
-              year: 'numeric', month: 'long', day: 'numeric',
-            })}
-          </time>
-        )}
-
         <!-- MDX content renders here. The Gallery component inside the MDX
              body receives galleryImages via frontmatter.galleryImages.     -->
         <slot />
@@ -124,13 +115,5 @@ frontmatter.galleryImages = galleryImages
     margin-bottom: 2rem;
   }
 
-  h1 {
-    font-size: 2rem;
-    margin: 0 0 0.5rem;
-  }
 
-  time {
-    color: #888;
-    font-size: 0.9rem;
-  }
 </style>
