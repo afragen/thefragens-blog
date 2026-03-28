@@ -183,7 +183,7 @@ const { posts, currentPage, totalPages } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main-content">
 			<section>
 				<ul class="posts-grid">
 					{
@@ -229,7 +229,7 @@ const { posts, currentPage, totalPages } = Astro.props;
 						))
 					}
 				</ul>
-				<nav class="pagination">
+				<nav class="pagination" aria-label="Blog pagination">
 					{currentPage === 2 ? (
 						<a href="/blog/" aria-label="Previous page">&larr;</a>
 					) : (
@@ -238,7 +238,7 @@ const { posts, currentPage, totalPages } = Astro.props;
 					<a href="/blog/">1</a>
 					{Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map((p) =>
 						p === currentPage ? (
-							<span class="current">{p}</span>
+							<span class="current" aria-current="page">{p}</span>
 						) : (
 							<a href={`/blog/page/${p}/`}>{p}</a>
 						)

@@ -168,7 +168,7 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main-content">
 			<section>
 				<ul class="posts-grid">
 					{
@@ -215,8 +215,8 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
 					}
 				</ul>
 				{totalPages > 1 && (
-					<nav class="pagination">
-						<span class="current">1</span>
+					<nav class="pagination" aria-label="Blog pagination">
+						<span class="current" aria-current="page">1</span>
 						{Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map((p) => (
 							<a href={`/blog/page/${p}/`}>{p}</a>
 						))}

@@ -146,6 +146,13 @@
 	var __searchOverlay   = document.getElementById('search-overlay');
 	var __searchBackdrop  = document.getElementById('search-backdrop');
 	var __pagefindLoaded  = false;
+	var __searchOpener    = null;
+
+	function __getFocusable() {
+		return Array.from(__searchOverlay.querySelectorAll(
+			'a[href],button:not([disabled]),input:not([disabled]),textarea,select,[tabindex]:not([tabindex="-1"])'
+		)).filter(function(el) { return !el.closest('[hidden]'); });
+	}
 
 	async function __initPagefind() {
 		if (__pagefindLoaded) return;
@@ -172,6 +179,7 @@
 	}
 
 	function __openSearch() {
+		__searchOpener = document.activeElement;
 		__searchOverlay.hidden = false;
 		document.body.style.overflow = 'hidden';
 		__initPagefind();
@@ -180,6 +188,9 @@
 	function __closeSearch() {
 		__searchOverlay.hidden = true;
 		document.body.style.overflow = '';
+		if (__searchOpener && typeof __searchOpener.focus === 'function') {
+			__searchOpener.focus();
+		}
 	}
 
 	__searchBackdrop.addEventListener('click', __closeSearch);
@@ -189,6 +200,18 @@
 		if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
 			e.preventDefault();
 			__searchOverlay.hidden ? __openSearch() : __closeSearch();
+		}
+		// Focus trap inside modal
+		if (e.key === 'Tab' && !__searchOverlay.hidden) {
+			var focusable = __getFocusable();
+			if (!focusable.length) return;
+			var first = focusable[0];
+			var last = focusable[focusable.length - 1];
+			if (e.shiftKey) {
+				if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+			} else {
+				if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+			}
 		}
 	});
 

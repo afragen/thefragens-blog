@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 const heroImage = import('../assets/background-operate.png');
 ---
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <header>
 	<div>
 		{heroImage && <Image width={1020} height={510} src={heroImage} alt="Me in operating room" loading={'eager'} />}
@@ -45,5 +46,21 @@ const heroImage = import('../assets/background-operate.png');
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+	.skip-link {
+		position: absolute;
+		top: -100%;
+		left: 0;
+		padding: 0.5em 1em;
+		background: var(--accent);
+		color: #fff;
+		font-weight: 700;
+		text-decoration: none;
+		z-index: 99999;
+		border-radius: 0 0 6px 0;
+		transition: top 0.1s;
+	}
+	.skip-link:focus {
+		top: 0;
 	}
 </style>

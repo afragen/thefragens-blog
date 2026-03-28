@@ -57,7 +57,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 	<body>
 		<Header />
-		<main>
+		<main id="main-content">
 			<article>
 				<div class="hero-image">
 					{heroImage && <Image width={400} height={200} src={heroImage} alt="" loading={'eager'}/>}
