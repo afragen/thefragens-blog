@@ -1,0 +1,154 @@
+---
+import { palette } from '../palette';
+
+interface Props {
+	accent?:     string;
+	accentDark?: string;
+	seed?:       string;
+}
+
+const {
+	accent     = palette.accent,
+	accentDark = palette.accentDark,
+	seed       = 'default',
+} = Astro.props;
+
+// FNV-1a hash → LCG seeded PRNG
+function makeRng(s: string) {
+	let h = 2166136261;
+	for (let i = 0; i < s.length; i++) {
+		h ^= s.charCodeAt(i);
+		h = Math.imul(h, 16777619) >>> 0;
+	}
+	return () => {
+		h = (Math.imul(1664525, h) + 1013904223) >>> 0;
+		return h / 0x100000000;
+	};
+}
+
+const rng = makeRng(seed);
+const r  = (min: number, max: number) => Math.round(min + rng() * (max - min));
+const rf = (min: number, max: number) => +(min + rng() * (max - min)).toFixed(2);
+
+const W = 480, H = 270;
+
+// Focal swirl point — off-center for variety
+const fx = r(140, 340);
+const fy = r(70,  200);
+
+// ── Sweeping filled bands ─────────────────────────────────────────────────
+// Band 1: left-edge → right-edge, curving through focal zone
+const b1y0 = r(-10, 50);
+const b1y1 = r(H - 60, H + 10);
+const b1t  = r(55, 90);
+const band1 = [
+	`M0,${b1y0}`,
+	`C${r(80,160)},${r(fy-60,fy-10)} ${r(280,390)},${r(fy-30,fy+40)} ${W},${b1y1}`,
+	`L${W},${b1y1 + b1t}`,
+	`C${r(280,390)},${r(fy+30,fy+90)} ${r(80,160)},${r(fy+10,fy+60)} 0,${b1y0 + b1t} Z`,
+].join(' ');
+
+// Band 2: top-right → bottom-left, counter-swirl
+const b2x0 = r(W - 60, W + 10);
+const b2y0 = r(-10, 50);
+const b2x1 = r(-10, 60);
+const b2y1 = r(H - 60, H + 10);
+const b2t  = r(45, 75);
+const band2 = [
+	`M${b2x0},${b2y0}`,
+	`C${r(320,430)},${r(fy-50,fy+10)} ${r(60,170)},${r(fy-20,fy+50)} ${b2x1},${b2y1}`,
+	`L${b2x1 + b2t},${b2y1}`,
+	`C${r(60,170)},${r(fy+30,fy+80)} ${r(320,430)},${r(fy+10,fy+60)} ${b2x0},${b2y0 + b2t} Z`,
+].join(' ');
+
+// Band 3: tighter mid-sweep for depth
+const b3y0 = r(20, 80);
+const b3y1 = r(H - 80, H - 20);
+const b3t  = r(28, 48);
+const band3 = [
+	`M0,${b3y0}`,
+	`C${r(100,200)},${r(fy-80,fy-20)} ${r(260,370)},${r(fy+10,fy+60)} ${W},${b3y1}`,
+	`L${W},${b3y1 + b3t}`,
+	`C${r(260,370)},${r(fy+50,fy+100)} ${r(100,200)},${r(fy,fy+50)} 0,${b3y0 + b3t} Z`,
+].join(' ');
+
+// ── Distorted swirl rings (stroked ovals around focal point) ──────────────
+function swirlRing(cx: number, cy: number, rx: number, ry: number, tw: number) {
+	const k = 0.552;
+	return [
+		`M${cx},${cy - ry}`,
+		`C${cx + k*rx + tw},${cy - ry}  ${cx + rx},${cy - k*ry + tw}  ${cx + rx},${cy}`,
+		`C${cx + rx},${cy + k*ry - tw}  ${cx + k*rx - tw},${cy + ry}  ${cx},${cy + ry}`,
+		`C${cx - k*rx + tw},${cy + ry}  ${cx - rx},${cy + k*ry + tw}  ${cx - rx},${cy}`,
+		`C${cx - rx},${cy - k*ry - tw}  ${cx - k*rx - tw},${cy - ry}  ${cx},${cy - ry} Z`,
+	].join(' ');
+}
+const ring1 = swirlRing(fx, fy, r(55,85),  r(30,50),  r(-25,25));
+const ring2 = swirlRing(fx, fy, r(90,120), r(50,75),  r(-35,35));
+const ring3 = swirlRing(fx, fy, r(130,165),r(75,105), r(-45,45));
+
+// ── Bottom anchor waves ───────────────────────────────────────────────────
+const wY = r(205, 235);
+const botWave = [
+	`M0,${wY}`,
+	`C${r(40,70)},${r(wY-38,wY-12)} ${r(100,130)},${r(wY+15,wY+38)} ${r(170,200)},${r(wY-18,wY+8)}`,
+	`C${r(248,278)},${r(wY-42,wY-12)} ${r(322,352)},${r(wY+15,wY+40)} ${r(390,420)},${r(wY-22,wY+5)}`,
+	`C${r(442,465)},${r(wY-38,wY-8)} ${r(465,480)},${r(wY+5,wY+20)} ${W},${r(wY-18,wY+5)}`,
+	`L${W},${H} L0,${H} Z`,
+].join(' ');
+
+const fY = r(238, 255);
+const frontWave = [
+	`M0,${fY}`,
+	`C${r(55,85)},${r(fY-24,fY-5)} ${r(135,162)},${r(fY+12,fY+26)} ${r(208,235)},${r(fY-14,fY+4)}`,
+	`C${r(288,318)},${r(fY-24,fY-5)} ${r(378,408)},${r(fY+10,fY+24)} ${W},${r(fY-18,fY+2)}`,
+	`L${W},${H} L0,${H} Z`,
+].join(' ');
+
+// ── Swirling accent lines ─────────────────────────────────────────────────
+// Lines that arc toward the focal point from different angles
+function swirlyLine(startX: number, startY: number, endX: number, endY: number) {
+	// Control points pulled toward/around focal point with twist
+	const twist = r(-40, 40);
+	return [
+		`M${startX},${startY}`,
+		`C${fx + r(-60,60)},${fy + r(-60,60)}`,
+		` ${fx + twist},${fy + r(-50,50)}`,
+		` ${endX},${endY}`,
+	].join(' ');
+}
+
+const sl1 = swirlyLine(0, r(60,110),   W, r(80,140));
+const sl2 = swirlyLine(0, r(110,160),  W, r(130,180));
+const sl3 = swirlyLine(r(60,160), 0,   r(280,420), H);
+const sl4 = swirlyLine(0, r(155,200),  W, r(160,210));
+const sl5 = swirlyLine(r(150,280), 0,  r(60,200),  H);
+
+const bg   = `rgb(${palette.black})`;
+const gray = `rgb(${palette.gray})`;
+const glt  = `rgb(${palette.grayLight})`;
+---
+<svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+  <rect width={W} height={H} fill={bg}/>
+
+  <!-- sweeping filled bands -->
+  <path d={band1} fill={accentDark} opacity="0.85"/>
+  <path d={band2} fill={accent}     opacity="0.55"/>
+  <path d={band3} fill={accentDark} opacity="0.4"/>
+
+  <!-- bottom anchor waves -->
+  <path d={botWave}   fill={gray}      opacity="0.5"/>
+  <path d={frontWave} fill={accentDark} opacity="0.55"/>
+
+  <!-- distorted swirl rings -->
+  <path d={ring1} stroke={accent}    stroke-width="2"   fill="none" opacity="0.6"/>
+  <path d={ring2} stroke={glt}       stroke-width="1.5" fill="none" opacity="0.35"/>
+  <path d={ring3} stroke={accent}    stroke-width="1"   fill="none" opacity="0.2"/>
+
+  <!-- swirling accent lines -->
+  <path d={sl1} stroke={accent} stroke-width="2"   fill="none" opacity="0.55"/>
+  <path d={sl2} stroke={glt}   stroke-width="1.5" fill="none" opacity="0.35"/>
+  <path d={sl3} stroke={accent} stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d={sl4} stroke={glt}   stroke-width="1"   fill="none" opacity="0.2"/>
+  <path d={sl5} stroke={accent} stroke-width="1"   fill="none" opacity="0.18"/>
+</svg>

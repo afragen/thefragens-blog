@@ -1,32 +1,67 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import BlogPlaceholder from '../../components/BlogPlaceholder.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
-import { categoryPalette } from '../../palette';
+import BaseHead from '../../../components/BaseHead.astro';
+import BlogPlaceholder from '../../../components/BlogPlaceholder.astro';
+import Footer from '../../../components/Footer.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import Header from '../../../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../../consts';
+import { categoryPalette } from '../../../palette';
 
 const slugify = (s: string) =>
 	s.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
-const PAGE_SIZE = 12;
-const allPosts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const posts = allPosts.slice(0, PAGE_SIZE);
-const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
+export async function getStaticPaths() {
+	const slugify = (s: string) =>
+		s.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
+	const allPosts = await getCollection('blog');
+	const categories = new Set(allPosts.flatMap((p) => p.data.categories ?? []));
+
+	return [...categories].map((category) => ({
+		params: { category: slugify(category) },
+		props: {
+			categoryLabel: category,
+			posts: allPosts
+				.filter((p) => p.data.categories?.includes(category))
+				.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+		},
+	}));
+}
+
+const { categoryLabel, posts } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={`${categoryLabel} — ${SITE_TITLE}`}
+			description={`Posts in the ${categoryLabel} category`}
+		/>
 		<style>
 			main {
 				width: 960px;
+			}
+			.category-heading {
+				margin: 0 0 1.5rem;
+				font-size: 0.8rem;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--accent-dark);
+			}
+			.category-heading a {
+				color: rgb(var(--gray));
+				text-decoration: none;
+				font-weight: 400;
+				letter-spacing: 0;
+				text-transform: none;
+				font-size: 0.85rem;
+			}
+			.category-heading a:hover {
+				color: var(--accent);
 			}
 			.posts-grid {
 				display: flex;
@@ -125,38 +160,6 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
 				font-size: 0.82rem;
 				color: rgb(var(--gray));
 			}
-			.pagination {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				gap: 0.4rem;
-				margin: 2.5rem 0 1rem;
-			}
-			.pagination a,
-			.pagination span.current {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 2.4rem;
-				height: 2.4rem;
-				border-radius: 50%;
-				font-size: 0.9rem;
-				text-decoration: none;
-				transition: background 0.15s ease;
-			}
-			.pagination a {
-				background: rgb(var(--gray-light));
-				color: rgb(var(--black));
-			}
-			.pagination a:hover {
-				background: rgb(var(--gray));
-				color: #fff;
-			}
-			.pagination span.current {
-				background: var(--accent-dark);
-				color: #fff;
-				font-weight: 600;
-			}
 			@media (max-width: 720px) {
 				.posts-grid li {
 					max-width: 100%;
@@ -169,6 +172,9 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
 		<Header />
 		<main>
 			<section>
+				<p class="category-heading">
+					<a href="/blog/">All posts</a> &rsaquo; {categoryLabel}
+				</p>
 				<ul class="posts-grid">
 					{
 						posts.map((post) => (
@@ -213,15 +219,6 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
 						))
 					}
 				</ul>
-				{totalPages > 1 && (
-					<nav class="pagination">
-						<span class="current">1</span>
-						{Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map((p) => (
-							<a href={`/blog/page/${p}/`}>{p}</a>
-						))}
-						<a href="/blog/page/2/">&rarr;</a>
-					</nav>
-				)}
 			</section>
 		</main>
 		<Footer />

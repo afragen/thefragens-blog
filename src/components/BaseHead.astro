@@ -5,6 +5,7 @@ import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/background-operate.png';
 import { SITE_TITLE } from '../consts';
+import { palette } from '../palette';
 
 interface Props {
 	title: string;
@@ -16,6 +17,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = FallbackImage } = Astro.props;
 ---
+
+<!-- Color palette CSS variables -->
+<style set:html={`
+	:root {
+		--accent: ${palette.accent};
+		--accent-dark: ${palette.accentDark};
+		--black: ${palette.black};
+		--gray: ${palette.gray};
+		--gray-light: ${palette.grayLight};
+		--gray-dark: ${palette.grayDark};
+		--gray-gradient: rgba(${palette.grayLight}, 50%), #fff;
+		--box-shadow:
+			0 2px 6px rgba(${palette.gray}, 25%), 0 8px 24px rgba(${palette.gray}, 33%),
+			0 16px 32px rgba(${palette.gray}, 33%);
+	}
+`} />
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
