@@ -30,6 +30,14 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 		</div>
 		<HeaderLink href="/gallery">Gallery</HeaderLink>
 	</div>
+	<button class="search-btn" id="search-btn" aria-label="Search posts">
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+			fill="none" stroke="currentColor" stroke-width="2"
+			stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<circle cx="11" cy="11" r="8"/>
+			<line x1="21" y1="21" x2="16.65" y2="16.65"/>
+		</svg>
+	</button>
 </div>
 
 <style>
@@ -79,6 +87,22 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 		display: flex;
 	}
 
+	.search-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.4em;
+		color: rgb(var(--gray));
+		border-radius: 6px;
+		transition: color 0.15s, background 0.15s;
+	}
+	.search-btn:hover {
+		color: var(--accent);
+		background: color-mix(in srgb, var(--accent) 8%, transparent);
+	}
 	.hamburger {
 		display: none;
 		background: none;
@@ -140,6 +164,10 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 </style>
 
 <script>
+	document.getElementById('search-btn')?.addEventListener('click', () => {
+		document.dispatchEvent(new CustomEvent('search:open'));
+	});
+
 	const btn = document.querySelector('.hamburger') as HTMLButtonElement;
 	const menu = document.getElementById('nav-menu');
 
