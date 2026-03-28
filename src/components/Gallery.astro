@@ -238,7 +238,8 @@ const items = images.map((img) => ({
 
   .gallery__item {
     flex: 1 1 calc((100% - var(--gap) * (var(--cols) - 1)) / var(--cols));
-    max-width: 50%;
+    max-width: calc((100% - var(--gap) * (var(--cols) - 1)) / var(--cols));
+    min-width: 0;
     margin: 0;
     overflow: hidden;
     border-radius: var(--radius);
@@ -432,8 +433,19 @@ const items = images.map((img) => ({
   }
 
   @media (max-width: 600px) {
-    .lb__prev { left: 0.25rem; }
-    .lb__next { right: 0.25rem; }
+    .lb__close { top: 0.5rem; right: 0.5rem; }
+    .lb__prev  { left: 0.25rem; }
+    .lb__next  { right: 0.25rem; }
+
+    .lb__stage {
+      /* Inset the image so it isn't hidden behind the nav buttons */
+      padding: 0 3rem;
+    }
+
+    .lb__caption {
+      font-size: 0.75rem;
+      max-width: 80vw;
+    }
   }
 
   /*
