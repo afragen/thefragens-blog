@@ -1,0 +1,133 @@
+---
+/**
+ * PostLayout.astro
+ *
+ * Layout wrapper for MDX posts. Handles Astro.glob() for images since
+ * glob is not available inside MDX files directly.
+ *
+ * The glob collects ALL images across ALL posts using a wildcard, then
+ * filters down to only this post's images folder based on the slug.
+ * This is required because import.meta.glob() paths must be string literals
+ * (resolved at build time by Vite) — you cannot pass a dynamic path.
+ *
+ * MDX frontmatter should include:
+ *   ---
+ *   layout: ../../layouts/PostLayout.astro
+ *   title: My Post Title
+ *   ---
+ *
+ * Then use Gallery inside the MDX body:
+ *   import Gallery from '../../components/Gallery.astro'
+ *   <Gallery images={frontmatter.galleryImages} title="Photos" columns={3} />
+ */
+
+import Gallery from '../components/Gallery.astro'
+
+interface Frontmatter {
+  title: string
+  pubDate?: string
+  description?: string
+  heroImage?: string
+  [key: string]: unknown
+}
+
+interface Props {
+  frontmatter: Frontmatter
+}
+
+const { frontmatter } = Astro.props
+
+// Derive the post slug from the current URL path.
+// e.g. /posts/my-cool-post/ → "my-cool-post"
+const slug = Astro.url.pathname.replace(/^\/+|\/+$/g, '').split('/').pop() ?? ''
+
+// Glob ALL post images across every post in one literal-path call.
+// Vite resolves this at build time; we filter by slug at runtime.
+const allPostImages = import.meta.glob<{ default: ImageMetadata }>(
+  '../content/posts/*/images/*.{jpg,jpeg,png,gif,webp,avif,svg}',
+  { eager: true }
+)
+
+// Filter to only this post's images and normalise to { src, alt }
+const galleryImages = Object.entries(allPostImages)
+  .filter(([path]) => path.includes(`/posts/${slug}/images/`))
+  .map(([filePath, mod]) => {
+    const fileName = filePath.split('/').pop() ?? ''
+    const alt = fileName
+      .replace(/\.[^.]+$/, '')   // strip extension
+      .replace(/[-_]/g, ' ')     // humanise
+    return {
+      src: (mod.default as unknown as { src: string })?.src ?? String(mod.default),
+      alt,
+    }
+  })
+
+// Make galleryImages available to MDX via frontmatter
+// (Astro merges layout props back into the frontmatter object available in MDX)
+frontmatter.galleryImages = galleryImages
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{frontmatter.title}</title>
+    {frontmatter.description && (
+      <meta name="description" content={frontmatter.description} />
+    )}
+  </head>
+  <body>
+    <main>
+      <article>
+        {frontmatter.heroImage && (
+          <img
+            class="hero"
+            src={frontmatter.heroImage}
+            alt={frontmatter.title}
+          />
+        )}
+        <h1>{frontmatter.title}</h1>
+        {frontmatter.pubDate && (
+          <time datetime={frontmatter.pubDate}>
+            {new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+              year: 'numeric', month: 'long', day: 'numeric',
+            })}
+          </time>
+        )}
+
+        <!-- MDX content renders here. The Gallery component inside the MDX
+             body receives galleryImages via frontmatter.galleryImages.     -->
+        <slot />
+      </article>
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.7;
+  }
+
+  .hero {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 0 0 0.5rem;
+  }
+
+  time {
+    color: #888;
+    font-size: 0.9rem;
+  }
+</style>
