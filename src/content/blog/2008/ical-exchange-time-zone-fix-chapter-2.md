@@ -1,5 +1,5 @@
 ---
-title: 'iCal &#8211; Exchange Time Zone Fix &#8211; Chapter 2'
+title: 'iCal - Exchange Time Zone Fix - Chapter 2'
 pubDate: '2008-08-15'
 categories: ['apple', 'code']
 description: ''

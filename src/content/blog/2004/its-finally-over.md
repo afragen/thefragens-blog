@@ -1,5 +1,5 @@
 ---
-title: 'It&#039;s Finally Over'
+title: 'It''s Finally Over'
 pubDate: '2004-11-04'
 description: ''
 categories: ['uncategorized']

@@ -1,5 +1,5 @@
 ---
-title: 'West Virginia Surgeon&#039;s strike'
+title: 'West Virginia Surgeon''s strike'
 pubDate: '2003-01-03'
 description: ''
 categories: ['uncategorized']

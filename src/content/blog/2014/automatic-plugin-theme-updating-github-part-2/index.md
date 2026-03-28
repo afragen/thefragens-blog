@@ -1,5 +1,5 @@
 ---
-title: 'Automatic Plugin &amp; Theme Updating From GitHub – Part 2'
+title: 'Automatic Plugin & Theme Updating From GitHub – Part 2'
 pubDate: '2014-08-21'
 categories: ['code', 'git-updater', 'wordpress']
 heroImage: './images/github2.jpeg'
