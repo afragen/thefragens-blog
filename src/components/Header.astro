@@ -10,7 +10,7 @@ const heroImage = import('../assets/background-operate.png');
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <header>
 	<div>
-		{heroImage && <Image width={1020} height={510} src={heroImage} alt="Me in operating room" loading={'eager'} />}
+		{heroImage && <Image width={1020} height={510} src={heroImage} alt="Me in operating room" loading={'eager'} fetchpriority="high" />}
 	</div>
 	<nav>
 		<p class="site-title"><a href="/">{SITE_TITLE}</a></p>
