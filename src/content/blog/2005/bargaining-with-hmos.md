@@ -2,6 +2,7 @@
 title: 'Bargaining with HMOs'
 pubDate: '2005-03-26'
 description: ''
+categories: ['uncategorized']
 ---
 
 [Aggravated DocSurg](http://docsurg.blogspot.com/2005/03/bargaining-with-hmos.html) 

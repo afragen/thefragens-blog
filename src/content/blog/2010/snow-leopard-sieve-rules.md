@@ -1,7 +1,7 @@
 ---
 title: 'Snow Leopard Sieve Rules'
 pubDate: '2010-08-07'
-categories: ['osx-server', 'dovecot', 'sieve']
+categories: ['apple', 'code']
 description: ''
 ---
 

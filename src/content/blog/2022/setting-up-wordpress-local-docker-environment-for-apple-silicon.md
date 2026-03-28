@@ -1,7 +1,7 @@
 ---
 title: 'Setting up WordPress local docker environment for Apple Silicon'
 pubDate: '2022-09-05'
-categories: ['code', 'mac-osx', 'wordpress', 'apple-silicon']
+categories: ['code', 'apple', 'wordpress']
 description: ''
 ---
 

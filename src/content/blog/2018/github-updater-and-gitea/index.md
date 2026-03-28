@@ -1,7 +1,7 @@
 ---
 title: 'GitHub Updater and Gitea'
 pubDate: '2018-07-25'
-categories: ['code', 'computer', 'git-updater', 'wordpress', 'gitea', 'githubupdater']
+categories: ['code', 'git-updater', 'wordpress']
 heroImage: './images/gitea_logo.png'
 description: ''
 ---

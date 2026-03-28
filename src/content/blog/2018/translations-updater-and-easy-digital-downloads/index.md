@@ -1,7 +1,7 @@
 ---
 title: 'Translations Updater and Easy Digital Downloads'
 pubDate: '2018-10-17'
-categories: ['code', 'wordpress', 'edd', 'translations']
+categories: ['code', 'wordpress']
 heroImage: './images/edd-sitting.png'
 description: ''
 ---

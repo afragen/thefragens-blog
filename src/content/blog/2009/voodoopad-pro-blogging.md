@@ -1,7 +1,7 @@
 ---
 title: 'VoodooPad Pro Blogging'
 pubDate: '2009-05-07'
-categories: ['code', 'mac-osx', 'blogging']
+categories: ['code', 'apple']
 description: ''
 ---
 

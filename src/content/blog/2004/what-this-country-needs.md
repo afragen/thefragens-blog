@@ -2,6 +2,7 @@
 title: 'What This Country Needs'
 pubDate: '2004-11-04'
 description: ''
+categories: ['uncategorized']
 ---
 
 [*What This Country Needs -- A New Political Party*][1], is a new book by [John F. Kimberling][2] From the website. 

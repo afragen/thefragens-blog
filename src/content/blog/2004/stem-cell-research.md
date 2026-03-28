@@ -2,6 +2,7 @@
 title: 'Stem Cell Research'
 pubDate: '2004-11-04'
 description: ''
+categories: ['uncategorized']
 ---
 
 Californians voted overwhelmingly to approve [Prop. 71][http://www.curesforcalifornia.com/]. Prop 71 was a $3 billion bond measure to fund stem cell research. 

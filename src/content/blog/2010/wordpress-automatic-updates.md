@@ -1,7 +1,7 @@
 ---
 title: 'WordPress Automatic Updates'
 pubDate: '2010-06-18'
-categories: ['osx-server', 'computer', 'wordpress']
+categories: ['apple', 'wordpress']
 description: ''
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Add Alarm to Events Calendar PRO'
 pubDate: '2012-05-06'
-categories: ['code', 'wordpress', 'wp-plugin']
+categories: ['code', 'wordpress']
 description: ''
 ---
 

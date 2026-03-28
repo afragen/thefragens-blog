@@ -2,6 +2,7 @@
 title: 'Cars looted'
 pubDate: '2002-05-09'
 description: ''
+categories: ['uncategorized']
 ---
 
 What a drag. The other day Kathy awoke to her birthday and the fact that our cars had been looted. I had left the garage door open during the night, not like it hadn't happened before. Well this time someone had gone through our cars and taken most everything of value from them. 

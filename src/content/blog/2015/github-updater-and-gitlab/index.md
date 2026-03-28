@@ -1,7 +1,7 @@
 ---
 title: 'GitHub Updater &#038; GitLab'
 pubDate: '2015-05-24'
-categories: ['code', 'git-updater', 'wordpress', 'github', 'githubupdater', 'gitlab', 'wp-plugin']
+categories: ['code', 'git-updater', 'wordpress']
 heroImage: './images/images.png'
 description: ''
 ---

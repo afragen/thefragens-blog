@@ -1,7 +1,7 @@
 ---
 title: 'iPad Arrives'
 pubDate: '2010-04-05'
-categories: ['computer', 'apple', 'ipad', 'iphone']
+categories: ['apple']
 description: ''
 ---
 

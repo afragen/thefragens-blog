@@ -1,7 +1,7 @@
 ---
 title: 'Happy Birthday!'
 pubDate: '2013-12-20'
-categories: ['pressgram', 'iphone5c']
+categories: ['apple']
 description: ''
 ---
 

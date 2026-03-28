@@ -2,6 +2,7 @@
 title: 'JAMA article on CPOE'
 pubDate: '2005-03-11'
 description: ''
+categories: ['uncategorized']
 ---
 
 [GruntDoc](http://www.gruntdoc.com/archives/000953.php) 

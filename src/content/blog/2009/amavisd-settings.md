@@ -1,7 +1,7 @@
 ---
 title: 'Amavisd settings'
 pubDate: '2009-03-16'
-categories: ['computer', 'osx-server', 'spamassassin']
+categories: ['apple', 'code']
 description: ''
 ---
 

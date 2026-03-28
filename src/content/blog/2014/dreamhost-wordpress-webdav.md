@@ -1,7 +1,7 @@
 ---
 title: 'Dreamhost, WordPress and WebDAV'
 pubDate: '2014-05-03'
-categories: ['computer', 'web-hosting', 'dreamhost']
+categories: ['hosting']
 description: ''
 ---
 

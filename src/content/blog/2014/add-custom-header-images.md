@@ -1,7 +1,7 @@
 ---
 title: 'Add Custom Header Images'
 pubDate: '2014-05-17'
-categories: ['code', 'wordpress', 'plugin']
+categories: ['code', 'wordpress']
 description: ''
 ---
 

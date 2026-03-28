@@ -1,7 +1,7 @@
 ---
 title: 'Delete a Tag From GitHub'
 pubDate: '2014-04-20'
-categories: ['code', 'github']
+categories: ['code']
 description: ''
 ---
 

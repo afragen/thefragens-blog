@@ -1,7 +1,7 @@
 ---
 title: 'Local by Flywheel (Pressmatic) and Symlinks'
 pubDate: '2018-06-06'
-categories: ['code', 'computer']
+categories: ['code']
 heroImage: './images/LbF-logo.png'
 description: ''
 ---

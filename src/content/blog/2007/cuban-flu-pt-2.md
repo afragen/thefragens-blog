@@ -2,6 +2,7 @@
 title: 'Cuban flu Pt. 2'
 pubDate: '2007-01-17'
 description: ''
+categories: ['uncategorized']
 ---
 
 I hate to say "I told you so.", but [this][1] from the BBC. 

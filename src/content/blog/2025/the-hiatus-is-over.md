@@ -1,7 +1,7 @@
 ---
 title: 'The Hiatus is Over'
 pubDate: '2025-06-10'
-categories: ['fair', 'git-updater', 'wordpress', 'code']
+categories: ['code', 'git-updater', 'wordpress']
 description: ''
 ---
 

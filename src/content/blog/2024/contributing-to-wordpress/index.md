@@ -1,7 +1,7 @@
 ---
 title: 'Contributing to WordPress, a Letter to Matt'
 pubDate: '2024-09-28'
-categories: ['web-hosting', 'wordcamp', 'wordpress', 'life-unscripted']
+categories: ['hosting', 'wordpress', 'life-unscripted']
 heroImage: './images/L1000405.jpg'
 description: ''
 ---

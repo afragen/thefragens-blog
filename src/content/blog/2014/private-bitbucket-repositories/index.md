@@ -1,7 +1,7 @@
 ---
 title: 'Private Bitbucket Repositories'
 pubDate: '2014-12-20'
-categories: ['code', 'git-updater', 'wordpress', 'bitbucket', 'plugin', 'themes', 'wp-plugin']
+categories: ['code', 'git-updater', 'wordpress']
 heroImage: './images/images1.jpeg'
 description: ''
 ---

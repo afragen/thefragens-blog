@@ -1,7 +1,7 @@
 ---
 title: 'Dovecot Permissions'
 pubDate: '2010-08-07'
-categories: ['mac-osx', 'osx-server', 'dovecot']
+categories: ['apple', 'code']
 description: ''
 ---
 

@@ -2,6 +2,7 @@
 title: 'Silicone Breast Implants Are Back?'
 pubDate: '2005-04-14'
 description: ''
+categories: ['uncategorized']
 ---
 
 From the AP wire. [FDA advisers back lifting breast implant ban, in turnaround](http://www.usatoday.com/news/washington/2005-04-13-breast-implants_x.htm?csp=34) 

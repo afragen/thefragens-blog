@@ -1,7 +1,7 @@
 ---
 title: 'Not Running a Server'
 pubDate: '2014-04-26'
-categories: ['code', 'computer', 'osx-server', 'dreamhost']
+categories: ['code', 'apple', 'hosting']
 description: ''
 ---
 

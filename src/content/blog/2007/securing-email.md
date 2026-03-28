@@ -1,7 +1,7 @@
 ---
 title: 'Securing Email'
 pubDate: '2007-11-20'
-categories: ['computer', 'mac-osx']
+categories: ['apple']
 description: ''
 ---
 

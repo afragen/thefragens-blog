@@ -2,6 +2,7 @@
 title: 'Flipping the switch'
 pubDate: '2005-12-30'
 description: ''
+categories: ['uncategorized']
 ---
 
 Well if you're reading this at radio.weblogs.com them you've probably realized that I've flipped the switch. Well, maybe you haven't. Other than a small change to the layout and no calendar you shouldn't notice any real changes. I guess that's the whole point. 

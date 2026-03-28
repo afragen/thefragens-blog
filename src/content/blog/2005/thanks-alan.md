@@ -2,6 +2,7 @@
 title: 'Thanks Alan!'
 pubDate: '2005-01-02'
 description: ''
+categories: ['uncategorized']
 ---
 
 Thanks Alan, it was a great trip. We all had a wonderful time. My brother Alan invited all of us to [Park City, UT](http://www.parkcitymountain.com) to spend his 40th birthday with him. 

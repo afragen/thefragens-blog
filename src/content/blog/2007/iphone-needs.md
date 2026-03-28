@@ -2,6 +2,7 @@
 title: 'iPhone needs'
 pubDate: '2007-09-08'
 description: ''
+categories: ['uncategorized']
 ---
 
 I *really* want an iPhone. It's not that I can't go out and buy one, especially since Steve just lowered the price by $200, it's just that the iPhone doesn't fulfill one of my *critical* needs. I'm a doctor. I gave up using a pager in lieu of a cell phone over 6 years ago. I don't miss it. Currently, I'm using a Treo 650 and it suits my needs better than an iPhone in only the following category. **It's louder!** 

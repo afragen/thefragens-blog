@@ -2,6 +2,7 @@
 title: 'Off to the Islands'
 pubDate: '2003-08-12'
 description: ''
+categories: ['uncategorized']
 ---
 
 Well, it's actually time for a vacation again. The best part is being able to see my wife and kids. They've been on vacation for almost 5 weeks. Unfortunately that has been 5 weeks away from me. I miss them...but not for long.

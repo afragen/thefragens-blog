@@ -1,7 +1,7 @@
 ---
 title: 'Server-Side Email Filtering With Sieve'
 pubDate: '2010-05-14'
-categories: ['code', 'mac-osx', 'osx-server', 'apple', 'iphone', 'sieve']
+categories: ['code', 'apple']
 description: ''
 ---
 

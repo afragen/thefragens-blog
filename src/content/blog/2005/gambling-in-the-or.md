@@ -2,6 +2,7 @@
 title: 'Gambling in the OR'
 pubDate: '2005-08-08'
 description: ''
+categories: ['uncategorized']
 ---
 
 In the morning I'm going to do what can best be described as "playing the odds." At worse, a statistical guess. 

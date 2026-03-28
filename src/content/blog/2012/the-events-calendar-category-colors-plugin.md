@@ -1,7 +1,7 @@
 ---
 title: 'The Events Calendar Category Colors Plugin'
 pubDate: '2012-07-05'
-categories: ['code', 'wordpress', 'wp-plugin']
+categories: ['code', 'wordpress']
 description: ''
 ---
 

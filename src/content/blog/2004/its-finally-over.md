@@ -2,6 +2,7 @@
 title: 'It&#039;s Finally Over'
 pubDate: '2004-11-04'
 description: ''
+categories: ['uncategorized']
 ---
 
 Thank goodness. It's finally over. We have a humble GWB and Kerry who gave a gracious concessions speech. All I can say is "everyone get over it." Being angry and bitter or giddy and self-righteous is totally non-productive. If you want to vent -- vent. But let it pass. 

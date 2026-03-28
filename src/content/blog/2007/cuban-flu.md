@@ -2,6 +2,7 @@
 title: 'Cuban flu'
 pubDate: '2007-01-16'
 description: ''
+categories: ['uncategorized']
 ---
 
 Here's my personal take on Fidel Castro's recovery. I've finally gotten [some information][1] to be able to make a comment upon. Apparently, Mr. Castro initially suffered from [acute diverticulitis][2]. From the BBC, who is quoting the Spanish newspaper *El Pais*, Mr. Castro had the following procedures and problems. 

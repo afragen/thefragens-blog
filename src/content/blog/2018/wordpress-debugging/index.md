@@ -1,7 +1,7 @@
 ---
 title: 'WordPress Debugging'
 pubDate: '2018-08-23'
-categories: ['code', 'wordpress', 'debug']
+categories: ['code', 'wordpress']
 heroImage: './images/wp-config.png'
 description: ''
 ---

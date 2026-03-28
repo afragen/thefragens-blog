@@ -1,7 +1,7 @@
 ---
 title: 'The Events Calendar Outlook Import Fix'
 pubDate: '2014-08-01'
-categories: ['code', 'wordpress', 'events', 'outlook']
+categories: ['code', 'wordpress']
 description: ''
 ---
 
