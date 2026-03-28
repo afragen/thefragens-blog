@@ -7,7 +7,7 @@
  *   - GitHub repository                (https://github.com/OWNER/REPO)
  *
  * Usage in MDX or .astro files:
- *   <PluginCard wordpress="git-updater" />
+ *   <PluginCard wordpress="wordpress-beta-tester" />
  *   <PluginCard github="afragen/git-updater" />
  *
  * Optional: set GITHUB_TOKEN in .env to avoid the 60 req/hr unauthenticated limit.
@@ -34,12 +34,11 @@ type CardData = {
 	pluginUrl:     string;
 	// WordPress-specific
 	version?:      string;
-	author?:       string;
-	authorUrl?:    string;
 	// GitHub-specific
 	language?:     string;
 	license?:      string;
 	// Shared
+	authors?:      { name: string; url?: string }[];
 	homepageUrl?:  string;
 };
 
@@ -47,24 +46,45 @@ type CardData = {
 
 async function fetchWordPress(slug: string): Promise<CardData> {
 	const res = await fetch(
-		`https://api.wordpress.org/plugins/info/1.2/?action=plugin_information&request[slug]=${encodeURIComponent(slug)}`
+		`https://api.wordpress.org/plugins/info/1.2/?action=plugin_information&request[slug]=${encodeURIComponent(slug)}&request[fields][sections]=1&request[fields][contributors]=1`
 	);
 	if (!res.ok) throw new Error(`WordPress.org API returned ${res.status}`);
 	const d = await res.json();
 	if (d.error) throw new Error(`Plugin not found: "${slug}"`);
 
-	const stripHtml = (s: string) => s.replace(/<[^>]*>/g, '').trim();
-	const authorText = d.author ? stripHtml(d.author as string) : undefined;
-	const authorLink = (d.author as string | undefined)?.match(/href="([^"]+)"/)?.[1];
+	const namedEntities: Record<string, string> = {
+		amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
+		mdash: '—', ndash: '–', hellip: '…', lsquo: '\u2018', rsquo: '\u2019',
+		ldquo: '\u201C', rdquo: '\u201D', copy: '©', reg: '®', trade: '™',
+	};
+	const decodeEntities = (s: string) => s
+		.replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+		.replace(/&#x([0-9a-fA-F]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+		.replace(/&([a-z]+);/gi, (m, name) => namedEntities[name.toLowerCase()] ?? m);
+	const stripHtml = (s: string) => decodeEntities(s.replace(/<[^>]*>/g, '')).replace(/\s+/g, ' ').trim();
+
+	const rawDesc = (d.sections?.description as string | undefined) ?? (d.short_description as string | undefined) ?? '';
+	const plainDesc = stripHtml(rawDesc);
+	const description = plainDesc.length > 147 ? plainDesc.slice(0, 147).trimEnd() + '…' : plainDesc;
+
+	// Parse contributors — object keyed by username, value is a profile URL string
+	// or an object with { profile, display_name, avatar }
+	type Contributor = { profile?: string; display_name?: string };
+	const contribMap = (d.contributors ?? {}) as Record<string, Contributor>;
+	const authors: { name: string; url?: string }[] = Object.entries(contribMap).map(
+		([username, val]) => ({
+			name: val.display_name ?? username,
+			url:  val.profile ?? undefined,
+		})
+	);
 
 	return {
 		source:      'wordpress',
 		name:        stripHtml(d.name ?? slug),
-		description: d.short_description ?? '',
+		description,
 		pluginUrl:   `https://wordpress.org/plugins/${slug}/`,
 		version:     d.version,
-		author:      authorText,
-		authorUrl:   authorLink,
+		authors:     authors.length > 0 ? authors : undefined,
 		homepageUrl: d.homepage || undefined,
 	};
 }
@@ -89,8 +109,9 @@ async function fetchGitHub(owner: string, repo: string): Promise<CardData> {
 		license:     (d.license as { spdx_id?: string; name?: string } | null)?.spdx_id
 		               ?? (d.license as { name?: string } | null)?.name
 		               ?? undefined,
-		author:      (d.owner as { login: string })?.login,
-		authorUrl:   (d.owner as { html_url: string })?.html_url,
+		authors:     (d.owner as { login: string; html_url: string } | null)
+		               ? [{ name: (d.owner as { login: string }).login, url: (d.owner as { html_url: string }).html_url }]
+		               : undefined,
 		homepageUrl: (d.homepage as string) || undefined,
 	};
 }
@@ -137,9 +158,9 @@ try {
 				</span>
 				<h3 class="pc-name">
 					<a href={data.pluginUrl} target="_blank" rel="noopener noreferrer">
-						{data.source === 'github' && data.author ? (
+						{data.source === 'github' && data.authors?.[0] ? (
 							<span class="pc-gh-name">
-								<span class="pc-gh-owner">{data.author}/</span>
+								<span class="pc-gh-owner">{data.authors[0].name}/</span>
 								<span>{data.name}</span>
 							</span>
 						) : data.name}
@@ -167,15 +188,20 @@ try {
 		<!-- Footer ──────────────────────────────────────────── -->
 		<footer class="pc-footer">
 			<span class="pc-footer-meta">
-				{data.author && (
-					<>
-						{data.authorUrl
-							? <a href={data.authorUrl} target="_blank" rel="noopener noreferrer">{data.author}</a>
-							: <span>{data.author}</span>
-						}
-					</>
+				{data.authors && data.authors.length > 0 && (
+					<span>
+						{data.authors.map((a, i) => (
+							<>
+								{i > 0 && <span class="pc-sep">, </span>}
+								{a.url
+									? <a href={a.url} target="_blank" rel="noopener noreferrer">{a.name}</a>
+									: <span>{a.name}</span>
+								}
+							</>
+						))}
+					</span>
 				)}
-				</span>
+			</span>
 			<a class="pc-cta" href={data.pluginUrl} target="_blank" rel="noopener noreferrer">
 				View {data.source === 'wordpress' ? 'Plugin' : 'Repo'} →
 			</a>
