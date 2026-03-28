@@ -1,6 +1,7 @@
 ---
 import { SITE_TITLE } from '../consts';
 import NavLinks from './NavLinks.astro';
+import Search from './Search.astro';
 import { Image } from 'astro:assets';
 
 const heroImage = import('../assets/background-operate.png');
@@ -15,6 +16,7 @@ const heroImage = import('../assets/background-operate.png');
 		<NavLinks />
 	</nav>
 </header>
+<Search />
 <style>
 	header {
 		margin: 1em;
