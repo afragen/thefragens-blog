@@ -2,18 +2,6 @@
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../layouts/BlogPost.astro';
 
-type MdPage = {
-	frontmatter: {
-		title: string;
-		description?: string;
-		pubDate?: string;
-		date?: string;
-		updatedDate?: string;
-		heroImage?: string;
-	};
-	Content: astroHTML.JSX.Element;
-};
-
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	const blogPaths = posts.map((post) => ({
@@ -21,24 +9,18 @@ export async function getStaticPaths() {
 		props: { type: 'blog' as const, post },
 	}));
 
-	const pages = import.meta.glob<MdPage>('./**/*.md', { eager: true });
-	const pagePaths = Object.entries(pages).map(([filepath, page]) => {
-		const slug = filepath
-			.replace(/^\.\//, '')
-			.replace(/\.md$/, '')
-			.replace(/\/index$/, '');
-		return {
-			params: { slug },
-			props: { type: 'page' as const, page },
-		};
-	});
+	const pages = await getCollection('pages');
+	const pagePaths = pages.map((page) => ({
+		params: { slug: page.id },
+		props: { type: 'page' as const, page },
+	}));
 
 	return [...blogPaths, ...pagePaths];
 }
 
 type Props =
 	| { type: 'blog'; post: CollectionEntry<'blog'>; page?: never }
-	| { type: 'page'; page: MdPage; post?: never };
+	| { type: 'page'; page: CollectionEntry<'pages'>; post?: never };
 
 const { type, post, page } = Astro.props;
 
@@ -49,14 +31,13 @@ if (type === 'blog') {
 	({ Content } = await render(post));
 	frontmatter = post.data;
 } else {
-	Content = page.Content;
-	const { title, description, pubDate, date, updatedDate, heroImage } = page.frontmatter;
+	({ Content } = await render(page));
+	const { title, description, pubDate, date, updatedDate } = page.data;
 	frontmatter = {
 		title,
 		description: description ?? '',
-		pubDate: pubDate ? new Date(pubDate) : date ? new Date(date) : new Date(),
-		updatedDate: updatedDate ? new Date(updatedDate) : undefined,
-		heroImage,
+		pubDate: pubDate ?? date ?? new Date(),
+		updatedDate,
 	};
 }
 ---
