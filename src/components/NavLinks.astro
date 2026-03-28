@@ -1,0 +1,151 @@
+---
+import HeaderLink from './HeaderLink.astro';
+
+const pathname = Astro.url.pathname;
+const isRadioActive = pathname.startsWith('/radio-userland');
+---
+
+<div class="nav-wrapper">
+	<button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+		<svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<line x1="3" y1="6" x2="21" y2="6" />
+			<line x1="3" y1="12" x2="21" y2="12" />
+			<line x1="3" y1="18" x2="21" y2="18" />
+		</svg>
+		<svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+			<line x1="18" y1="6" x2="6" y2="18" />
+			<line x1="6" y1="6" x2="18" y2="18" />
+		</svg>
+	</button>
+	<div class="internal-links" id="nav-menu">
+		<HeaderLink href="/">Home</HeaderLink>
+		<HeaderLink href="/blog">Blog</HeaderLink>
+		<HeaderLink href="/about">About</HeaderLink>
+		<HeaderLink href="/gallery">Gallery</HeaderLink>
+		<div class="dropdown">
+			<span class:list={['dropdown-label', { active: isRadioActive }]}>Radio UserLand</span>
+			<div class="submenu">
+				<HeaderLink href="/radio-userland-tools">Tools</HeaderLink>
+				<HeaderLink href="/radio-userland-scripts">Scripts</HeaderLink>
+			</div>
+		</div>
+		<HeaderLink href="/plugins">Plugins</HeaderLink>
+	</div>
+</div>
+
+<style>
+	.nav-wrapper {
+		display: flex;
+		align-items: center;
+	}
+	.internal-links {
+		display: flex;
+		align-items: center;
+	}
+.dropdown {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+	.dropdown-label {
+		padding: 1em 0.5em;
+		color: var(--black);
+		border-bottom: 4px solid transparent;
+		cursor: default;
+		white-space: nowrap;
+	}
+	.dropdown-label.active {
+		border-bottom-color: var(--accent);
+	}
+	.submenu {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		flex-direction: column;
+		background: white;
+		box-shadow: 0 2px 8px rgba(var(--black), 10%);
+		white-space: nowrap;
+		z-index: 10;
+	}
+	.submenu :global(a) {
+		display: block;
+		padding: 0.5em 1em;
+	}
+	.dropdown:hover .submenu {
+		display: flex;
+	}
+
+	.hamburger {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5em;
+		color: var(--black);
+	}
+	.icon-close {
+		display: none;
+	}
+	.hamburger[aria-expanded='true'] .icon-menu {
+		display: none;
+	}
+	.hamburger[aria-expanded='true'] .icon-close {
+		display: block;
+	}
+
+	@media (max-width: 720px) {
+		.nav-wrapper {
+			position: relative;
+		}
+		.hamburger {
+			display: flex;
+		}
+		.internal-links {
+			display: none;
+			position: absolute;
+			top: 100%;
+			right: 0;
+			flex-direction: column;
+			align-items: flex-start;
+			background: white;
+			box-shadow: 0 4px 12px rgba(var(--black), 10%);
+			z-index: 20;
+			min-width: 180px;
+		}
+		.internal-links.open {
+			display: flex;
+		}
+		.internal-links :global(a) {
+			padding: 0.75em 1em;
+			width: 100%;
+		}
+		.dropdown {
+			flex-direction: column;
+			align-items: flex-start;
+			width: 100%;
+		}
+		.dropdown-label {
+			padding: 0.75em 1em;
+		}
+		.submenu {
+			position: static;
+			box-shadow: none;
+			padding-left: 1em;
+		}
+		.dropdown:hover .submenu {
+			display: flex;
+		}
+	}
+</style>
+
+<script>
+	const btn = document.querySelector('.hamburger') as HTMLButtonElement;
+	const menu = document.getElementById('nav-menu');
+
+	btn?.addEventListener('click', () => {
+		const open = btn.getAttribute('aria-expanded') === 'true';
+		btn.setAttribute('aria-expanded', String(!open));
+		menu?.classList.toggle('open', !open);
+	});
+</script>
