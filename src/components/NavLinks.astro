@@ -18,17 +18,16 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 		</svg>
 	</button>
 	<div class="internal-links" id="nav-menu">
-		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/about">About</HeaderLink>
+		<HeaderLink href="/about">About Me</HeaderLink>
+		<HeaderLink href="/plugins">Plugins</HeaderLink>
 		<div class="dropdown">
-			<span class:list={['dropdown-label', { active: isRadioActive }]}>Pages</span>
+			<span class:list={['dropdown-label', { active: isRadioActive }]}>Radio UserLand</span>
 			<div class="submenu">
-				<HeaderLink href="/plugins">Plugins</HeaderLink>
 				<HeaderLink href="/radio-userland-tools">Radio UserLand Tools</HeaderLink>
 				<HeaderLink href="/radio-userland-scripts">Radio UserLand Scripts</HeaderLink>
-				<HeaderLink href="/gallery">Gallery</HeaderLink>
 			</div>
 		</div>
+		<HeaderLink href="/gallery">Gallery</HeaderLink>
 	</div>
 </div>
 
