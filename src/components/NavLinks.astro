@@ -19,17 +19,16 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 	</button>
 	<div class="internal-links" id="nav-menu">
 		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Blog</HeaderLink>
 		<HeaderLink href="/about">About</HeaderLink>
-		<HeaderLink href="/gallery">Gallery</HeaderLink>
 		<div class="dropdown">
-			<span class:list={['dropdown-label', { active: isRadioActive }]}>Radio UserLand</span>
+			<span class:list={['dropdown-label', { active: isRadioActive }]}>Pages</span>
 			<div class="submenu">
-				<HeaderLink href="/radio-userland-tools">Tools</HeaderLink>
-				<HeaderLink href="/radio-userland-scripts">Scripts</HeaderLink>
+				<HeaderLink href="/plugins">Plugins</HeaderLink>
+				<HeaderLink href="/radio-userland-tools">Radio UserLand Tools</HeaderLink>
+				<HeaderLink href="/radio-userland-scripts">Radio UserLand Scripts</HeaderLink>
+				<HeaderLink href="/gallery">Gallery</HeaderLink>
 			</div>
 		</div>
-		<HeaderLink href="/plugins">Plugins</HeaderLink>
 	</div>
 </div>
 
@@ -42,7 +41,7 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 		display: flex;
 		align-items: center;
 	}
-.dropdown {
+	.dropdown {
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -61,16 +60,19 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 		display: none;
 		position: absolute;
 		top: 100%;
-		left: 0;
+		right: 0;
 		flex-direction: column;
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 10%);
 		white-space: nowrap;
 		z-index: 10;
 	}
+	.submenu :global(a)::before {
+		content: '– ';
+	}
 	.submenu :global(a) {
 		display: block;
-		padding: 0.5em 1em;
+		padding: 0.5em 1em 0.5em 2em;
 	}
 	.dropdown:hover .submenu {
 		display: flex;
@@ -131,9 +133,6 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 		.submenu {
 			position: static;
 			box-shadow: none;
-			padding-left: 1em;
-		}
-		.dropdown:hover .submenu {
 			display: flex;
 		}
 	}
