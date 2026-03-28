@@ -1,0 +1,339 @@
+---
+/**
+ * PluginCard.astro
+ *
+ * Displays a card with plugin/repo info fetched at build time from either:
+ *   - WordPress.org Plugin Repository  (https://wordpress.org/plugins/SLUG/)
+ *   - GitHub repository                (https://github.com/OWNER/REPO)
+ *
+ * Usage in MDX or .astro files:
+ *   <PluginCard wordpress="git-updater" />
+ *   <PluginCard github="afragen/git-updater" />
+ *
+ * Optional: set GITHUB_TOKEN in .env to avoid the 60 req/hr unauthenticated limit.
+ */
+
+import wpLogo from '../assets/WordPress_blue_logo.svg?raw';
+import ghLogo from '../assets/github-logo.svg?raw';
+
+interface Props {
+	wordpress?: string;
+	github?: string;
+}
+
+const { wordpress, github } = Astro.props;
+
+// ── Types ─────────────────────────────────────────────────────────────────────
+
+type Source = 'wordpress' | 'github';
+
+type CardData = {
+	source:        Source;
+	name:          string;
+	description:   string;
+	pluginUrl:     string;
+	// WordPress-specific
+	version?:      string;
+	author?:       string;
+	authorUrl?:    string;
+	// GitHub-specific
+	language?:     string;
+	license?:      string;
+	// Shared
+	homepageUrl?:  string;
+};
+
+// ── Fetchers ──────────────────────────────────────────────────────────────────
+
+async function fetchWordPress(slug: string): Promise<CardData> {
+	const res = await fetch(
+		`https://api.wordpress.org/plugins/info/1.2/?action=plugin_information&request[slug]=${encodeURIComponent(slug)}`
+	);
+	if (!res.ok) throw new Error(`WordPress.org API returned ${res.status}`);
+	const d = await res.json();
+	if (d.error) throw new Error(`Plugin not found: "${slug}"`);
+
+	const stripHtml = (s: string) => s.replace(/<[^>]*>/g, '').trim();
+	const authorText = d.author ? stripHtml(d.author as string) : undefined;
+	const authorLink = (d.author as string | undefined)?.match(/href="([^"]+)"/)?.[1];
+
+	return {
+		source:      'wordpress',
+		name:        stripHtml(d.name ?? slug),
+		description: d.short_description ?? '',
+		pluginUrl:   `https://wordpress.org/plugins/${slug}/`,
+		version:     d.version,
+		author:      authorText,
+		authorUrl:   authorLink,
+		homepageUrl: d.homepage || undefined,
+	};
+}
+
+async function fetchGitHub(owner: string, repo: string): Promise<CardData> {
+	const headers: Record<string, string> = {
+		Accept: 'application/vnd.github.v3+json',
+	};
+	const token = import.meta.env.GITHUB_TOKEN;
+	if (token) headers['Authorization'] = `Bearer ${token}`;
+
+	const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, { headers });
+	if (!res.ok) throw new Error(`GitHub API returned ${res.status} for ${owner}/${repo}`);
+	const d = await res.json();
+
+	return {
+		source:      'github',
+		name:        d.name as string,
+		description: (d.description as string | null) ?? '',
+		pluginUrl:   d.html_url as string,
+		language:    (d.language as string | null) ?? undefined,
+		license:     (d.license as { spdx_id?: string; name?: string } | null)?.spdx_id
+		               ?? (d.license as { name?: string } | null)?.name
+		               ?? undefined,
+		author:      (d.owner as { login: string })?.login,
+		authorUrl:   (d.owner as { html_url: string })?.html_url,
+		homepageUrl: (d.homepage as string) || undefined,
+	};
+}
+
+// ── Dispatch ──────────────────────────────────────────────────────────────────
+
+let data: CardData | null = null;
+let fetchError: string | null = null;
+
+try {
+	if (wordpress) {
+		data = await fetchWordPress(wordpress.trim());
+	} else if (github) {
+		const parts = github.trim().split('/').filter(Boolean);
+		if (parts.length < 2) throw new Error(`Invalid github prop "${github}" — expected "owner/repo"`);
+		data = await fetchGitHub(parts[0], parts[1]);
+	} else {
+		throw new Error('PluginCard requires either a wordpress or github prop.');
+	}
+} catch (e) {
+	fetchError = e instanceof Error ? e.message : String(e);
+}
+
+// ── Display helpers ────────────────────────────────────────────────────────────
+
+---
+
+{fetchError ? (
+	<aside class="plugin-card plugin-card--error" role="alert">
+		<span class="error-icon">⚠</span>
+		<span>Could not load plugin info: {fetchError}</span>
+	</aside>
+) : data ? (
+	<article class="plugin-card">
+		<!-- Header ─────────────────────────────────────────── -->
+		<header class="pc-header">
+			<div class="pc-title-row">
+				<span class={`pc-badge pc-badge--${data.source}`}>
+					{data.source === 'wordpress' ? (
+						<Fragment set:html={wpLogo} />
+					) : (
+						<Fragment set:html={ghLogo} />
+					)}
+				</span>
+				<h3 class="pc-name">
+					<a href={data.pluginUrl} target="_blank" rel="noopener noreferrer">
+						{data.source === 'github' && data.author ? (
+							<span class="pc-gh-name">
+								<span class="pc-gh-owner">{data.author}/</span>
+								<span>{data.name}</span>
+							</span>
+						) : data.name}
+					</a>
+				</h3>
+			</div>
+			<div class="pc-meta-chips">
+				{data.version && (
+					<span class="pc-chip">v{data.version}</span>
+				)}
+				{data.language && (
+					<span class="pc-chip">{data.language}</span>
+				)}
+				{data.license && (
+					<span class="pc-chip">{data.license}</span>
+				)}
+			</div>
+		</header>
+
+		<!-- Description ─────────────────────────────────────── -->
+		{data.description && (
+			<p class="pc-description">{data.description}</p>
+		)}
+
+		<!-- Footer ──────────────────────────────────────────── -->
+		<footer class="pc-footer">
+			<span class="pc-footer-meta">
+				{data.author && (
+					<>
+						{data.authorUrl
+							? <a href={data.authorUrl} target="_blank" rel="noopener noreferrer">{data.author}</a>
+							: <span>{data.author}</span>
+						}
+					</>
+				)}
+				</span>
+			<a class="pc-cta" href={data.pluginUrl} target="_blank" rel="noopener noreferrer">
+				View {data.source === 'wordpress' ? 'Plugin' : 'Repo'} →
+			</a>
+		</footer>
+	</article>
+) : null}
+
+<style>
+	.plugin-card {
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 12px;
+		padding: 1.25rem 1.5rem;
+		margin: 1.5rem 0;
+		background: #fff;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+		font-size: 0.95rem;
+	}
+
+	.plugin-card--error {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		color: #b00020;
+		background: #fff5f5;
+		border-color: #f5c2c7;
+		padding: 0.9rem 1.2rem;
+		border-radius: 8px;
+		font-size: 0.9rem;
+	}
+	.error-icon { font-size: 1.1rem; }
+
+	/* Header */
+	.pc-header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 0.75rem;
+	}
+	.pc-title-row {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		flex: 1;
+		min-width: 0;
+	}
+	.pc-badge {
+		flex-shrink: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 1;
+	}
+	.pc-badge :global(svg) {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+	.pc-name {
+		margin: 0;
+		font-size: 1.1rem;
+		font-weight: 700;
+		line-height: 1.3;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.pc-name a {
+		color: rgb(var(--black));
+		text-decoration: none;
+	}
+	.pc-name a:hover {
+		text-decoration: underline;
+	}
+	.pc-gh-name {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.2;
+	}
+	.pc-gh-owner {
+		color: rgb(var(--black));
+	}
+	.pc-meta-chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+		flex-shrink: 0;
+	}
+	.pc-chip {
+		display: inline-block;
+		padding: 0.15rem 0.55rem;
+		border-radius: 999px;
+		background: rgb(var(--gray-light));
+		color: rgb(var(--gray-dark));
+		font-size: 0.75rem;
+		font-weight: 600;
+	}
+
+	/* Description */
+	.pc-description {
+		margin: 0 0 0.9rem;
+		color: rgb(var(--gray));
+		line-height: 1.55;
+		font-size: 0.9rem;
+	}
+
+	/* Footer */
+	.pc-footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		padding-top: 0.85rem;
+		border-top: 1px solid rgb(var(--gray-light));
+		font-size: 0.82rem;
+		color: rgb(var(--gray));
+	}
+	.pc-footer-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+	.pc-footer-meta a {
+		color: rgb(var(--gray));
+		text-decoration: none;
+	}
+	.pc-footer-meta a:hover {
+		color: var(--accent-dark);
+	}
+	.pc-sep {
+		opacity: 0.5;
+	}
+	.pc-cta {
+		display: inline-block;
+		padding: 0.3rem 0.85rem;
+		border-radius: 999px;
+		background: var(--accent-dark);
+		color: #fff;
+		font-size: 0.8rem;
+		font-weight: 600;
+		text-decoration: none;
+		transition: opacity 0.15s ease;
+		white-space: nowrap;
+	}
+	.pc-cta:hover {
+		opacity: 0.85;
+	}
+
+	@media (max-width: 480px) {
+		.plugin-card {
+			padding: 1rem;
+		}
+		.pc-header {
+			flex-direction: column;
+		}
+		.pc-name {
+			white-space: normal;
+		}
+	}
+</style>

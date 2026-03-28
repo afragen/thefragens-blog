@@ -1,0 +1,42 @@
+---
+// Wraps PluginCard components in a responsive 3-column flex grid.
+// Usage in MDX:
+//   <PluginGrid>
+//     <PluginCard wordpress="my-plugin" />
+//     <PluginCard github="owner/repo" />
+//   </PluginGrid>
+---
+
+<div class="plugin-grid">
+	<slot />
+</div>
+
+<style>
+	.plugin-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin: 1.5rem 0;
+	}
+
+	/* Target PluginCard's root element via :global since Astro scopes the card's own styles */
+	.plugin-grid :global(.plugin-card) {
+		flex: 1 1 calc(33.333% - 0.667rem);
+		min-width: 0;
+		margin: 0;
+	}
+
+	/* 2 columns on tablet */
+	@media (max-width: 720px) {
+		.plugin-grid :global(.plugin-card) {
+			flex-basis: calc(50% - 0.5rem);
+		}
+	}
+
+	/* 1 column on mobile */
+	@media (max-width: 480px) {
+		.plugin-grid :global(.plugin-card) {
+			flex-basis: 100%;
+		}
+	}
+</style>
