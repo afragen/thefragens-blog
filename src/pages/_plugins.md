@@ -1,6 +1,6 @@
 ---
 title: "Plugins"
-date: 2013-08-04
+pubDate: 2013-08-04
 ---
 
 Below is a collection of my plugins that live on WordPress.org. I have many others that live in [GitHub](https://github.com/afragen/).
