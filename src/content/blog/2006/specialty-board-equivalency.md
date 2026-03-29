@@ -2,7 +2,7 @@
 title: 'Specialty Board Equivalency'
 pubDate: '2006-09-22'
 description: 'A California Superior Court ordered the Medical Board to grant the American Board of Cosmetic Surgery specialty board equivalency after it met all 19 regulatory requirements, a win that lets cosmetic surgeons advertise board certification and raises questions about future turf disputes with plastic surgeons.'
-categories: ['uncategorized']
+categories: ['medicine']
 ---
 
 This is a huge win for the [American Board of Cosmetic Surgery (ABCS)][abcs]. It means that according to the State of California the ABCS has equivalent standing as any other specialty board like say the American Board of Plastic Surgery. It makes me wonder whether or not ABCS will sue the State to disallow boarded Plastic Surgeons from saying they are board-certified in Cosmetic Surgery? 

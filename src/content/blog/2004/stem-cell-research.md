@@ -2,7 +2,7 @@
 title: 'Stem Cell Research'
 pubDate: '2004-11-04'
 description: 'California voters approved a $3 billion bond measure for stem cell research despite the state deficit, prompting the argument that nationally beneficial medical research should be funded federally or through private money rather than state bonds.'
-categories: ['uncategorized']
+categories: ['medicine']
 ---
 
 Californians voted overwhelmingly to approve [Prop. 71][http://www.curesforcalifornia.com/]. Prop 71 was a $3 billion bond measure to fund stem cell research. 

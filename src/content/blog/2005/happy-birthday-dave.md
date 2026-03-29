@@ -5,4 +5,4 @@ description: 'A short belated birthday message to Dave Winer on his 50th birthda
 categories: ['uncategorized']
 ---
 
-Happy (belated) 50th [Dave][1]. I sincerely want to thank you for letting me be a beta tester of Pike all those years ago. [1]: http://www.scripting.com
+Happy (belated) 50th [Dave](http://www.scripting.com). I sincerely want to thank you for letting me be a beta tester of Pike all those years ago.

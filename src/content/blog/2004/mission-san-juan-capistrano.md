@@ -2,7 +2,7 @@
 title: 'Mission San Juan Capistrano'
 pubDate: '2004-10-12'
 description: 'A family visit to Mission San Juan Capistrano, prompted by a fourth-grade school project, proves well worth the trip, with a tip to arrive at opening time to beat the crowds and get better photos.'
-categories: ['uncategorized']
+categories: ['family']
 ---
 
 My son is a 4th grader. In California that means that they are studying the Missions of California. I don't know when this started -- I didn't study California Missions when I was in the 4th grade here. 

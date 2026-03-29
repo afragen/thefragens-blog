@@ -21,4 +21,4 @@ sudo amavisd-release %clipboard ; sudo amavisd-release %clipboard "" notjunkmail
 sudo mkdir /var/amavis/home; sudo ln -s /var/amavis/amavisd.sock /var/amavis/home
 ``` 
 
-Now, using only the command line and a mail app, I can check on quarantined email and release it. All this just so I can make sure that I can do this task from an iPhone or iPad. ;-) FWIW, I have [amavis-blocked (by Uwe S. Fuerst) a log file parser for amavisd-new 2.x, written in Perl](http://www.phi.net/amavis-blocked.tar.gz) set up to send me logs each night at 23:59. That's where I get the `mail-file` from.
+Now, using only the command line and a mail app, I can check on quarantined email and release it. All this just so I can make sure that I can do this task from an iPhone or iPad. 😉 FWIW, I have [amavis-blocked (by Uwe S. Fuerst) a log file parser for amavisd-new 2.x, written in Perl](http://www.phi.net/amavis-blocked.tar.gz) set up to send me logs each night at 23:59. That's where I get the `mail-file` from.

@@ -2,7 +2,7 @@
 title: 'Interesting Precedent'
 pubDate: '2005-04-18'
 description: 'Responding to Aggravated DocSurg, the author argues that the FDA advisory panel overstepped its mandate by restricting silicone implant sales to board-certified plastic surgeons only, since credentialing is a hospital responsibility, and predicts the FDA will have to back down.'
-categories: ['uncategorized']
+categories: ['medicine']
 ---
 
 [Aggravated DocSurg](http://docsurg.blogspot.com/2005/04/interesting-precedent.html) 
@@ -22,6 +22,6 @@ categories: ['uncategorized']
 
 > Either the FDA is giving the board certification process additional clout (which may be good), or it will have to back down. 
 
-Aggravated DocSurg is making an interesting point. I, too, believe in the board certification process. As such I am certified by the [American Board of Surgery][abs] and have recently sat for the [American Board of Cosmetic Surgery][abcs] examinations. 
+Aggravated DocSurg is making an interesting point. I, too, believe in the board certification process. As such I am certified by the [American Board of Surgery](http://www.absurgery.org/) and have recently sat for the [American Board of Cosmetic Surgery](http://americanboardcosmeticsurgery.org/) examinations. 
 
-However, I think the FDA is overstepping it's bounds by requiring specific board certification. To the best of my knowledge there isn't any other medical device that contains such a restriction. These restrictions are put in place by hospitals through their credentialing process. I think the FDA will have to back down. Time will tell. We still don't know how the FDA as a whole will vote on this matter. [abs]: http://www.absurgery.org/ [abcs]: http://americanboardcosmeticsurgery.org/
+However, I think the FDA is overstepping it's bounds by requiring specific board certification. To the best of my knowledge there isn't any other medical device that contains such a restriction. These restrictions are put in place by hospitals through their credentialing process. I think the FDA will have to back down. Time will tell. We still don't know how the FDA as a whole will vote on this matter.

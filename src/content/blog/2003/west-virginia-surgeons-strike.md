@@ -2,7 +2,7 @@
 title: 'West Virginia Surgeon''s strike'
 pubDate: '2003-01-03'
 description: 'West Virginia surgeons took coordinated leaves of absence from hospital practice to protest malpractice insurance rates exceeding $100,000 per year, and this post explains the mechanics of their action and why it does not constitute patient abandonment.'
-categories: ['uncategorized']
+categories: ['medicine']
 ---
 
 It's about time that the medical community banded together to show everyone how they are being screwed by the malpractice insurance industry. These guys are paying over $100,000 per year in medical malpractice insurance and it's a crime. 

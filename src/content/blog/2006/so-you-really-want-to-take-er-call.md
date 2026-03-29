@@ -2,7 +2,7 @@
 title: 'So you really want to take ER call?'
 pubDate: '2006-03-09'
 description: 'A reaction to a BBC report about a surgeon held responsible for the death of a self-stabbing patient, arguing that removing a penetrating chest object is inherently risky and that personal responsibility should fall on the patient, not the surgeon.'
-categories: ['uncategorized']
+categories: ['medicine']
 ---
 
 [Surgeon held over patient's death](http://news.bbc.co.uk/1/hi/england/tyne/4789160.stm) from the BBC. So let me get this straight. Some guy stabs himself in the chest and later dies and they want to blame the surgeon? 

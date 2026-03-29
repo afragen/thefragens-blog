@@ -2,7 +2,7 @@
 title: 'Bargaining with HMOs'
 pubDate: '2005-03-26'
 description: 'Responding to a surgeon colleague facing an unacceptable HMO contract, the post argues that relentlessly declining physician reimbursement will turn most doctors into salaried employees, threatening professional drive and innovation, and predicts a major US healthcare collapse before things improve.'
-categories: ['uncategorized']
+categories: ['medicine']
 ---
 
 [Aggravated DocSurg](http://docsurg.blogspot.com/2005/03/bargaining-with-hmos.html) 
@@ -25,8 +25,6 @@ Unfortunately, I anticipate the last choice will become the most prevalent one. 
 
 In short, physicians will cease to be small businessmen and women. When that happens, it will soon follow that they will cease to care or have any sort of feeling of responsibility towards making significant advances to their career. Longevity will be what is rewarded. Just punching a clock. I'm sorry to say that I pity the future of health care in the United States. It will undergo a huge collapse before it gets better. It will get better, because fundamentally, those with the means believe they can pay for privilege. 
 
-If the physician-employee doesn't gain from this then it's not likely to happen. For it to happen, people will have to start paying physicians directly for their services and not abstracted via third parties. **When the public starts to understand that just because they have health insurance; it doesn't mean that it pays for all of the costs of their health care.** If fact, [Aggravated DocSurg's][1] problem is more universal as Medicare continues to decrease physician reimbursement and most PPO's base reimbursement as a percentage of Medicare. 
+If the physician-employee doesn't gain from this then it's not likely to happen. For it to happen, people will have to start paying physicians directly for their services and not abstracted via third parties. **When the public starts to understand that just because they have health insurance; it doesn't mean that it pays for all of the costs of their health care.** If fact, [Aggravated DocSurg's](http://docsurg.blogspot.com/) problem is more universal as Medicare continues to decrease physician reimbursement and most PPO's base reimbursement as a percentage of Medicare.
 
-It's not just HMOs. In Southern California, I don't have a single general surgical CPT code for any third party payor, except Workman's Comp, that pays better than Medicare. Me, I chose [option 4][2]. 
-
-[1]: http://docsurg.blogspot.com/ [2]: http://fragensurgery.com/
+It's not just HMOs. In Southern California, I don't have a single general surgical CPT code for any third party payor, except Workman's Comp, that pays better than Medicare. Me, I chose [option 4](http://fragensurgery.com/).

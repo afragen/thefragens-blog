@@ -15,7 +15,7 @@ In the Settings, this can result in a slight cosmetic difference as the APIs are
 
 In case I haven’t mentioned it before, GitHub Updater also works with WP-CLI and can be used with a webhook for a _continuous integration_ type of updating.
 
-There’s already been a bump to version 8.1.1. The new feature is automatic renaming of the GitHub Updater plugin upon activation. If the plugin is renamed the activation fails as the _activated_ plugin no longer exists. It has been renamed. ;)
+There’s already been a bump to version 8.1.1. The new feature is automatic renaming of the GitHub Updater plugin upon activation. If the plugin is renamed the activation fails as the _activated_ plugin no longer exists. It has been renamed. 😉
 
 As always, the best source of current information about GitHub Updater is the [wiki](https://github.com/afragen/github-updater/wiki).
 

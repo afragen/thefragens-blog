@@ -17,4 +17,4 @@ The zip file contains the shell script, the modified Mail.scpt AppleScript, and 
 
 If you don't like messing with the CLI then there's a great little shareware app, [iCal Reply Checker](http://www.nhoj.co.uk/icalreplychecker/) that does it all, and more. It seems that neither method interferes with the code signing of iCal as the script in question is not code signed. 
 
-**Update** It appears that if you're using an Exchange account in Mail.app that this script is being bypassed and this hint won't work for you. :-(
+**Update** It appears that if you're using an Exchange account in Mail.app that this script is being bypassed and this hint won't work for you. 😞

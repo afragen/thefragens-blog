@@ -2,7 +2,7 @@
 title: 'Off to the Islands'
 pubDate: '2003-08-12'
 description: 'Vacation is finally here, and the greatest anticipation is reuniting with a wife and kids who have been away for nearly five weeks.'
-categories: ['uncategorized']
+categories: ['family']
 ---
 
 Well, it's actually time for a vacation again. The best part is being able to see my wife and kids. They've been on vacation for almost 5 weeks. Unfortunately that has been 5 weeks away from me. I miss them...but not for long.
