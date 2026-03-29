@@ -149,7 +149,7 @@ figure figcaption {
 	color: rgb(var(--gray));
 	text-align: center;
 }
-@media (max-width: 720px) {
+@media (max-width: 720px), (max-height: 500px) and (orientation: landscape) {
 	body {
 		font-size: 18px;
 	}
