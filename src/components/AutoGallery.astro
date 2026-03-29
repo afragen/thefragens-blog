@@ -1,0 +1,45 @@
+---
+/**
+ * AutoGallery.astro
+ *
+ * Drop-in replacement for <Gallery> inside MDX blog posts.
+ * Uses a broad static glob to collect every blog post's images at build time,
+ * then narrows to the current post at runtime via Astro.url.pathname — so
+ * the MDX file needs zero imports and zero export statements.
+ *
+ * Usage in any blog MDX post (no imports needed when passed via components):
+ *   <Gallery title="Photos" columns={3} />
+ *
+ * Wire it up once in [...slug].astro:
+ *   import AutoGallery from '../../components/AutoGallery.astro'
+ *   <Content components={{ Gallery: AutoGallery }} />
+ */
+
+import type { ImageMetadata } from 'astro'
+import Gallery from './Gallery.astro'
+
+interface Props {
+  title?: string
+  columns?: number
+}
+
+const { title, columns } = Astro.props
+
+// Vite resolves this static glob at build time, collecting every image across
+// all blog posts. Filtering to the current post happens at runtime below.
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '../content/blog/**/images/*.{jpg,jpeg,png,gif,webp,avif,svg}',
+  { eager: true }
+)
+
+// URL: /blog/2025/pressconf-2025-in-pictures  →  postId: 2025/pressconf-2025-in-pictures
+const postId = Astro.url.pathname
+  .replace(/^\/blog\//, '')
+  .replace(/\/+$/, '')
+
+const images = Object.entries(allImages)
+  .filter(([path]) => path.includes(`/blog/${postId}/images/`))
+  .map(([, mod]) => mod.default)
+---
+
+<Gallery {images} {title} {columns} />
