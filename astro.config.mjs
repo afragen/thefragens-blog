@@ -70,6 +70,11 @@ function remarkAutoGallery() {
 export default defineConfig({
 	site: 'https://thefragens.com',
 	integrations: [mdx({ remarkPlugins: [remarkAutoGallery] }), sitemap(), pagefind()],
+	markdown: {
+		shikiConfig: {
+			theme: 'github-light',
+		},
+	},
 	vite: {
 		resolve: {
 			alias: {
