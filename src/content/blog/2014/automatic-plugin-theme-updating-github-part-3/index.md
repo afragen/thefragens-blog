@@ -1,7 +1,7 @@
 ---
 title: 'Automatic Plugin & Theme Updating From GitHub – Part 3'
 pubDate: '2014-12-16'
-categories: ['code', 'git-updater', 'wordpress']
+categories: ['code', 'git-updater']
 heroImage: './images/images.jpeg'
 description: 'Recent improvements to GitHub Updater include privileged-user-only execution, spl_autoload_register for class loading, Parsedown for changelog rendering, a new Settings Page for storing credentials outside the repository, and a fix for a long-standing bug preventing Bitbucket private repository updates.'
 ---

@@ -1,7 +1,7 @@
 ---
 title: 'Looking for a Logo'
 pubDate: '2015-02-27'
-categories: ['git-updater', 'life-unscripted', 'wordpress']
+categories: ['git-updater']
 heroImage: './images/GitHub_Updater_logo_concept.png'
 description: 'A WordCamp sponsorship request prompted the search for an official logo for GitHub Updater, leading to a hand-drawn concept sketch and the start of work with a professional logo designer.'
 ---

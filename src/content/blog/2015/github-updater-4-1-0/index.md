@@ -1,7 +1,7 @@
 ---
 title: 'GitHub Updater 4.1.0'
 pubDate: '2015-02-14'
-categories: ['code', 'git-updater', 'wordpress']
+categories: ['code', 'git-updater']
 description: 'The v4.1.0 release delivers community bug fixes and a new remote install feature that eliminates the manual download-rename-upload workflow for GitHub and Bitbucket plugins and themes.'
 ---
 

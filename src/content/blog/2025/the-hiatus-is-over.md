@@ -1,7 +1,7 @@
 ---
 title: 'The Hiatus is Over'
 pubDate: '2025-06-10'
-categories: ['code', 'git-updater', 'wordpress']
+categories: ['code', 'git-updater']
 description: 'The author announces a return to the WordPress ecosystem after a hiatus, focusing on the FAIR Package Manager project -- a decentralized and federated plugin and theme distribution system built on the ATProto protocol that reached MVP and launched at the Alt Ctrl Org Conference during WCEU 2025 in Basel.'
 ---
 

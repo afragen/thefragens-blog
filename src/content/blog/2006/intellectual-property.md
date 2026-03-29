@@ -2,7 +2,7 @@
 title: 'Intellectual Property'
 pubDate: '2006-01-17'
 description: 'A surgeon and independent contractor recounts a dispute with his former employer over ownership of a domain and website he built unpaid on his own initiative, revealing at the end that the former employer is his father.'
-categories: ['uncategorized']
+categories: ['life-unscripted']
 ---
 
 There are many companies that when you work for them part of the all your thoughts, ideas, and inventions are the property of the company. I have to believe that the *employees* of these companies have signed employment agreements and are fully aware of these clauses. 

@@ -1,7 +1,7 @@
 ---
 title: 'Git Remote Updater, the Personal Remote Management System'
 pubDate: '2020-02-03'
-categories: ['code', 'git-updater', 'wordpress']
+categories: ['code', 'git-updater']
 description: 'Git Remote Updater is a WordPress plugin that serves as a personal remote management system, letting developers push Git Updater-managed plugin and theme updates to multiple sites with a single click via REST API webhooks, organized either by repository or by site.'
 ---
 

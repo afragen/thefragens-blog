@@ -1,7 +1,7 @@
 ---
 title: 'GitHub Updater and Remote Installation'
 pubDate: '2015-02-09'
-categories: ['code', 'git-updater', 'wordpress']
+categories: ['code', 'git-updater']
 heroImage: './images/Unknown.jpeg'
 description: 'The v4.0.0 release introduces namespacing and PSR-4 autoloading, and the upcoming v4.1.0 adds one-click remote installation of plugins and themes from public and private GitHub and Bitbucket repositories using the WordPress upgrader classes.'
 ---

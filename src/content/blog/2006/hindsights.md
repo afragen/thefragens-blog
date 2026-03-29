@@ -2,7 +2,7 @@
 title: 'Hindsights'
 pubDate: '2006-01-13'
 description: 'Guy Kawasaki commencement speech highlights are shared as a top-ten countdown of life lessons, ranging from cherishing family and obeying absolutes to pursuing joy rather than mere happiness.'
-categories: ['uncategorized']
+categories: ['life-unscripted']
 ---
 
 [Guy Kawasaki][1] has written a wonderful speech that he gives for commencements. He has reproduced it [here][2]. Here are the highlights. Guy has it in David Letterman count-down style but I can't make an ordered list do that. 

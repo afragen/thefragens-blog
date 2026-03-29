@@ -2,7 +2,7 @@
 title: 'Flipping the switch'
 pubDate: '2005-12-30'
 description: 'An announcement that the blog has been quietly switched from Radio UserLand to Squib, a Ruby on Rails replacement, with an invitation for tech-savvy Radio users frustrated with that platform to ask about the alternative.'
-categories: ['uncategorized']
+categories: ['life-unscripted']
 ---
 
 Well if you're reading this at radio.weblogs.com them you've probably realized that I've flipped the switch. Well, maybe you haven't. Other than a small change to the layout and no calendar you shouldn't notice any real changes. I guess that's the whole point. 

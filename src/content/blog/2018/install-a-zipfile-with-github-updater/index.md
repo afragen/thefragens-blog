@@ -1,7 +1,7 @@
 ---
 title: 'Install a Zipfile with GitHub Updater'
 pubDate: '2018-09-28'
-categories: ['code', 'git-updater', 'wordpress']
+categories: ['code', 'git-updater']
 heroImage: './images/zip-archive-mac-os-x.jpg'
 description: 'GitHub Updater gained the ability to install plugins and themes directly from a local zipfile path or remote URI, treating the zipfile as just another git host type in the Remote Install workflow to solve build-process dependency issues.'
 ---

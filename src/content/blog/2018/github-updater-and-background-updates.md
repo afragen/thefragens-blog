@@ -1,7 +1,7 @@
 ---
 title: 'GitHub Updater and Background Updates'
 pubDate: '2018-06-18'
-categories: ['git-updater', 'wordpress']
+categories: ['git-updater']
 description: 'GitHub Updater now offloads its remote API calls to WP-Cron so update data is fetched in the background, dramatically reducing dashboard wait times while providing status indicators so users know processing is still in progress.'
 ---
 

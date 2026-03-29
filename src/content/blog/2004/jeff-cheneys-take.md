@@ -2,7 +2,7 @@
 title: 'Jeff Cheney''s take'
 pubDate: '2004-10-31'
 description: 'A reflection on a civil email debate with a friend about 2004 election issues, along with frustration at bloggers who parrot political talking points without independent thought.'
-categories: ['uncategorized']
+categories: ['life-unscripted']
 ---
 
 Jeff is someone I consider a friend. When I made my last post about Kerry's discharge he emailed me. We've been carrying on a rather lengthy discussion of the issues. All without the usual ad hominem attacks on either candidate. It's refreshing. Perhaps we'll find a way to publish it, but then to what real point. We both understand where we're coming from and I'm not sure that (YAPBP) Yet Another Political Blog Post is worth cluttering up Google. I'll actually be very happy when all this is over. 

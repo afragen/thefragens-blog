@@ -1,7 +1,7 @@
 ---
 title: 'GitHub Updater and Gitea'
 pubDate: '2018-07-25'
-categories: ['code', 'git-updater', 'wordpress']
+categories: ['code', 'git-updater']
 heroImage: './images/gitea_logo.png'
 description: 'GitHub Updater gained support for Gitea, a lightweight self-hosted Go-based git server, through a collaborative pull request with community contributor Marco Berchart, with the integration being the simplest to add yet thanks to the Gitea API closely mirroring the GitHub API.'
 ---

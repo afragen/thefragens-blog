@@ -1,7 +1,7 @@
 ---
 title: 'Private Bitbucket Repositories'
 pubDate: '2014-12-20'
-categories: ['code', 'git-updater', 'wordpress']
+categories: ['code', 'git-updater']
 heroImage: './images/images1.jpeg'
 description: 'An update to GitHub Updater reorganizes the Settings page so clients enter their own Bitbucket credentials, improving security by letting developers add clients as read-only users without exposing the developer password.'
 ---

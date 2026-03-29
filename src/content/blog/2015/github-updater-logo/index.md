@@ -1,7 +1,7 @@
 ---
 title: 'GitHub Updater Logo'
 pubDate: '2015-03-04'
-categories: ['git-updater', 'wordpress']
+categories: ['git-updater']
 heroImage: './images/GitHub_Updater_logo-e1425494828563.png'
 description: 'A hand-drawn concept sketch submitted to LogoMajestic resulted in a professional logo for GitHub Updater that matched the original vision on the very first pass.'
 ---

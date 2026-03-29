@@ -1,7 +1,7 @@
 ---
 title: 'Update API Server'
 pubDate: '2025-01-01'
-categories: ['git-updater', 'wordpress']
+categories: ['git-updater']
 description: 'This post clarifies that Git Updater functions as an Update API Server rather than a direct update server since actual plugin and theme files are served from the git host, and describes virtual integration via the Additions tab along with a cache-flush REST endpoint for use with GitHub webhooks.'
 ---
 

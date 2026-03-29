@@ -1,7 +1,7 @@
 ---
 title: 'Happy Birthday Alan!'
 pubDate: '2009-12-29'
-categories: ['life-unscripted']
+categories: ['family']
 description: 'A short birthday greeting sent to a friend, wishing him a great day on the golf course and looking forward to seeing him in a few weeks.'
 ---
 

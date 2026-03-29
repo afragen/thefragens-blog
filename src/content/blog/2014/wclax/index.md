@@ -1,7 +1,7 @@
 ---
 title: 'WCLAX'
 pubDate: '2014-08-09'
-categories: ['life-unscripted', 'wordpress']
+categories: ['wordpress', 'conference']
 description: 'A short announcement about attending WordCamp LAX, with plans to bring a daughter along and hopes she enjoys it as much as her brother did.'
 ---
 

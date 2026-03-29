@@ -1,7 +1,7 @@
 ---
 title: 'Git Updater Lite'
 pubDate: '2024-12-01'
-categories: ['code', 'git-updater', 'wordpress']
+categories: ['code', 'git-updater']
 heroImage: './images/GitUpdaterLite_Logo-Original-Horiz-1-scaled.png'
 description: 'Git Updater Lite is a lightweight composer library that lets WordPress plugin and theme developers distribute updates outside of wp.org by pairing with a Git Updater-based Update API Server, offloading data-gathering to the server and keeping the embedded updater minimal.'
 ---

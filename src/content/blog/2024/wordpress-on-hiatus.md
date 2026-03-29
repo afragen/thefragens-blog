@@ -1,7 +1,7 @@
 ---
 title: 'WordPress on Hiatus'
 pubDate: '2024-10-26'
-categories: ['life-unscripted', 'wordpress']
+categories: ['life-unscripted']
 description: 'A long-time WordPress Core contributor explains pausing his contributions after Matt Mullenweg added a politically charged login checkbox to WordPress.org that he cannot in good conscience check, while reflecting on nearly a decade of Core contributions and expressing hope the community can heal.'
 ---
 
