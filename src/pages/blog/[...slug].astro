@@ -1,7 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
-import AutoGallery from '../../components/AutoGallery.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -17,5 +16,5 @@ const { Content } = await render(post);
 ---
 
 <BlogPost {...post.data}>
-	<Content components={{ Gallery: AutoGallery }} />
+	<Content />
 </BlogPost>
