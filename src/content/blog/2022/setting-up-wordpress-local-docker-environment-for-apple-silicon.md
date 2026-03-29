@@ -41,11 +41,11 @@ Don't forget to save any new path commands into **.zshrc** so the terminal sessi
 15. Clone the GitHub repository with the **wordpress-develop** environment.
      - Open a terminal session
      
-     - `cd ~`
-     
-     - `git clone https://github.com/WordPress/wordpress-develop.git`
-     
-     - `cd ./wordpress-develop`
+     ```bash
+     cd ~
+     git clone https://github.com/WordPress/wordpress-develop.git
+     cd ./wordpress-develop
+     ```
 
 17. Open the Docker app in your computer and ignore the welcome screen that tells you to create a container
 
@@ -54,19 +54,21 @@ Don't forget to save any new path commands into **.zshrc** so the terminal sessi
 21. Install `custom-php-config.ini` using `curl -o ../custom-php-config.ini https://gist.githubusercontent.com/afragen/a10d0475b71bfb79745df52ed3300924/raw/custom-php-config.ini`
 
 23. Now type these commands in the terminal
-     - `npm install`
-     
-     - `npm run build:dev`
-     
-     - `npm run env:start`
-     
-     - `npm run env:install`
+
+     ```bash
+     npm install
+     npm run build:dev
+     npm run env:start
+     npm run env:install
+     ```
 
 25. You should be able to access the development version of WordPress at [localhost:8889](http://localhost:8889/). You can access it with username **admin** and password **password**
 
 27. Additional commands  
-     - `npm run env:stop`  
-     - `npm run env:reset`
+     ```js
+     npm run env:stop
+     npm run env:reset
+     ```
 
 ## Shortcuts
 
