@@ -6,4 +6,6 @@ description: ''
 draft: true
 ---
 
-OMFG! 🤯
+OMFG! :exploding_head:
+
+If you can read this my WordPress blog is now a static site made with Astro and Claude. I can't forget Claude. :wink:

@@ -27,7 +27,7 @@ I have contributed to almost every Core release in the past 9 years. Some of tho
 
 - The Plugin Dependencies feature (with Colin Stewart).
 
-- The Rollback feature in 3 parts (also with Colin Stewart and Paul Biron). I know you're sensing a pattern here. 😉
+- The Rollback feature in 3 parts (also with Colin Stewart and Paul Biron). I know you're sensing a pattern here. :wink:
 
 - I am the primary maintainer and developer of the WordPress Beta Tester plugin, among many other plugins.
 
