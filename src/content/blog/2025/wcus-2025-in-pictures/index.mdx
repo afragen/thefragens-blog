@@ -2,7 +2,7 @@
 layout: ../../../../layouts/GalleryLayout.astro
 title: 'WCUS 2025 in Pictures'
 pubDate: '2025-08-30'
-categories: ['wordpress']
+categories: ['wordpress', 'photos', 'conferences']
 description: 'A photo gallery from WordCamp US 2025, shot almost entirely in monochrome on a rangefinder camera, with generous crops on some images.'
 ---
 
@@ -10,7 +10,7 @@ import Gallery from '../../../../components/Gallery.astro'
 
 export const imageModules = import.meta.glob('./images/*.{jpg,jpeg,png,gif,webp,avif,svg}', { eager: true })
 export const images = Object.values(imageModules).map(m => m.default)
- 
+
 Yes, with a single exception all the images are monochrome. If the image is much smaller it's because of a generous crop. Yes, some images may be slightly blurry. I'm still getting used to focusing on a rangefinder. I hope everyone enjoys the pics.
 
 Sorry, there is no alt text.
