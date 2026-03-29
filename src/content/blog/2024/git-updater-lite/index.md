@@ -58,7 +58,7 @@ The REST API endpoint returns a JSON response that provides all the information 
 
 - Add the following lines to your main plugin file or theme's functions.php
 
-```
+```php
 require_once __DIR__ . '/vendor/afragen/git-updater-lite/Lite.php';
 ( new Fragen\Git_Updater\Lite( __FILE__ ) )->run();
 ```

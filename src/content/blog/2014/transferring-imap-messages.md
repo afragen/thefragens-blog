@@ -7,7 +7,7 @@ description: 'The final phase of migrating to Dreamhost involved using imapsync 
 
 Well I'm on to my final phase in transferring from my own server to @DreamHost. Actually, transferring mail and not loosing messages jacked up my anxiety level significantly. I've done a lot of testing and found that [imapsync](http://imapsync.lamiral.info) works great. After tweaking the command, I came up with the following. 
 
-```
+```perl
 perl imapsync --host1 localhost --user1 myserveruser --password1 MASKED --host2 x.x.x.x --user2 user@dreamhostdomain.com --password2 MASKED --authmech2 PLAIN --authmech1 CRAM-MD5 --usecache --delete2 --expunge2 --delete2folders --pidfilelocking
 ``` 
 

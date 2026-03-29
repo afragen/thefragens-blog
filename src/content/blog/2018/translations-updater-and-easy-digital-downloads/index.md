@@ -16,7 +16,7 @@ This array is contains data regarding the specific plugin or theme that uses EDD
 
 The additional array elements are a designation to where the translations repository is hosted, GitHub, Bitbucket, GitLab, or Gitea, and the URI to the repository.
 
-```
+```php
 ‘git’ => ‘bitbucket’,
 ‘languages’ => ‘https://bitbucket.org/afragen/test-language-pack,
 ```

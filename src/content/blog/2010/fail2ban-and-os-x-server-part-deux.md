@@ -13,7 +13,7 @@ As I've written before, I've found the [Fail2ban](http://www.fail2ban.org/wiki/i
 
 Here's how to install them for yourself. [Download](http://pub.thefragens.com/install_fail2ban_mods.tar.gz) the modifications tarbell. Then you'll need to issue the following commands from Terminal.
 
-```
+```bash
 sudo tar xzf install_fail2ban_mods.tar.gz
 ```
 

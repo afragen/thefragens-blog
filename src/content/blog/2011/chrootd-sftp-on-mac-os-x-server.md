@@ -10,7 +10,7 @@ So here you are finding that you need to grant someone else SFTP access to your 
 First, you should create the new user in Workgroup Admin and either assign them access privileges for SSH via Server Admin or assign them to a group that has SSH access privileges. Further discussion is below.  
 From the Terminal, start off right.  
 
-```
+```bash
 sudo cp /etc/sshd_config /etc/sshd_config.bkup
 sudo chown root /
 sudo chmod 755 /
@@ -22,7 +22,7 @@ sudo chmod -R 755 /chroot
 
 Every additional new user added will then be something along the lines of the following.  
 
-```
+```bash
 sudo mkdir -p /chroot/user2/scratchpad
 sudo chown root /chroot/user2
 sudo chown user2 /chroot/user2/scratchpad
@@ -47,7 +47,7 @@ Every folder in the path to the chroot jail must be owned by `root`. I don't thi
 
 Now to edit `/etc/sshd_config` to the following.  
 
-```
+```bash
 #Subsystem sftp /usr/libexec/sftp-server
 Subsystem sftp internal-sftp
 Match User user
@@ -60,7 +60,7 @@ ChrootDirectory /chroot/user
 This creates a chroot jail. When the user logs in will drop them into the folder `/chroot/user`, in that folder is a folder they can add things to `/chroot/user/scratchpad`.  
 If you want to create a Group in Workgroup Admin for 'Chroot Users' then add the new users that you created in Workgroup Admin to the Group; you won't have to keep editing the `/etc/sshd_config` file. Instead of the above, add the following. Make sure you add the 'Chroot Users' group to the SSH access ACL in Server Admin.  
 
-```
+```bash
 #Subsystem sftp /usr/libexec/sftp-server
 Subsystem sftp internal-sftp
 Match Group chrootusers
@@ -73,7 +73,7 @@ ChrootDirectory /chroot/%u
 If you have more than one chroot group just repeat the `Match Group` setup again.  
 To test whether the above is working, issue the following from the terminal.  
 
-```
+```bash
 $ sftp user@domain.com
 Password:
 sftp>
@@ -81,13 +81,13 @@ sftp>
 
 Getting in is one thing. Now you have to mount the folder you want to use. Unfortunately you can't use a symlink inside of a chroot jail. This is where [Homebrew](http://brew.sh) is your best friend. I don't know why I've never seen fit to install this before. After installation just issue the following commands.  
 
-```
+```bash
 brew install bindfs
 ```
 
 You might have to restart. Now with an empty folder created in `/chroot/user` you can `mount --bind` to a folder outside of the chroot jail. For example  
 
-```
+```bash
 sudo /usr/local/bin/bindfs -u user /Library/Server/Web/Sites/Server/Documents/mysite/yourfolder /chroot/user/scratchpad
 ```
 

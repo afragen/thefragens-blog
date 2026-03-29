@@ -13,13 +13,13 @@ After a bit of Googling I found [Sieve](http://sieve.info). I'd actually heard o
 
 1. Add the following lines to `/etc/services`
     
-    ```
+    ```bash
     sudo pico /etc/services
     ```
     
     Insert the following lines.
     
-    ```
+    ```bash
     callbook 2000/udp # callbook
     callbook 2000/tcp # callbook
     + sieve 2000/udp # sieve mail filtering
@@ -28,27 +28,27 @@ After a bit of Googling I found [Sieve](http://sieve.info). I'd actually heard o
     
     You can check to see if it's running by running
     
-    ```
+    ```bash
     netstat -an | grep 2000
     ```
     
     with results
     
-    ```
+    ```bash
     tcp4 0 0 *.2000 *.* LISTEN
     tcp6 0 0 *.2000 *.* LISTEN
     ```
     
 2. Create `/usr/sieve`
     
-    ```
+    ```bash
     sudo mkdir /usr/sieve
     sudo chown _cyrus:mail /usr/sieve
     ```
     
 3. Restart mail services
     
-    ```
+    ```bash
     sudo serveradmin stop mail
     [ some stuff ]
     sudo serveradmin start mail
@@ -59,32 +59,32 @@ After a bit of Googling I found [Sieve](http://sieve.info). I'd actually heard o
 
 I really did try installing the latest development version -- 1.9.9 alpha. That should have been a clue. After spending way too much time with it I installed the stable version - avelsieve 1.0.1. Once copied into `/usr/share/squirrelmail/plugins` run `sudo perl /etc/squirrelmail/config/conf.pl` and activate the plugin. Then it's back to the terminal. These instructions are from [AFP548](http://www.afp548.com/article.php?story=20080106215609968).
 
-```
+```bash
     cd /usr/share/squirrelmail/plugins/avelsieve
     sudo cp config-sample.php config.php
 ```
 
 Now set the correct authentication matching SquirrelMail. Edit `/etc/squirrelmail/plugins/avelsieve/config.php` and change:
 
-```
+```bash
 $preferred_mech = "PLAIN";
 ```
 
 to
 
-```
+```bash
 $preferred_mech = "CRAM-MD5";
 ```
 
 You should be running SquirrelMail with CRAM-MD5 authentication anyway. Finally, edit the `/etc/squirrelmail/plugins/avelsieve/lib/sieve-php.lib.php` file. Find the line:
 
-```
+```bash
 fputs($this-&gt;fp, "PUTSCRIPT "$scriptname" {$len+}rn");
 ```
 
 and change it to :
 
-```
+```bash
 fputs($this-&gt;fp, "PUTSCRIPT "$scriptname"".' {'."$len+".'}'."rn");
 ```
 
