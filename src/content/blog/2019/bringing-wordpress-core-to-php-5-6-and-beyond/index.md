@@ -40,7 +40,7 @@ In WordPress 5.2 the following are scheduled to be added.
 
 Many wonderful people have been involved in creating these solutions and they are led by Alain Schlessera and Felix Arntz. I made a conscious decision to participate in this project. Yes, code was involved but like most things in life. You have to show up.
 
-### "Decisions are made by those who show up." - Aaron Sorkin, The West Wing
+> "Decisions are made by those who show up." - Aaron Sorkin, The West Wing
 
 In this case it meant making time to show up and participate in #core-php and #core Slack meetings.
 
