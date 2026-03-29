@@ -5,4 +5,4 @@ description: 'A warm, brief birthday greeting to daughter Sophie, noting how fas
 categories: ['family']
 ---
 
-It's that time of year again. 😊 Happy Birthday to my little girl, who's getting bigger all the time.
+It's that time of year again. :blush: Happy Birthday to my little girl, who's getting bigger all the time.

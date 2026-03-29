@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import pagefind from 'astro-pagefind';
 import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'node:url';
+import remarkEmoji from 'remark-emoji';
 
 /**
  * Remark plugin: auto-inject `import Gallery from '@components/AutoGallery.astro'`
@@ -69,8 +70,9 @@ function remarkAutoGallery() {
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://thefragens.com',
-	integrations: [mdx({ remarkPlugins: [remarkAutoGallery] }), sitemap(), pagefind()],
+	integrations: [mdx({ remarkPlugins: [remarkAutoGallery, remarkEmoji] }), sitemap(), pagefind()],
 	markdown: {
+		remarkPlugins: [remarkEmoji],
 		shikiConfig: {
 			theme: 'github-light',
 		},
