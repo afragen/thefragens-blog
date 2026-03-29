@@ -1,14 +1,8 @@
 ---
-layout: ../../../../layouts/GalleryLayout.astro
 title: 'WCUS 2024 in Pictures'
 pubDate: '2024-09-24'
 categories: ['wordpress', 'photos', 'conferences']
 description: 'A photo gallery of images taken at WordCamp US 2024 in Portland, displayed in a three-column grid.'
 ---
 
-import Gallery from '../../../../components/Gallery.astro'
-
-export const imageModules = import.meta.glob('./images/*.{jpg,jpeg,png,gif,webp,avif,svg}', { eager: true })
-export const images = Object.values(imageModules).map(m => m.default)
-
-<Gallery images={images} title="Photos" columns={3} />
+<Gallery title="WCUS 2024" columns={3} />

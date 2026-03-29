@@ -1,15 +1,9 @@
 ---
-layout: ../../../../layouts/GalleryLayout.astro
 title: 'PressConf 2025 in Pictures'
 pubDate: '2025-04-29'
 categories: ['photos', 'conferences']
 description: 'A photo gallery from PressConf 2025, the reincarnation of Pressnomics, shot mostly in black and white on a fixed 35mm lens with a rangefinder camera and lightly processed in Photomator.'
 ---
-
-import Gallery from '../../../../components/Gallery.astro'
-
-export const imageModules = import.meta.glob('./images/*.{jpg,jpeg,png,gif,webp,avif,svg}', { eager: true })
-export const images = Object.values(imageModules).map(m => m.default)
 
 PressConf is the reincarnation of Pressnomics. It's a non-recorded, single track conference where you have to be in the room. While recordings were not allowed, photos were encouraged.
 
@@ -17,4 +11,4 @@ I took the opportunity to record some memories. B&W pics are only in B&W. I only
 
 Enjoy!
 
-<Gallery images={images} title="Photos" columns={3} />
+<Gallery title="PressConf 2025" columns={3} />
