@@ -1,0 +1,16 @@
+---
+layout: ../../../../layouts/GalleryLayout.astro
+title: "Gallery Test"
+pubDate: 2018-07-22
+categories: ['family', 'photos']
+description: "A test of the gallery layout and component."
+---
+
+import Gallery from '../../../../components/Gallery.astro'
+
+export const imageModules = import.meta.glob('./images/*.{jpg,jpeg,png,gif,webp,avif,svg}', { eager: true })
+export const images = Object.values(imageModules).map(m => m.default)
+
+Just a test of the gallery layout and component.
+
+<Gallery images={images} title="Photos" columns={2} />
