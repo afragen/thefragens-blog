@@ -14,7 +14,7 @@ const slugify = (s: string) =>
 
 export async function getStaticPaths() {
 	const PAGE_SIZE = 12;
-	const allPosts = (await getCollection('blog')).sort(
+	const allPosts = (await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft)).sort(
 		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 	);
 	const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);

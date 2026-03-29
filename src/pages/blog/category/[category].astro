@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 	const slugify = (s: string) =>
 		s.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
-	const allPosts = await getCollection('blog');
+	const allPosts = await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft);
 	const categories = new Set(allPosts.flatMap((p) => p.data.categories ?? []));
 
 	return [...categories].map((category) => ({
