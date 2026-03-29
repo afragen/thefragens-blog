@@ -33,6 +33,14 @@ export async function getStaticPaths() {
 }
 
 const { posts, currentPage, totalPages } = Astro.props;
+
+let winStart = Math.max(1, currentPage - 3);
+let winEnd = winStart + 7;
+if (winEnd > totalPages) {
+	winEnd = totalPages;
+	winStart = Math.max(1, winEnd - 7);
+}
+const pageWindow = Array.from({ length: winEnd - winStart + 1 }, (_, i) => winStart + i);
 ---
 
 <!doctype html>
@@ -235,10 +243,11 @@ const { posts, currentPage, totalPages } = Astro.props;
 					) : (
 						<a href={`/blog/page/${currentPage - 1}/`} aria-label="Previous page">&larr;</a>
 					)}
-					<a href="/blog/">1</a>
-					{Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map((p) =>
+					{pageWindow.map((p) =>
 						p === currentPage ? (
 							<span class="current" aria-current="page">{p}</span>
+						) : p === 1 ? (
+							<a href="/blog/">1</a>
 						) : (
 							<a href={`/blog/page/${p}/`}>{p}</a>
 						)

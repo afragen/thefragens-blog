@@ -18,6 +18,11 @@ const allPosts = (await getCollection('blog')).sort(
 );
 const posts = allPosts.slice(0, PAGE_SIZE);
 const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
+
+const currentPage = 1;
+let winStart = 1;
+let winEnd = Math.min(totalPages, 8);
+const pageWindow = Array.from({ length: winEnd - winStart + 1 }, (_, i) => winStart + i);
 ---
 
 <!doctype html>
@@ -216,10 +221,13 @@ const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
 				</ul>
 				{totalPages > 1 && (
 					<nav class="pagination" aria-label="Blog pagination">
-						<span class="current" aria-current="page">1</span>
-						{Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map((p) => (
-							<a href={`/blog/page/${p}/`}>{p}</a>
-						))}
+						{pageWindow.map((p) =>
+							p === 1 ? (
+								<span class="current" aria-current="page">1</span>
+							) : (
+								<a href={`/blog/page/${p}/`}>{p}</a>
+							)
+						)}
 						<a href="/blog/page/2/" aria-label="Next page">&rarr;</a>
 					</nav>
 				)}
