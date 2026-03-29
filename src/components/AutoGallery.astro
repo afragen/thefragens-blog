@@ -42,4 +42,4 @@ const images = Object.entries(allImages)
   .map(([, mod]) => mod.default)
 ---
 
-<Gallery {images} {title} {columns} />
+{images.length > 0 ? <Gallery {images} {title} {columns} /> : null}
