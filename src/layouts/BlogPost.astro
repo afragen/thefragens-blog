@@ -6,9 +6,12 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & {
+	prev?: CollectionEntry<'blog'> | null;
+	next?: CollectionEntry<'blog'> | null;
+};
 
-const { title, description, pubDate, updatedDate, heroImage, categories } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, categories, prev, next } = Astro.props;
 
 const slugify = (s: string) =>
 	s.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
@@ -82,6 +85,44 @@ const slugify = (s: string) =>
 				background: var(--accent-dark);
 				color: #fff;
 			}
+			.post-nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 1rem;
+				margin-top: 2em;
+				padding-top: 1em;
+				border-top: 1px solid rgb(var(--gray-light));
+				font-size: 0.9rem;
+			}
+			.post-nav .nav-prev,
+			.post-nav .nav-next {
+				display: flex;
+				flex-direction: column;
+				max-width: 45%;
+			}
+			.post-nav .nav-prev {
+				text-align: left;
+			}
+			.post-nav .nav-next {
+				text-align: right;
+				margin-left: auto;
+			}
+			.post-nav a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+			.post-nav a:hover {
+				text-decoration: underline;
+			}
+			.nav-label {
+				font-size: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				color: rgb(var(--gray));
+				margin-bottom: 0.2em;
+			}
+
 		</style>
 	</head>
 
@@ -115,6 +156,22 @@ const slugify = (s: string) =>
 						<hr />
 					</div>
 					<slot />
+					{(prev || next) && (
+						<nav class="post-nav">
+							{prev && (
+								<div class="nav-prev">
+									<span class="nav-label">Previous</span>
+									<a href={`/blog/${prev.id}/`}>{prev.data.title}</a>
+								</div>
+							)}
+							{next && (
+								<div class="nav-next">
+									<span class="nav-label">Next</span>
+									<a href={`/blog/${next.id}/`}>{next.data.title}</a>
+								</div>
+							)}
+						</nav>
+					)}
 				</div>
 			</article>
 		</main>
