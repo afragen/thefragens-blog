@@ -92,7 +92,7 @@ const slugify = (s: string) =>
 				<div class="hero-image">
 					{heroImage && <Image width={400} height={200} src={heroImage} alt="" loading={'eager'}/>}
 				</div>
-				<div class="prose">
+				<div class="prose" {...Astro.url.pathname.startsWith('/blog/') && { 'data-pagefind-body': true }}>
 					<div class="title">
 						<h1>{title}</h1>
 						<div class="date-row">
