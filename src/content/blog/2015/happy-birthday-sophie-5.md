@@ -1,7 +1,7 @@
 ---
 title: 'Happy Birthday Sophie!!'
 pubDate: '2015-12-20'
-categories: ['life-unscripted']
+categories: ['family']
 description: 'A short birthday greeting of love to Sophie.'
 ---
 

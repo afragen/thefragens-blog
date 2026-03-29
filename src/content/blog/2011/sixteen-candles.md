@@ -1,7 +1,7 @@
 ---
 title: 'Sixteen Candles'
 pubDate: '2011-03-15'
-categories: ['life-unscripted']
+categories: ['family']
 description: 'A birthday note for Jonathan on his sixteenth birthday, revealing that his gifts include an iPhone 3GS from his parents and an iPad 2 from his grandparents.'
 ---
 
