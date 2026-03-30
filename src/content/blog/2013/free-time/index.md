@@ -1,7 +1,7 @@
 ---
 title: 'Free Time'
 pubDate: '2013-09-15'
-categories: []
+categories: ['photos']
 description: 'A quick photo from a visit to the Apple Store to pass the time.'
 ---
 

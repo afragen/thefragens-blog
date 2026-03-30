@@ -1,7 +1,7 @@
 ---
 title: 'Marilyn at night'
 pubDate: '2014-02-16'
-categories: []
+categories: ['photos']
 description: 'A photo post featuring a nighttime shot of Marilyn.'
 ---
 

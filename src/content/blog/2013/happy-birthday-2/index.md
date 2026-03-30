@@ -1,7 +1,7 @@
 ---
 title: 'Happy Birthday!'
 pubDate: '2013-12-20'
-categories: ['apple']
+categories: ['photos', 'family']
 description: 'A brief photo post celebrating becoming a teenager and the excitement of receiving an iPhone 5C as a birthday gift.'
 ---
 

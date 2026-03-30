@@ -1,7 +1,7 @@
 ---
 title: 'Sunrise in the Desert'
 pubDate: '2014-02-02'
-categories: []
+categories: ['photos']
 description: 'A photo post featuring a sunrise over the desert landscape.'
 ---
 
