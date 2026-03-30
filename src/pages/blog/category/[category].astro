@@ -112,11 +112,20 @@ const { categoryLabel, posts } = Astro.props;
 				flex-direction: column;
 				flex: 1;
 			}
+			.card-footer {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 0.5rem;
+				margin-top: auto;
+				padding-top: 0.75rem;
+			}
 			.card-categories {
 				display: flex;
 				flex-wrap: wrap;
+				justify-content: flex-end;
 				gap: 0.4rem;
-				margin: 0 0 0.65rem;
+				margin: 0;
 			}
 			.card-category {
 				display: inline-block;
@@ -146,7 +155,7 @@ const { categoryLabel, posts } = Astro.props;
 				text-decoration: none;
 			}
 			.card-description {
-				margin: 0 0 auto;
+				margin: 0 0 0.5rem;
 				font-size: 0.88rem;
 				color: rgb(var(--gray));
 				line-height: 1.5;
@@ -156,9 +165,10 @@ const { categoryLabel, posts } = Astro.props;
 				overflow: hidden;
 			}
 			.card-date {
-				margin: 0.75rem 0 0;
+				margin: 0;
 				font-size: 0.82rem;
 				color: rgb(var(--gray));
+				white-space: nowrap;
 			}
 			@media (max-width: 720px) {
 				.posts-grid li {
@@ -188,18 +198,6 @@ const { categoryLabel, posts } = Astro.props;
 										})()}
 									</a>
 									<div class="card-body">
-										{post.data.categories && post.data.categories.length > 0 && (
-											<div class="card-categories">
-												{post.data.categories.map((cat) => (
-													<a
-														class="card-category"
-														href={`/blog/category/${slugify(cat)}/`}
-													>
-														{cat}
-													</a>
-												))}
-											</div>
-										)}
 										<h2 class="card-title">
 											<a class="card-link" href={`/blog/${post.id}/`}>
 												{post.data.title}
@@ -208,9 +206,23 @@ const { categoryLabel, posts } = Astro.props;
 										{post.data.description && (
 											<p class="card-description">{post.data.description}</p>
 										)}
-										<p class="card-date">
-											<FormattedDate date={post.data.pubDate} />
-										</p>
+										<div class="card-footer">
+											<p class="card-date">
+												<FormattedDate date={post.data.pubDate} />
+											</p>
+											{post.data.categories && post.data.categories.length > 0 && (
+												<div class="card-categories">
+													{post.data.categories.map((cat) => (
+														<a
+															class="card-category"
+															href={`/blog/category/${slugify(cat)}/`}
+														>
+															{cat}
+														</a>
+													))}
+												</div>
+											)}
+										</div>
 									</div>
 								</div>
 							</li>

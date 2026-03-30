@@ -92,6 +92,8 @@ Single global stylesheet at `src/styles/global.css` using CSS variables. The des
 
 **Category accent colors** — `src/palette.json` maps each category slug to a named `accent`/`accentDark` pair (e.g. `code` → green, `wordpress` → blue, `medicine` → cyan). `BaseHead.astro` injects per-category variables when rendering a category page; `BlogPlaceholder.astro` accepts color arrays to blend all of a post's category colors into the generated SVG.
 
+**Post card layout** — Cards on all listing pages (blog index, paginated pages, category pages) use a flex-column `.card-body`. Order: title → description → `.card-footer`. `.card-footer` is a flex row with `margin-top: auto` (pins it to the card bottom): date on the left (`white-space: nowrap`), category pills on the right (`justify-content: flex-end`).
+
 **Key global rules** — `blockquote` has a 4px left border in `var(--accent)`; `figure figcaption` is 0.8em gray centered text; `:focus-visible` gets a 2px `var(--accent)` outline.
 
 ### Site Constants
