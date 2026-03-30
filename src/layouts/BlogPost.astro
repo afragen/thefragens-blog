@@ -11,7 +11,7 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	next?: CollectionEntry<'blog'> | null;
 };
 
-const { title, description, pubDate, updatedDate, heroImage, categories, prev, next } = Astro.props;
+const { title, description, pubDate, updatedDate, featuredImage, categories, prev, next } = Astro.props;
 
 const slugify = (s: string) =>
 	s.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
@@ -131,7 +131,7 @@ const slugify = (s: string) =>
 		<main id="main-content">
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={400} height={200} src={heroImage} alt="" loading={'eager'}/>}
+					{featuredImage && <Image width={400} height={200} src={featuredImage} alt="" loading={'eager'}/>}
 				</div>
 				<div class="prose" {...Astro.url.pathname.startsWith('/blog/') && { 'data-pagefind-body': true }}>
 					<div class="title">

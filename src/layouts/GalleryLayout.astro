@@ -27,7 +27,7 @@ interface Frontmatter {
   title: string
   pubDate?: string
   description?: string
-  heroImage?: string
+  featuredImage?: string
   [key: string]: unknown
 }
 
@@ -80,10 +80,10 @@ frontmatter.galleryImages = galleryImages
   <body>
     <main>
       <article>
-        {frontmatter.heroImage && (
+        {frontmatter.featuredImage && (
           <img
             class="hero"
-            src={frontmatter.heroImage}
+            src={frontmatter.featuredImage}
             alt={frontmatter.title}
           />
         )}
