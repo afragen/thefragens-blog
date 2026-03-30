@@ -24,7 +24,7 @@
  *   <Gallery {images} title="Photos" columns={3} />
  */
 
-import { Image } from 'astro:assets'
+import { getImage, Image } from 'astro:assets'
 
 type Props = {
   images: ImageMetadata[]
@@ -46,10 +46,14 @@ function altFromFilename(src: string): string {
     .replace(/[-_]/g, ' ')
 }
 
-const items = images.map((img) => ({
-  img,
-  alt: altFromFilename(img.src),
-  isLandscape: img.width >= img.height,
+const items = await Promise.all(images.map(async (img) => {
+  const full = await getImage({ src: img, format: 'webp', quality: 85 })
+  return {
+    img,
+    fullSrc: full.src,
+    alt: altFromFilename(img.src),
+    isLandscape: img.width >= img.height,
+  }
 }))
 ---
 
@@ -130,7 +134,7 @@ const items = images.map((img) => ({
 <script
   type="application/json"
   data-gallery-data={uid}
-  set:html={JSON.stringify(items.map(({ img, alt }) => ({ src: img.src, alt })))}
+  set:html={JSON.stringify(items.map(({ fullSrc, alt }) => ({ src: fullSrc, alt })))}
 />
 
 <script>
