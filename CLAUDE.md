@@ -69,7 +69,7 @@ If a post with the same slug already exists, a suffix is automatically appended 
 
 Blog posts live in `src/content/blog/` organized by year subdirectories (2001–present). The collection is defined in `src/content.config.ts` using a glob loader and Zod schema with required fields: `title`, `description`, `pubDate`; optional: `updatedDate`, `heroImage`.
 
-Static pages (`about`, `gallery`, `plugins`, `radio-userland-*`) live directly in `src/pages/` as `.astro` or `.md` files.
+Static pages (`about`, `plugins`, `radio-userland-*`) live directly in `src/pages/` as `.astro` or `.md` files.
 
 ### Routing
 
@@ -84,7 +84,15 @@ Static pages (`about`, `gallery`, `plugins`, `radio-userland-*`) live directly i
 
 ### Styling
 
-Single global stylesheet at `src/styles/global.css` using CSS variables. The design is Bear Blog-inspired with a 720px max content width and a single 720px responsive breakpoint. Font: Atkinson (self-hosted in `public/fonts/`).
+Single global stylesheet at `src/styles/global.css` using CSS variables. The design is Bear Blog-inspired with a 720px max content width. Responsive breakpoint fires at `max-width: 720px` and also at `max-height: 500px` in landscape orientation (covers phones like the iPhone 17 in landscape).
+
+**Fonts** — Primary: MonaSans variable font (`wght,opsz` axes, 100–900), self-hosted in `public/fonts/`. Fallback: Atkinson (regular + bold woff). Body stack: `"MonaSans", "Atkinson", sans-serif`.
+
+**Color palette** — CSS variables (`--accent`, `--accent-dark`, `--black`, `--gray`, `--gray-light`, `--gray-dark`, `--gray-gradient`) are injected into `:root` by `BaseHead.astro` from `src/palette.ts`, which resolves named colors from `src/palette.json`. Default accent: `#2337ff` (electric-blue); default accent-dark: `#000d8a` (navy).
+
+**Category accent colors** — `src/palette.json` maps each category slug to a named `accent`/`accentDark` pair (e.g. `code` → green, `wordpress` → blue, `medicine` → cyan). `BaseHead.astro` injects per-category variables when rendering a category page; `BlogPlaceholder.astro` accepts `accent`/`accentDark` props to match.
+
+**Key global rules** — `blockquote` has a 4px left border in `var(--accent)`; `figure figcaption` is 0.8em gray centered text; `:focus-visible` gets a 2px `var(--accent)` outline.
 
 ### Site Constants
 
