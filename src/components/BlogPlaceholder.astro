@@ -2,16 +2,25 @@
 import { palette } from '../palette';
 
 interface Props {
-	accent?:     string;
-	accentDark?: string;
-	seed?:       string;
+	accent?:      string;
+	accentDark?:  string;
+	accents?:     string[];
+	accentDarks?: string[];
+	seed?:        string;
 }
 
 const {
-	accent     = palette.accent,
-	accentDark = palette.accentDark,
-	seed       = 'default',
+	accents:     accentsRaw,
+	accentDarks: accentDarksRaw,
+	seed = 'default',
 } = Astro.props;
+
+// Resolve color arrays, falling back to single props then palette defaults
+const accents     = accentsRaw?.length     ? accentsRaw     : [Astro.props.accent     ?? palette.accent];
+const accentDarks = accentDarksRaw?.length ? accentDarksRaw : [Astro.props.accentDark ?? palette.accentDark];
+
+// Pick from an array by index with wrapping
+const pick = (arr: string[], i: number) => arr[i % arr.length];
 
 // FNV-1a hash → LCG seeded PRNG
 function makeRng(s: string) {
@@ -132,23 +141,23 @@ const glt  = `rgb(${palette.grayLight})`;
   <rect width={W} height={H} fill={bg}/>
 
   <!-- sweeping filled bands -->
-  <path d={band1} fill={accentDark} opacity="0.85"/>
-  <path d={band2} fill={accent}     opacity="0.55"/>
-  <path d={band3} fill={accentDark} opacity="0.4"/>
+  <path d={band1} fill={pick(accentDarks, 0)} opacity="0.85"/>
+  <path d={band2} fill={pick(accents, 0)}     opacity="0.55"/>
+  <path d={band3} fill={pick(accentDarks, 1)} opacity="0.4"/>
 
   <!-- bottom anchor waves -->
-  <path d={botWave}   fill={gray}      opacity="0.5"/>
-  <path d={frontWave} fill={accentDark} opacity="0.55"/>
+  <path d={botWave}   fill={gray}               opacity="0.5"/>
+  <path d={frontWave} fill={pick(accentDarks, 2)} opacity="0.55"/>
 
   <!-- distorted swirl rings -->
-  <path d={ring1} stroke={accent}    stroke-width="2"   fill="none" opacity="0.6"/>
-  <path d={ring2} stroke={glt}       stroke-width="1.5" fill="none" opacity="0.35"/>
-  <path d={ring3} stroke={accent}    stroke-width="1"   fill="none" opacity="0.2"/>
+  <path d={ring1} stroke={pick(accents, 0)}    stroke-width="2"   fill="none" opacity="0.6"/>
+  <path d={ring2} stroke={glt}                 stroke-width="1.5" fill="none" opacity="0.35"/>
+  <path d={ring3} stroke={pick(accents, 1)}    stroke-width="1"   fill="none" opacity="0.2"/>
 
   <!-- swirling accent lines -->
-  <path d={sl1} stroke={accent} stroke-width="2"   fill="none" opacity="0.55"/>
-  <path d={sl2} stroke={glt}   stroke-width="1.5" fill="none" opacity="0.35"/>
-  <path d={sl3} stroke={accent} stroke-width="1.5" fill="none" opacity="0.3"/>
-  <path d={sl4} stroke={glt}   stroke-width="1"   fill="none" opacity="0.2"/>
-  <path d={sl5} stroke={accent} stroke-width="1"   fill="none" opacity="0.18"/>
+  <path d={sl1} stroke={pick(accents, 0)} stroke-width="2"   fill="none" opacity="0.55"/>
+  <path d={sl2} stroke={glt}              stroke-width="1.5" fill="none" opacity="0.35"/>
+  <path d={sl3} stroke={pick(accents, 2)} stroke-width="1.5" fill="none" opacity="0.3"/>
+  <path d={sl4} stroke={glt}              stroke-width="1"   fill="none" opacity="0.2"/>
+  <path d={sl5} stroke={pick(accents, 1)} stroke-width="1"   fill="none" opacity="0.18"/>
 </svg>

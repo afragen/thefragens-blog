@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../../../components/BaseHead.astro';
 import BlogPlaceholder from '../../../components/BlogPlaceholder.astro';
@@ -199,12 +198,10 @@ const pageWindow = Array.from({ length: winEnd - winStart + 1 }, (_, i) => winSt
 							<li>
 								<div class="post-card">
 									<a class="card-image" href={`/blog/${post.id}/`} aria-label={post.data.title}>
-										{post.data.heroImage ? (
-											<Image width={480} height={270} src={post.data.heroImage} alt={post.data.title} />
-										) : (() => {
-											const firstCat = post.data.categories?.[0];
-											const c = firstCat ? categoryPalette[slugify(firstCat)] : undefined;
-											return <BlogPlaceholder accent={c?.accent} accentDark={c?.accentDark} seed={post.id} />;
+										{(() => {
+											const cats = post.data.categories ?? [];
+											const colors = cats.map(cat => categoryPalette[slugify(cat)]).filter(Boolean);
+											return <BlogPlaceholder accents={colors.map(c => c.accent)} accentDarks={colors.map(c => c.accentDark)} seed={post.id} />;
 										})()}
 									</a>
 									<div class="card-body">
