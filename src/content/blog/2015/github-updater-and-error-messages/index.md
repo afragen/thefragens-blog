@@ -2,7 +2,7 @@
 title: 'GitHub Updater and Error Messages'
 pubDate: '2015-03-06'
 categories: ['git-updater']
-heroImage: './images/GHU_error_message.png'
+featuredImage: './images/GHU_error_message.png'
 description: 'HTTP error codes from the GitHub and Bitbucket APIs are now surfaced as WordPress admin notices, with a 401 indicating an authorization failure and a 403 indicating a surpassed rate limit along with the reset time.'
 ---
 

@@ -58,7 +58,7 @@ If a post with the same slug already exists, a suffix is automatically appended 
 | `description` | yes | Use double quotes if the value contains an apostrophe |
 | `categories` | no | Array of strings |
 | `updatedDate` | no | |
-| `heroImage` | no | |
+| `featuredImage` | no | Displayed at the top of the individual post page; listing pages always use the generated SVG instead |
 | `draft` | no | Set `true` to exclude from build |
 
 ## Architecture
@@ -67,7 +67,7 @@ If a post with the same slug already exists, a suffix is automatically appended 
 
 ### Content
 
-Blog posts live in `src/content/blog/` organized by year subdirectories (2001–present). The collection is defined in `src/content.config.ts` using a glob loader and Zod schema with required fields: `title`, `description`, `pubDate`; optional: `updatedDate`, `heroImage`.
+Blog posts live in `src/content/blog/` organized by year subdirectories (2001–present). The collection is defined in `src/content.config.ts` using a glob loader and Zod schema with required fields: `title`, `description`, `pubDate`; optional: `updatedDate`, `featuredImage`.
 
 Static pages (`about`, `plugins`, `radio-userland-*`) live directly in `src/pages/` as `.astro` or `.md` files.
 
@@ -79,7 +79,7 @@ Static pages (`about`, `plugins`, `radio-userland-*`) live directly in `src/page
 
 ### Layouts
 
-- **`BlogPost.astro`** — wraps blog collection entries; accepts `title`, `description`, `pubDate`, `updatedDate`, `heroImage`
+- **`BlogPost.astro`** — wraps blog collection entries; accepts `title`, `description`, `pubDate`, `updatedDate`, `featuredImage`
 - **`GalleryLayout.astro`** — for MDX posts with image galleries; uses `import.meta.glob()` to collect images from `/src/content/posts/*/images/` and filters by post slug at runtime
 
 ### Styling
@@ -90,7 +90,7 @@ Single global stylesheet at `src/styles/global.css` using CSS variables. The des
 
 **Color palette** — CSS variables (`--accent`, `--accent-dark`, `--black`, `--gray`, `--gray-light`, `--gray-dark`, `--gray-gradient`) are injected into `:root` by `BaseHead.astro` from `src/palette.ts`, which resolves named colors from `src/palette.json`. Default accent: `#2337ff` (electric-blue); default accent-dark: `#000d8a` (navy).
 
-**Category accent colors** — `src/palette.json` maps each category slug to a named `accent`/`accentDark` pair (e.g. `code` → green, `wordpress` → blue, `medicine` → cyan). `BaseHead.astro` injects per-category variables when rendering a category page; `BlogPlaceholder.astro` accepts `accent`/`accentDark` props to match.
+**Category accent colors** — `src/palette.json` maps each category slug to a named `accent`/`accentDark` pair (e.g. `code` → green, `wordpress` → blue, `medicine` → cyan). `BaseHead.astro` injects per-category variables when rendering a category page; `BlogPlaceholder.astro` accepts color arrays to blend all of a post's category colors into the generated SVG.
 
 **Key global rules** — `blockquote` has a 4px left border in `var(--accent)`; `figure figcaption` is 0.8em gray centered text; `:focus-visible` gets a 2px `var(--accent)` outline.
 
@@ -114,9 +114,11 @@ Props: `title: string`, `description: string`, `image?: ImageMetadata`
 
 ### `BlogPlaceholder.astro`
 
-Generates a deterministic decorative SVG graphic using a seeded PRNG (FNV-1a hash feeding an LCG). Produces sweeping filled bands, distorted swirl rings, wave patterns, and accent lines on a 480×270 canvas. Used where no hero image is available.
+Generates a deterministic decorative SVG graphic using a seeded PRNG (FNV-1a hash feeding an LCG). Produces sweeping filled bands, distorted swirl rings, wave patterns, and accent lines on a 480×270 canvas. Used as the card image on all listing pages (blog index, paginated pages, category pages) — `featuredImage` is never shown there.
 
-Props: `accent?: string`, `accentDark?: string`, `seed?: string`
+Colors are distributed across SVG elements using `pick(arr, i)` with modular wrapping, so multiple category colors appear across bands, rings, and accent lines. Single-color usage (passing `accent`/`accentDark` directly) still works unchanged.
+
+Props: `accent?: string`, `accentDark?: string`, `accents?: string[]`, `accentDarks?: string[]`, `seed?: string`
 
 ### `Footer.astro`
 
@@ -172,9 +174,9 @@ Four icon links (Mastodon, Twitter, GitHub, Email) with `aria-hidden` SVGs and `
 
 ### `BlogPost.astro`
 
-Full HTML document layout for blog collection entries. Displays hero image, formatted pub/updated dates, category pill badges (linked to `/blog/category/{slug}/`), post body (marked `data-pagefind-body` for search indexing), and previous/next post navigation. Includes `Header` and `Footer`.
+Full HTML document layout for blog collection entries. Displays featured image (if present), formatted pub/updated dates, category pill badges (linked to `/blog/category/{slug}/`), post body (marked `data-pagefind-body` for search indexing), and previous/next post navigation. Includes `Header` and `Footer`.
 
-Props: `title`, `description`, `pubDate`, `updatedDate?`, `heroImage?`, `categories?`, `prev?`, `next?`
+Props: `title`, `description`, `pubDate`, `updatedDate?`, `featuredImage?`, `categories?`, `prev?`, `next?`
 
 ### `GalleryLayout.astro`
 

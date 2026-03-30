@@ -2,7 +2,7 @@
 title: 'WordPress Debugging'
 pubDate: '2018-08-23'
 categories: ['code', 'wordpress']
-heroImage: './images/wp-config.png'
+featuredImage: './images/wp-config.png'
 description: 'The WP Debugging plugin automatically enables WordPress debug constants in wp-config.php on activation and removes them on deactivation, bundling optional tools like Query Monitor, Debug Bar, and a log viewer to make PHP error identification accessible without manual file editing.'
 ---
 

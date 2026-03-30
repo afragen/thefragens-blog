@@ -2,7 +2,7 @@
 title: 'GitHub Updater & GitLab'
 pubDate: '2015-05-24'
 categories: ['code', 'git-updater']
-heroImage: './images/images.png'
+featuredImage: './images/images.png'
 description: 'Version 4.5.0 adds support for GitLab, GitLab CE, GitLab Enterprise, and GitHub Enterprise via new plugin headers, alongside a refactored abstract API class and a dedicated Messages class.'
 ---
 

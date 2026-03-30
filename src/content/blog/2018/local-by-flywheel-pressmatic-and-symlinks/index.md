@@ -2,7 +2,7 @@
 title: 'Local by Flywheel (Pressmatic) and Symlinks'
 pubDate: '2018-06-06'
 categories: ['code']
-heroImage: './images/LbF-logo.png'
+featuredImage: './images/LbF-logo.png'
 description: 'A walkthrough of using symlinks with Local by Flywheel to mirror a local git repository into the wp-content plugins or themes folder, with a bash script to automate recreating the symlinks after the Volumes addon sets up shared folders so IDE editing and version control work together seamlessly.'
 ---
 

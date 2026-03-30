@@ -2,7 +2,7 @@
 title: 'Automatic Plugin & Theme Updating From GitHub – Part 1'
 pubDate: '2014-08-01'
 categories: ['code', 'git-updater']
-heroImage: './images/github.jpeg'
+featuredImage: './images/github.jpeg'
 description: 'The origin story of GitHub Updater traces the plugin from its roots as a frustration with manually FTP-ing updates across multiple sites, through a series of forks and collaborations with Gary Jones, Seth Carstens, and Paul Clark, to a combined plugin-and-theme updater.'
 ---
 

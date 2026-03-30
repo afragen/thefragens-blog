@@ -2,7 +2,7 @@
 title: 'Translations Updater and Easy Digital Downloads'
 pubDate: '2018-10-17'
 categories: ['code', 'wordpress']
-heroImage: './images/edd-sitting.png'
+featuredImage: './images/edd-sitting.png'
 description: 'The Translations Updater Composer library integrates with Easy Digital Downloads Software Licensing to provide decoupled language pack updates for EDD-licensed plugins and themes by adding just two extra entries to the existing EDD SL configuration array.'
 ---
 

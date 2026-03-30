@@ -2,7 +2,7 @@
 title: 'Translations Updater'
 pubDate: '2018-10-09'
 categories: ['code', 'wordpress']
-heroImage: './images/93A1DB01-27D4-422E-AE7A-5C69755DE8A5.png'
+featuredImage: './images/93A1DB01-27D4-422E-AE7A-5C69755DE8A5.png'
 description: 'Translations Updater is a Composer library that brings decoupled language pack updating to plugins and themes hosted outside of WordPress.org, letting developers maintain a separate public translations repository and distribute only the locale files a site actually needs.'
 ---
 

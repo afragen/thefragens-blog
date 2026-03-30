@@ -2,7 +2,7 @@
 title: 'Refactoring and Autoloaders'
 pubDate: '2015-02-03'
 categories: ['code', 'wordpress']
-heroImage: './images/screenshot_02.png'
+featuredImage: './images/screenshot_02.png'
 description: 'Refactoring work on GitHub Updater and The Events Calendar Category Colors adopts PHP 5.3 namespacing and PSR-4 autoloading via spl_autoload_register, with class aliasing used to maintain backward compatibility across plugin versions.'
 ---
 

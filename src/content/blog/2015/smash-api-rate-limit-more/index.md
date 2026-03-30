@@ -2,7 +2,7 @@
 title: 'Smash API Rate Limit & More'
 pubDate: '2015-04-05'
 categories: ['code', 'git-updater']
-heroImage: './images/GitHub_Updater_logo-e1425494828563.png'
+featuredImage: './images/GitHub_Updater_logo-e1425494828563.png'
 description: 'Version 4.3.0 adds a personal GitHub Access Token setting to raise the API rate limit to 5000 calls per hour, along with plugin branch switching and a View details link on the plugins page.'
 ---
 

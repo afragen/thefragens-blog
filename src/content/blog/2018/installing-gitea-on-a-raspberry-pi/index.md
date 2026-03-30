@@ -2,7 +2,7 @@
 title: 'Installing Gitea on a Raspberry Pi'
 pubDate: '2018-08-13'
 categories: ['code']
-heroImage: './images/image.png'
+featuredImage: './images/image.png'
 description: 'A guide to installing the self-hosted Gitea git server on a Raspberry Pi 3B+ to maintain a long-term test environment for GitHub Updater integration, linking to a detailed gist with step-by-step instructions verified through multiple installs including notes on updating Go and Gitea afterward.'
 ---
 
