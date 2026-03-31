@@ -10,7 +10,7 @@ import { palette } from '../palette';
 
 // Resolve the processed URL for the LCP header image so the preload
 // link points to the same hashed asset that <Header> will request.
-const heroPreload = await getImage({ src: FallbackImage, widths: [400, 750, 1020], sizes: '100vw', format: 'webp' });
+const heroPreload = await getImage({ src: FallbackImage, width: 1020, height: 510, format: 'webp' });
 
 interface Props {
 	title: string;
@@ -54,7 +54,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Preload LCP image — must match the format/dimensions used in Header.astro -->
-<link rel="preload" as="image" imagesrcset={heroPreload.srcSet.attribute} imagesizes="100vw" fetchpriority="high" />
+<link rel="preload" as="image" href={heroPreload.src} fetchpriority="high" />
 
 <!-- Font preload — MonaSans is the primary display font; one variable file covers all weights -->
 <link rel="preload" href="/fonts/MonaSansVF[wght,opsz].woff2" as="font" type="font/woff2" crossorigin />

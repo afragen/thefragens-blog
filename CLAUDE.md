@@ -104,10 +104,9 @@ Single global stylesheet at `src/styles/global.css` using CSS variables. The des
 
 The LCP element on every page is `background-operate.png` (the header image). Three measures keep it fast:
 
-1. **Responsive srcset** — `Header.astro` uses `widths={[400, 750, 1020]} sizes="100vw"` so mobile devices download a ~400px WebP instead of the full 1020px image. This is the primary mobile LCP/FCP fix.
-2. **Preload with srcset** — `BaseHead.astro` calls `getImage({ widths: [400, 750, 1020], sizes: '100vw' })` and emits `<link rel="preload" as="image" imagesrcset={...} imagesizes="100vw" fetchpriority="high">` so the browser preloads the correct size for each viewport before parsing `<body>`.
-3. **WebP** — `Header.astro` passes `format="webp"` to `<Image>`, matching the format used by the preload so both references hit the same cached asset.
-4. **Font preload** — `BaseHead.astro` preloads `MonaSansVF[wght,opsz].woff2` (the primary display font, one file covers all weights 100–900). The Atkinson fallback is not preloaded — it uses `font-display: swap` and loads only if MonaSans fails.
+1. **Preload** — `BaseHead.astro` calls `getImage()` at build time to resolve the exact hashed WebP URL, then emits `<link rel="preload" as="image" fetchpriority="high">` in `<head>`. This lets the browser queue the download before it parses `<body>`.
+2. **WebP** — `Header.astro` passes `format="webp"` to `<Image>`, matching the format used by the preload so both references hit the same cached asset.
+3. **Font preload** — `BaseHead.astro` preloads `MonaSansVF[wght,opsz].woff2` (the primary display font, one file covers all weights 100–900). The Atkinson fallback is not preloaded — it uses `font-display: swap` and loads only if MonaSans fails.
 
 ### Site Constants
 
@@ -127,7 +126,7 @@ Props: `title?: string`, `columns?: number`
 
 Included on every page. Injects CSS variable palette into `:root`, imports `global.css`, sets canonical URL, Open Graph and Twitter Card meta tags, and adds RSS/sitemap links. Defaults the OG image to `background-operate.png`.
 
-Emits two preload links for performance: the LCP header image (resolved via `getImage({ widths: [400, 750, 1020], sizes: '100vw' })` — uses `imagesrcset`/`imagesizes` so the browser preloads the correct responsive variant) and the MonaSans variable font. See the Performance section above.
+Emits two preload links for performance: the LCP header image (resolved via `getImage()` to its built WebP URL) and the MonaSans variable font. See the Performance section above.
 
 Props: `title: string`, `description: string`, `image?: ImageMetadata`
 
@@ -161,7 +160,7 @@ Props: `images: ImageMetadata[]`, `title?: string`, `columns?: number` (default 
 
 ### `Header.astro`
 
-Main site header. Statically imports and renders `background-operate.png` as WebP with `widths={[400, 750, 1020]} sizes="100vw"`, `loading="eager"`, and `fetchpriority="high"`, filling the full width of the header div. The responsive srcset ensures mobile devices download a ~400px image rather than the full 1020px version, keeping mobile LCP fast. The static import ensures Astro has reliable build-time metadata; `format="webp"` matches the preload link emitted by `BaseHead.astro` so both references resolve to the same cached asset. Includes a visually hidden skip-to-content link for accessibility, the site title, `NavLinks`, and a Mastodon `rel="me"` link.
+Main site header. Statically imports and renders `background-operate.png` (1020×510) as WebP with `loading="eager"` and `fetchpriority="high"`, filling the full width of the header div with no border-radius. The static import (not a dynamic `import()`) ensures Astro has reliable build-time metadata, and `format="webp"` matches the preload link emitted by `BaseHead.astro` so both references resolve to the same cached asset. Includes a visually hidden skip-to-content link for accessibility, the site title, `NavLinks`, and a Mastodon `rel="me"` link.
 
 ### `HeaderLink.astro`
 
