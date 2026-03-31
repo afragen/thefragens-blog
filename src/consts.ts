@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = 'Surgical Diversions';
 export const SITE_DESCRIPTION = 'My time out of the operating room';
+export const SHOW_CARD_IMAGES = true;

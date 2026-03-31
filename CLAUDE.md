@@ -111,7 +111,13 @@ Three measures reduce render-blocking and critical-path latency:
 
 ### Site Constants
 
-`src/consts.ts` exports `SITE_TITLE` and `SITE_DESCRIPTION` used across components.
+`src/consts.ts` exports constants used across components:
+
+| Constant | Type | Purpose |
+|---|---|---|
+| `SITE_TITLE` | `string` | Site name used in `<title>` and OG tags |
+| `SITE_DESCRIPTION` | `string` | Default meta description |
+| `SHOW_CARD_IMAGES` | `boolean` | Controls whether the `BlogPlaceholder` SVG image is rendered on post cards across all listing pages (index, paginated, category). Set to `false` to hide card images site-wide. |
 
 ## Components
 

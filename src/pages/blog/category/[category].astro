@@ -5,7 +5,7 @@ import BlogPlaceholder from '../../../components/BlogPlaceholder.astro';
 import Footer from '../../../components/Footer.astro';
 import FormattedDate from '../../../components/FormattedDate.astro';
 import Header from '../../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../../consts';
+import { SHOW_CARD_IMAGES, SITE_DESCRIPTION, SITE_TITLE } from '../../../consts';
 import { categoryPalette } from '../../../palette';
 
 const slugify = (s: string) =>
@@ -190,13 +190,15 @@ const { categoryLabel, posts } = Astro.props;
 						posts.map((post) => (
 							<li>
 								<div class="post-card">
-									<a class="card-image" href={`/blog/${post.id}/`} aria-label={post.data.title}>
-										{(() => {
-											const cats = post.data.categories ?? [];
-											const colors = cats.map(cat => categoryPalette[slugify(cat)]).filter(Boolean);
-											return <BlogPlaceholder accents={colors.map(c => c.accent)} accentDarks={colors.map(c => c.accentDark)} seed={post.id} />;
-										})()}
-									</a>
+									{SHOW_CARD_IMAGES && (
+										<a class="card-image" href={`/blog/${post.id}/`} aria-label={post.data.title}>
+											{(() => {
+												const cats = post.data.categories ?? [];
+												const colors = cats.map(cat => categoryPalette[slugify(cat)]).filter(Boolean);
+												return <BlogPlaceholder accents={colors.map(c => c.accent)} accentDarks={colors.map(c => c.accentDark)} seed={post.id} />;
+											})()}
+										</a>
+									)}
 									<div class="card-body">
 										<h2 class="card-title">
 											<a class="card-link" href={`/blog/${post.id}/`}>
