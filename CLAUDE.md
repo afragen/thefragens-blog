@@ -69,7 +69,7 @@ If a post with the same slug already exists, a suffix is automatically appended 
 
 Blog posts live in `src/content/blog/` organized by year subdirectories (2001–present). The collection is defined in `src/content.config.ts` using a glob loader and Zod schema with required fields: `title`, `description`, `pubDate`; optional: `updatedDate`, `featuredImage`.
 
-Static pages (`about`, `plugins`, `radio-userland-*`) live directly in `src/pages/` as `.astro` or `.md` files.
+Static pages (`about`, `plugins`, `radio-userland-*`) live directly in `src/content/pages/` as `.astro`, `.mdx`, or `.md` files.
 
 ### Routing
 
@@ -84,7 +84,6 @@ Static pages (`about`, `plugins`, `radio-userland-*`) live directly in `src/page
 ### Layouts
 
 - **`BlogPost.astro`** — wraps blog collection entries; accepts `title`, `description`, `pubDate`, `updatedDate`, `featuredImage`
-- **`GalleryLayout.astro`** — for MDX posts with image galleries; uses `import.meta.glob()` to collect images from `/src/content/posts/*/images/` and filters by post slug at runtime
 
 ### Styling
 
@@ -200,6 +199,3 @@ Full HTML document layout for blog collection entries. Displays featured image (
 
 Props: `title`, `description`, `pubDate`, `updatedDate?`, `featuredImage?`, `categories?`, `prev?`, `next?`
 
-### `GalleryLayout.astro`
-
-Legacy MDX layout that globs images from `../content/posts/*/images/` and filters by slug. Predates `AutoGallery.astro`. New gallery posts should use `AutoGallery` via `[...slug].astro` instead.
