@@ -74,12 +74,15 @@ Static pages (`about`, `plugins`, `radio-userland-*`) live directly in `src/cont
 ### Routing
 
 - `src/pages/index.astro` — blog listing page (page 1); served at `/`
-- `/blog/[...slug].astro` — individual blog posts from the content collection
-- `[...slug].astro` — catch-all route for other content (recently added, untracked)
-- `rss.xml.js` — RSS feed generation
+- `src/pages/blog/page/[page].astro` — paginated listing pages (pages 2+); served at `/blog/page/[n]/`
+- `src/pages/blog/category/[category]/index.astro` — category listing page (page 1); served at `/blog/category/[slug]/`
+- `src/pages/blog/category/[category]/page/[page].astro` — paginated category pages (pages 2+); served at `/blog/category/[slug]/page/[n]/`
+- `src/pages/blog/[...slug].astro` — individual blog posts from the content collection
+- `src/pages/[...slug].astro` — catch-all route for static pages (`about`, `plugins`, `radio-userland-*`)
+- `src/pages/rss.xml.js` — RSS feed generation
 - `public/robots.txt` — static robots file; served directly, unaffected by redirects
 
-`astro.config.mjs` redirects `/blog/` → `/` so old links remain valid. Paginated pages live at `/blog/page/[n]/` and category pages at `/blog/category/[slug]/`; their "back to listing" links point to `/`.
+`astro.config.mjs` redirects `/blog/` → `/` so old links remain valid. All listing pages show `PAGE_SIZE` posts and include numbered pagination with prev/next arrows. Category page 2+ breadcrumbs link back to the category page 1. All "back to listing" links point to `/`.
 
 ### Layouts
 
@@ -118,6 +121,7 @@ Three measures reduce render-blocking and critical-path latency:
 | `SITE_TITLE` | `string` | Site name used in `<title>` and OG tags |
 | `SITE_DESCRIPTION` | `string` | Default meta description |
 | `SHOW_CARD_IMAGES` | `boolean` | Controls whether the `BlogPlaceholder` SVG image is rendered on post cards across all listing pages (index, paginated, category). Set to `false` to hide card images site-wide. |
+| `PAGE_SIZE` | `number` | Number of posts per page on all listing pages (index, paginated, category). |
 
 ## Components
 
@@ -139,7 +143,7 @@ Props: `title: string`, `description: string`, `image?: ImageMetadata`
 
 ### `BlogPlaceholder.astro`
 
-Generates a deterministic decorative SVG graphic using a seeded PRNG (FNV-1a hash feeding an LCG). Produces sweeping filled bands, distorted swirl rings, wave patterns, and accent lines on a 480×270 canvas. Used as the card image on all listing pages (blog index, paginated pages, category pages) — `featuredImage` is never shown there.
+Generates a deterministic decorative SVG graphic using a seeded PRNG (FNV-1a hash feeding an LCG). Produces sweeping filled bands, distorted swirl rings, wave patterns, and accent lines on a 480×270 canvas. Used as the card image on all listing pages (blog index, paginated pages, category pages) — `featuredImage` is never shown there. Card image display is controlled by `SHOW_CARD_IMAGES` in `src/consts.ts`; the image area uses `aspect-ratio: 32 / 9`.
 
 Colors are distributed across SVG elements using `pick(arr, i)` with modular wrapping, so multiple category colors appear across bands, rings, and accent lines. Single-color usage (passing `accent`/`accentDark` directly) still works unchanged.
 
