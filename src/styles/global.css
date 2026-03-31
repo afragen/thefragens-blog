@@ -5,20 +5,6 @@
  */
 
 /* Color palette CSS variables are injected by BaseHead.astro from src/palette.ts */
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: optional;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: optional;
-}
 /* Mona Sans — variable font (covers all weights 100–900) */
 @font-face {
 	font-family: "MonaSans";
@@ -28,7 +14,7 @@
 	font-display: optional;
 }
 body {
-	font-family: "MonaSans", "Atkinson", sans-serif;
+	font-family: "MonaSans", sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
