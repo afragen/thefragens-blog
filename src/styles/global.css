@@ -5,14 +5,7 @@
  */
 
 /* Color palette CSS variables are injected by BaseHead.astro from src/palette.ts */
-/* Mona Sans — variable font (covers all weights 100–900) */
-@font-face {
-	font-family: "MonaSans";
-	src: url("/fonts/MonaSansVF[wght,opsz].woff2") format("woff2");
-	font-weight: 100 900;
-	font-style: normal;
-	font-display: optional;
-}
+/* MonaSans @font-face is loaded asynchronously via /fonts/fonts.css in BaseHead.astro */
 body {
 	font-family: "MonaSans", sans-serif;
 	margin: 0;
