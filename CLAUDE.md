@@ -102,7 +102,13 @@ Single global stylesheet at `src/styles/global.css` using CSS variables. The des
 
 ### Performance
 
-The LCP element on every page is `background-operate.png` (the header image). `Header.astro` renders it with `loading="eager"` and `fetchpriority="high"`. `BaseHead.astro` preloads `MonaSansVF[wght,opsz].woff2` (the primary display font, one file covers all weights 100–900). The Atkinson fallback is not preloaded — it uses `font-display: swap` and loads only if MonaSans fails.
+The LCP element on every page is `background-operate.png` (the header image). `Header.astro` renders it with `loading="eager"` and `fetchpriority="high"`.
+
+Three measures reduce render-blocking and critical-path latency:
+
+1. **Inlined header CSS** — `Header.astro` uses `<style is:inline>` so its styles are embedded directly in the HTML rather than extracted to an external stylesheet. This eliminates the render-blocking `/_astro/Header.*.css` request. Bare element selectors (`img`, `nav`) are scoped to `header > div img` and `header > nav` to prevent global leakage since `is:inline` disables Astro's automatic CSS scoping.
+2. **Single variable font** — `global.css` declares only the `MonaSansVF[wght,opsz].woff2` variable font (100–900 weight range). The redundant static fallback `@font-face` rules for Regular and Bold were removed — their overlapping weight ranges caused browsers to download all three files (~198 KiB). Now only the variable font loads (~98 KiB).
+3. **Font preload** — `BaseHead.astro` preloads `MonaSansVF[wght,opsz].woff2` so the font starts downloading with the HTML document rather than chained after the CSS.
 
 ### Site Constants
 
@@ -156,7 +162,7 @@ Props: `images: ImageMetadata[]`, `title?: string`, `columns?: number` (default 
 
 ### `Header.astro`
 
-Main site header. Dynamically imports and renders `background-operate.png` (1020×510) with `loading="eager"` and `fetchpriority="high"`, filling the full width of the header div with no border-radius. Includes a visually hidden skip-to-content link for accessibility, the site title, `NavLinks`, and a Mastodon `rel="me"` link.
+Main site header. Dynamically imports and renders `background-operate.png` (1020×510) with `loading="eager"` and `fetchpriority="high"`, filling the full width of the header div with no border-radius. Uses `<style is:inline>` to embed styles directly in the HTML (eliminating the render-blocking external CSS file); element selectors are narrowed to `header > div img` and `header > nav` since `is:inline` disables Astro's automatic scoping. Includes a visually hidden skip-to-content link for accessibility, the site title, `NavLinks`, and a Mastodon `rel="me"` link.
 
 ### `HeaderLink.astro`
 

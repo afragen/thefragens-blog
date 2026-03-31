@@ -19,7 +19,7 @@ const heroImage = import('../assets/background-operate.png');
 	<link rel="me" href="https://wptoots.social/@andyfragen">
 </header>
 <Search />
-<style>
+<style is:inline>
 	header {
 		margin: 1em;
 		padding: 0 2em;
@@ -45,14 +45,14 @@ const heroImage = import('../assets/background-operate.png');
 	header > div {
 		margin: 0 -2em;
 	}
-	img {
+	header > div img {
 		display: flex;
 		width: 100%;
 		height: auto;
 		margin: 0;
 		border-radius: 0;
 	}
-	nav {
+	header > nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
