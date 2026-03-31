@@ -177,6 +177,8 @@ Main navigation menu. On desktop shows links inline; on mobile (≤720px viewpor
 
 Fetches plugin metadata at build time from WordPress.org or GitHub and renders an info card. WordPress data: strips HTML, truncates description to 147 chars, shows contributors and version. GitHub data: shows language and license, respects a `GITHUB_TOKEN` env var for rate limits. Fails gracefully with an inline error message.
 
+Card header uses a column layout: the title row (icon + name) occupies the full width, with version/language/license chips on a separate row below. Long titles wrap naturally rather than truncating.
+
 Props: `wordpress?: string` (plugin slug), `github?: string` (`owner/repo`)
 
 ### `PluginGrid.astro`
