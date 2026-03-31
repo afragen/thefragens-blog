@@ -106,12 +106,13 @@ Single global stylesheet at `src/styles/global.css` using CSS variables. The des
 
 The LCP element on every page is `background-operate.png` (the header image). `Header.astro` renders it with `loading="eager"` and `fetchpriority="high"`.
 
-Four measures reduce render-blocking and critical-path latency:
+Five measures reduce render-blocking and critical-path latency:
 
 1. **Inlined header CSS** — `Header.astro`, `NavLinks.astro`, and `Search.astro` all use `<style is:inline>` so their styles are embedded directly in the HTML rather than extracted to an external stylesheet. This eliminates the render-blocking `/_astro/Header.*.css` request. Bare element selectors in `Header.astro` are scoped to `header > div img` and `header > nav` to prevent global leakage since `is:inline` disables Astro's automatic CSS scoping.
-2. **Single variable font** — `global.css` declares only the `MonaSansVF[wght,opsz].woff2` variable font (100–900 weight range). The redundant static fallback `@font-face` rules for Regular and Bold were removed — their overlapping weight ranges caused browsers to download all three files (~198 KiB). Now only the variable font loads (~98 KiB).
-3. **`font-display: optional`** — prevents font-swap CLS and keeps the font off the critical path. The preload was removed because it placed the 97 KiB font on the critical request chain; with `optional` the font loads as a non-critical resource and is only applied if it arrives within the browser's short block window.
-4. **Header image space reservation** — `header > div` has `aspect-ratio: 1020 / 510` so the browser reserves the exact vertical space for the hero image before it loads, preventing layout shift on scroll-restored navigations.
+2. **Single variable font** — only `MonaSansVF[wght,opsz].woff2` is declared (100–900 weight range). The Atkinson fallback and its `@font-face` rules were removed entirely. Body font stack is `"MonaSans", sans-serif`.
+3. **Asynchronous font loading** — the `@font-face` declaration lives in `public/fonts/fonts.css`, loaded from `BaseHead.astro` via `<link rel="stylesheet" media="print" onload="this.media='all'">`. The `media="print"` trick fetches the stylesheet at low priority without blocking rendering; `onload` switches it to `all` once loaded. A `<noscript>` fallback is included. This removes the font from the critical request chain entirely (previously the font chained directly off the HTML at ~98 KiB). `font-display: optional` in `fonts.css` means no CLS or FOUT — the font is silently applied once cached.
+4. **No font preload** — the `<link rel="preload">` for MonaSans was removed. Preloading placed the 97 KiB font on the critical chain; with async loading and `font-display: optional` a preload would be counterproductive.
+5. **Header image space reservation** — `header > div` has `aspect-ratio: 1020 / 510` so the browser reserves the exact vertical space for the hero image before it loads, preventing layout shift on scroll-restored navigations. The `<img>` uses `display: block` (corrected from non-standard `display: flex`).
 
 ### Site Constants
 
@@ -138,7 +139,7 @@ Props: `title?: string`, `columns?: number`
 
 Included on every page. Injects CSS variable palette into `:root`, imports `global.css`, sets canonical URL, Open Graph and Twitter Card meta tags, and adds RSS/sitemap links. Defaults the OG image to `background-operate.png`.
 
-Preloads `MonaSansVF[wght,opsz].woff2` (the primary display font). See the Performance section above.
+Loads `public/fonts/fonts.css` asynchronously via `<link media="print" onload="this.media='all'">` to keep the `@font-face` declaration off the critical request chain. See the Performance section for details.
 
 Props: `title: string`, `description: string`, `image?: ImageMetadata`
 
