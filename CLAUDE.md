@@ -73,9 +73,13 @@ Static pages (`about`, `plugins`, `radio-userland-*`) live directly in `src/page
 
 ### Routing
 
+- `src/pages/index.astro` — blog listing page (page 1); served at `/`
 - `/blog/[...slug].astro` — individual blog posts from the content collection
 - `[...slug].astro` — catch-all route for other content (recently added, untracked)
 - `rss.xml.js` — RSS feed generation
+- `public/robots.txt` — static robots file; served directly, unaffected by redirects
+
+`astro.config.mjs` redirects `/blog/` → `/` so old links remain valid. Paginated pages live at `/blog/page/[n]/` and category pages at `/blog/category/[slug]/`; their "back to listing" links point to `/`.
 
 ### Layouts
 
@@ -96,6 +100,14 @@ Single global stylesheet at `src/styles/global.css` using CSS variables. The des
 
 **Key global rules** — `blockquote` has a 4px left border in `var(--accent)`; `figure figcaption` is 0.8em gray centered text; `:focus-visible` gets a 2px `var(--accent)` outline.
 
+### Performance
+
+The LCP element on every page is `background-operate.png` (the header image). Three measures keep it fast:
+
+1. **Preload** — `BaseHead.astro` calls `getImage()` at build time to resolve the exact hashed WebP URL, then emits `<link rel="preload" as="image" fetchpriority="high">` in `<head>`. This lets the browser queue the download before it parses `<body>`.
+2. **WebP** — `Header.astro` passes `format="webp"` to `<Image>`, matching the format used by the preload so both references hit the same cached asset.
+3. **Font preload** — `BaseHead.astro` preloads `MonaSansVF[wght,opsz].woff2` (the primary display font, one file covers all weights 100–900). The Atkinson fallback is not preloaded — it uses `font-display: swap` and loads only if MonaSans fails.
+
 ### Site Constants
 
 `src/consts.ts` exports `SITE_TITLE` and `SITE_DESCRIPTION` used across components.
@@ -104,13 +116,17 @@ Single global stylesheet at `src/styles/global.css` using CSS variables. The des
 
 ### `AutoGallery.astro`
 
-Drop-in `<Gallery>` replacement for MDX posts that requires zero imports in the post file. At build time, Vite globs all images across all posts (`../content/blog/**/images/*.{jpg,jpeg,png,gif,webp,avif,svg}`). At runtime, it filters to the current post by matching `Astro.url.pathname` against the image paths, then delegates to `Gallery.astro`. Wired up in `[...slug].astro` via `<Content components={{ Gallery: AutoGallery }} />`. Renders nothing if no images are found.
+Drop-in `<Gallery>` replacement for MDX posts that requires zero imports in the post file. At build time, Vite globs all images across all posts (`../content/blog/**/images/*.{jpg,jpeg,png,gif,webp,avif,svg}`). At runtime, it filters to the current post by matching `Astro.url.pathname` against the image paths, then delegates to `Gallery.astro`. Renders nothing if the `images/` directory is empty or absent.
+
+Wired up automatically: the `remarkAutoGallery` plugin in `astro.config.mjs` detects any MDX file that uses `<Gallery>` and injects `import Gallery from '@components/AutoGallery.astro'` into the file's ESM imports at build time. No manual import or `components` prop needed in the MDX or in `[...slug].astro`.
 
 Props: `title?: string`, `columns?: number`
 
 ### `BaseHead.astro`
 
-Included on every page. Injects CSS variable palette into `:root`, imports `global.css`, sets canonical URL, Open Graph and Twitter Card meta tags, preloads Atkinson font files, and adds RSS/sitemap links. Defaults the OG image to `background-operate.png`.
+Included on every page. Injects CSS variable palette into `:root`, imports `global.css`, sets canonical URL, Open Graph and Twitter Card meta tags, and adds RSS/sitemap links. Defaults the OG image to `background-operate.png`.
+
+Emits two preload links for performance: the LCP header image (resolved via `getImage()` to its built WebP URL) and the MonaSans variable font. See the Performance section above.
 
 Props: `title: string`, `description: string`, `image?: ImageMetadata`
 
@@ -134,7 +150,9 @@ Props: `date: Date`
 
 ### `Gallery.astro`
 
-Self-contained responsive image grid with a native `<dialog>` lightbox (no external dependencies). Generates a unique per-instance ID to support multiple galleries on one page. Derives alt text from filenames. Images are optimized via Astro's `<Image>` (WebP, 800×600, quality 80).
+Self-contained responsive image grid with a native `<dialog>` lightbox (no external dependencies). Generates a unique per-instance ID to support multiple galleries on one page. Derives alt text from filenames. Thumbnails are optimized via Astro's `<Image>` (WebP, 800×600, quality 80).
+
+Lightbox images use `getImage()` at build time to resolve each image's full-size WebP URL (no explicit resize — original dimensions are preserved). This ensures the lightbox `src` points to the actual built `/_astro/` asset path rather than the original source path, which would 404 in production.
 
 Lightbox features: Escape key / backdrop click to close, arrow key and touch swipe navigation (>50px threshold), image preload indicator, current/total counter, focus returns to the triggering thumbnail on close.
 
@@ -142,7 +160,7 @@ Props: `images: ImageMetadata[]`, `title?: string`, `columns?: number` (default 
 
 ### `Header.astro`
 
-Main site header. Eager-loads the hero image (`background-operate.png`, 1020×510) at high fetch priority, filling the full width of the header div with no border-radius. Includes a visually hidden skip-to-content link for accessibility, the site title, `NavLinks`, and a Mastodon `rel="me"` link.
+Main site header. Statically imports and renders `background-operate.png` (1020×510) as WebP with `loading="eager"` and `fetchpriority="high"`, filling the full width of the header div with no border-radius. The static import (not a dynamic `import()`) ensures Astro has reliable build-time metadata, and `format="webp"` matches the preload link emitted by `BaseHead.astro` so both references resolve to the same cached asset. Includes a visually hidden skip-to-content link for accessibility, the site title, `NavLinks`, and a Mastodon `rel="me"` link.
 
 ### `HeaderLink.astro`
 

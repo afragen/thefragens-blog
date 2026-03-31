@@ -85,6 +85,6 @@ export default defineConfig({
 		},
 	},
 	redirects: {
-		'/': '/blog',
+		'/blog/': '/',
 	},
 });
