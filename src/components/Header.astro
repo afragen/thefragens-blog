@@ -3,13 +3,14 @@ import { SITE_TITLE } from '../consts';
 import NavLinks from './NavLinks.astro';
 import Search from './Search.astro';
 import { Image } from 'astro:assets';
-import heroImageSrc from '../assets/background-operate.png';
+
+const heroImage = import('../assets/background-operate.png');
 ---
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <header>
 	<div>
-		<Image width={1020} height={510} src={heroImageSrc} alt="Me in operating room" format="webp" loading="eager" fetchpriority="high" />
+		{heroImage && <Image width={1020} height={510} src={heroImage} alt="Me in operating room" loading={'eager'} fetchpriority="high" />}
 	</div>
 	<nav>
 		<p class="site-title"><a href="/">{SITE_TITLE}</a></p>
