@@ -106,11 +106,12 @@ Single global stylesheet at `src/styles/global.css` using CSS variables. The des
 
 The LCP element on every page is `background-operate.png` (the header image). `Header.astro` renders it with `loading="eager"` and `fetchpriority="high"`.
 
-Three measures reduce render-blocking and critical-path latency:
+Four measures reduce render-blocking and critical-path latency:
 
-1. **Inlined header CSS** — `Header.astro` uses `<style is:inline>` so its styles are embedded directly in the HTML rather than extracted to an external stylesheet. This eliminates the render-blocking `/_astro/Header.*.css` request. Bare element selectors (`img`, `nav`) are scoped to `header > div img` and `header > nav` to prevent global leakage since `is:inline` disables Astro's automatic CSS scoping.
+1. **Inlined header CSS** — `Header.astro`, `NavLinks.astro`, and `Search.astro` all use `<style is:inline>` so their styles are embedded directly in the HTML rather than extracted to an external stylesheet. This eliminates the render-blocking `/_astro/Header.*.css` request. Bare element selectors in `Header.astro` are scoped to `header > div img` and `header > nav` to prevent global leakage since `is:inline` disables Astro's automatic CSS scoping.
 2. **Single variable font** — `global.css` declares only the `MonaSansVF[wght,opsz].woff2` variable font (100–900 weight range). The redundant static fallback `@font-face` rules for Regular and Bold were removed — their overlapping weight ranges caused browsers to download all three files (~198 KiB). Now only the variable font loads (~98 KiB).
-3. **Font preload** — `BaseHead.astro` preloads `MonaSansVF[wght,opsz].woff2` so the font starts downloading with the HTML document rather than chained after the CSS.
+3. **`font-display: optional`** — prevents font-swap CLS and keeps the font off the critical path. The preload was removed because it placed the 97 KiB font on the critical request chain; with `optional` the font loads as a non-critical resource and is only applied if it arrives within the browser's short block window.
+4. **Header image space reservation** — `header > div` has `aspect-ratio: 1020 / 510` so the browser reserves the exact vertical space for the hero image before it loads, preventing layout shift on scroll-restored navigations.
 
 ### Site Constants
 
