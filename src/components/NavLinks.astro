@@ -47,6 +47,8 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 	.internal-links {
 		display: flex;
 		align-items: center;
+	}
+	.internal-links a {
 		text-decoration: none;
 	}
 	.dropdown {
@@ -55,6 +57,7 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 		align-items: center;
 	}
 	.dropdown-label {
+		margin: 0;
 		padding: 1em 0.5em;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
@@ -92,14 +95,14 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 		white-space: nowrap;
 		z-index: 10;
 	}
-	.submenu :global(a)::before {
-		content: '– ';
+	.submenu a::before {
+		content: '- ';
 	}
-	.submenu :global(a) {
+	.submenu a {
 		display: block;
-		padding: 0.5em 1em 0.5em 2em;
+		padding: 0.5em 1em;
 	}
-	.submenu :global(a:focus-visible) {
+	.submenu a:focus-visible {
 		outline: 2px solid var(--accent);
 		outline-offset: -2px;
 		border-radius: 2px;
@@ -166,12 +169,13 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 		.internal-links.open {
 			display: flex;
 		}
-		.internal-links :global(a),
-		.internal-links :global(a.active) {
+		.internal-links a {
 			padding: 0.75em 1em;
 			width: 100%;
 			border-bottom-color: transparent;
-			font-size: 0.7em;
+		}
+		.nav-wrapper .internal-links a.active {
+			border-bottom-color: transparent;
 		}
 		.dropdown {
 			flex-direction: column;
@@ -179,8 +183,10 @@ const isRadioActive = pathname.startsWith('/radio-userland');
 			width: 100%;
 		}
 		.dropdown-label {
-			padding: 0.75em 1em;
-			font-size: 0.7em;
+			padding: 1em;
+		}
+		.dropdown-label.active {
+			border-bottom-color: transparent;
 		}
 		.submenu {
 			position: static;

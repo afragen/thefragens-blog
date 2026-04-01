@@ -185,6 +185,19 @@ Props: `href: string`, plus any HTML anchor attributes.
 
 Main navigation menu. On desktop shows links inline; on mobile (≤720px viewport width, or ≤500px viewport height in landscape) collapses to a hamburger button. Links: Home, About Me, Plugins, Radio UserLand (dropdown with Radio UserLand Tools and Radio UserLand Scripts). The search button dispatches a `search:open` custom event picked up by `Search.astro`. Dropdown supports click, hover, focus-within, Escape key, and focusout.
 
+**CSS notes — important for maintenance:**
+
+- Uses `<style is:inline>` (no Astro scoping). Because of this, **do not use `:global()` wrappers** — they are redundant and Astro's compiler mangles them in `is:inline` blocks (pseudo-elements like `::before` and compound selectors like `a.active` silently break). Write plain CSS selectors throughout.
+- **Desktop nav links** (`HeaderLink`-rendered `<a>`) — styled via `HeaderLink.astro` scoped styles: `padding: 1em 0.5em`, `border-bottom: 4px solid transparent`, accent-colored border on `.active`. `NavLinks.astro` adds `text-decoration: none` via `.internal-links a`.
+- **Desktop dropdown label** (`.dropdown-label` `<button>`) — mirrors `HeaderLink` link styling: `padding: 1em 0.5em`, `border-bottom: 4px solid transparent`, accent border on `.active`. Reset properties (`margin: 0; background: none; border-top/left/right: none; font: inherit`) strip browser button defaults.
+- **Desktop submenu** — `position: absolute; right: 0` popup. Items have `padding: 0.5em 1em` and a `::before { content: '- ' }` prefix. Shown on hover, focus-within, or `.open` class (set by JS click handler).
+- **Mobile hamburger menu** (`@media (max-width: 720px)`) — `.internal-links` becomes an absolutely-positioned dropdown (`right: 0`, white background, shadow). Key overrides:
+  - `.internal-links a` — `padding: 0.75em 1em; width: 100%; border-bottom-color: transparent`
+  - `.nav-wrapper .internal-links a.active` — `border-bottom-color: transparent` (higher specificity needed to override HeaderLink's scoped `a.active` rule)
+  - `.dropdown-label` — `padding: 1em` (matches visual rhythm of nav links at mobile size)
+  - `.dropdown-label.active` — `border-bottom-color: transparent` (suppresses accent border in mobile context)
+  - `.submenu` — `position: static; display: flex` (always visible inline, no popup)
+
 ### `PluginCard.astro`
 
 Fetches plugin metadata at build time from WordPress.org or GitHub and renders an info card. WordPress data: strips HTML, truncates description to 147 chars, shows contributors and version. GitHub data: shows language and license, respects a `GITHUB_TOKEN` env var for rate limits. Fails gracefully with an inline error message.
