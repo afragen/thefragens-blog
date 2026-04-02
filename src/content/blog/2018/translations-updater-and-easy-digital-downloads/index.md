@@ -6,7 +6,7 @@ featuredImage: './images/edd-sitting.png'
 description: 'The Translations Updater Composer library integrates with Easy Digital Downloads Software Licensing to provide decoupled language pack updates for EDD-licensed plugins and themes by adding just two extra entries to the existing EDD SL configuration array.'
 ---
 
-My [Translations Updater](https://github.com/afragen/translations-updater) Composer library also works for any plugins or themes that are using [EDD Software Licensing](https://easydigitaldownloads.com/downloads/software-licensing/). I have recently written about the basic purpose and function of the [Translations Updater library](https://thefragens.com/translations-updater/).
+My [Translations Updater](https://github.com/afragen/translations-updater) Composer library also works for any plugins or themes that are using [EDD Software Licensing](https://easydigitaldownloads.com/downloads/software-licensing/). I have recently written about the basic purpose and function of the [Translations Updater library](https://thefragens.com/blog/2018/translations-updater/).
 
 ## EDD Software Licensing Integration
 

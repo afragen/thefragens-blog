@@ -5,7 +5,7 @@ categories: ['git-updater']
 description: 'This post clarifies that Git Updater functions as an Update API Server rather than a direct update server since actual plugin and theme files are served from the git host, and describes virtual integration via the Additions tab along with a cache-flush REST endpoint for use with GitHub webhooks.'
 ---
 
-In the post on [Git Updater Lite](https://thefragens.com/git-updater-lite/) I referred to Git Updater as the update server. I believe this to be somewhat inaccurate as what Git Updater is serving corresponds to an update API response. Perhaps a better description of what Git Updater's role here is as an Update API Server.
+In the post on [Git Updater Lite](https://thefragens.com/blog/2024/git-updater-lite/) I referred to Git Updater as the update server. I believe this to be somewhat inaccurate as what Git Updater is serving corresponds to an update API response. Perhaps a better description of what Git Updater's role here is as an Update API Server.
 
 Git Updater does not act as the update server. Updates come directly from the associated git host, ie GitHub.
 
