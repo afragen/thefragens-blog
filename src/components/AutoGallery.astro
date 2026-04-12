@@ -28,7 +28,10 @@ const { title, columns } = Astro.props
 // Vite resolves this static glob at build time, collecting every image across
 // all blog posts. Filtering to the current post happens at runtime below.
 const allImages = import.meta.glob<{ default: ImageMetadata }>(
-  '../content/blog/**/images/*.{jpg,jpeg,png,gif,webp,avif,svg}',
+  [
+    '../content/blog/**/images/*.{jpg,jpeg,png,gif,webp,avif,svg}',
+    '../content/blog/**/images/*.{JPG,JPEG,PNG,GIF,WEBP,AVIF,SVG}',
+  ],
   { eager: true }
 )
 
