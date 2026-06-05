@@ -3,6 +3,7 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import pagefind from 'astro-pagefind';
+import seoGraph from '@jdevalk/astro-seo-graph/integration';
 import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'node:url';
 import remarkEmoji from 'remark-emoji';
@@ -70,7 +71,7 @@ function remarkAutoGallery() {
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://thefragens.com',
-	integrations: [mdx({ remarkPlugins: [remarkAutoGallery, remarkEmoji] }), sitemap(), pagefind()],
+	integrations: [mdx({ remarkPlugins: [remarkAutoGallery, remarkEmoji] }), sitemap(), pagefind(), seoGraph()],
 	markdown: {
 		remarkPlugins: [remarkEmoji],
 		shikiConfig: {
