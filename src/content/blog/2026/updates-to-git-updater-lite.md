@@ -1,64 +1,35 @@
 ---
-title: "Updates to Git Updater Lite"
+title: "Git Updater Lite version 3"
 pubDate: '2026-06-05'
-description: "Git Updater Lite Integration Summary"
+description: "Git Updater Lite is a Composer-distributed client library that lets plugin and theme developers receive automatic updates from a Git Updater server without exposing access tokens. Updates use HMAC-SHA256 signed URLs with a two-step download process for secure token-free delivery."
 categories: ['git-updater']
 draft: true
 ---
 
-Purpose: Git Updater Lite is a standalone client library (distributed via Composer) that enables plugin/theme developers to receive automatic updates from a remote server running the full Git Updater plugin.
+Git Updater Lite is a standalone client library that lets plugin and theme developers receive automatic updates from a server running the full Git Updater plugin. It's distributed via Composer as a single PHP file that gets embedded directly into the developer's plugin or theme (package).
 
-#### Architecture: Server/Client Model
+### How It Works
 
-**GIT UPDATER (Server)**               
-  - Full WP plugin                     
-  - Runs on distribution site          
-  - Stores all necessary credentials   
-  - Has auth tokens for repos          
+The system follows a simple server/client model. On the server side, you have the full Git Updater plugin running on your distribution site. It stores all the credentials and auth tokens for your repos. Additionally it stores the API data for the client package. On the client side, Git Updater Lite is a lightweight library that lives inside your plugin or theme. It has no stored credentials of its own, it just queries your server for updates.
 
-**GIT UPDATER LITE (Client)**
-  - Embedded library (single PHP file) via Composer
-  - Runs inside customer plugins/themes
-  - No stored credentials
-  - Queries server for updates
+### The Core Pieces
 
-#### Core Components
+The client side is a single file, `Lite.php`, which contains the complete client library. On the server side, there are three key components. `REST_API.php` handles the REST endpoints for update checks, download tokens, and the download proxy. `Lite_Domains.php` manages domain validation settings, and `Additions/Settings.php` provides the "Uses Git Updater Lite" checkbox for marking packages. This is where the developer registers their plugin or theme with Git Updater, indicating that it uses the Lite client for updates and where Git Updater gets the API data for the package.
 
-Client Side (in /Users/afragen/Documents/github/git-updater-lite/):
+### Getting Started
 
-- Lite.php (530 lines) - Complete client library
+Integration is straightforward. A developer adds `composer require afragen/git-updater-lite:^3` and sets an `Update URI` header pointing to their server. When WordPress checks for updates, the client queries the server's REST API to see if a new version is available.
 
-Server Side (in Git Updater plugin):
+### The Download Process
 
-- src/Git_Updater/REST/REST_API.php - REST endpoints (update-api, download-token, download proxy)
-- src/Git_Updater/Lite_Domains.php - Domain validation settings
-- src/Git_Updater/Additions/Settings.php - uses_lite checkbox for marking packages
+Starting with version 3.0, downloads use a two-step process. Instead of handing over a direct download link, the server returns a token URL. The client then fetches a fresh, 60-second signed download URL and uses that to grab the package. This means access tokens never leave the server.
 
-#### Integration Flow
+### Security
 
-1. Embedding: Developer adds `composer require afragen/git-updater-lite:^3` and Update URI: https://server.com header
-2. Update Detection: Client queries GET `/wp-json/git-updater/v1/update-api/?slug=<slug>`
-3. Two-Step Download (v3.0):
-  - Server returns token URL instead of direct download link
-  - Client fetches 60-second signed download URL
-  - Client downloads package using fresh signed URL
+Security is a first-class concern here. The server stores all access tokens for GitHub, GitLab, Bitbucket, and Gitea. When streaming packages through the proxy, tokens are never exposed. Downloads use HMAC-SHA256 signed URLs with a short 60-second TTL. For private packages, you can optionally enable domain validation through the `Lite_Domains` class to restrict which domains can receive updates. The `auth_header` and token credentials are never returned to Lite clients or exposed via REST endpoints.
 
-#### Security Model
+### Configuration
 
-- Server stores all access tokens (GitHub/GitLab/Bitbucket/Gitea)
-- Proxy download streams packages without exposing tokens
-- HMAC-SHA256 signed URLs with 60-second TTL
-- Optional domain validation via Lite_Domains class, for private packages
-- auth_header is never returned to Lite clients and never exposed via REST endpoints
+On the server, you'll find a "Uses Git Updater Lite" checkbox in the Additions tab for each package. There's also a Lite Client Domains tab where you can list authorized base domains per slug, with support for subdomain matching. A few filter hooks are available for customizing the API URL, transient timeout, and authorized domains.
 
-#### Configuration
-
-Server-Side Settings:
-
-- Additions Tab: "Uses Git Updater Lite" checkbox per package
-- Lite Client Domains Tab: Authorized base domains per slug (supports subdomain matching) limits updates to only those domains listed
-- Filter Hooks: git_updater_lite_api_url, git_updater_lite_transient_timeout, git_updater_lite_authorized_domains
-
-Client-Side: Only requires Update URI header in plugin/theme
-
-The design ensures upstream access tokens never reach client sites while providing seamless automatic updates.
+On the client side, all you need is the Update URI header in your plugin or theme. The library handles everything else.

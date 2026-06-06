@@ -1,44 +1,35 @@
 ---
 title: "Git Updater and OAuth"
 pubDate: '2026-06-05'
-description: "OAuth Integration Summary - Git Updater"
+description: "Git Updater delegates OAuth flows to an external connector service, keeping client secrets off the WordPress site while providing seamless token-based authentication for GitHub, GitLab, Bitbucket, and Gitea."
 categories: ['git-updater']
 draft: true
 ---
 
-Architecture: Git Updater delegates OAuth flows to an external connector service at https://git-updater.com rather than implementing OAuth directly. The WordPress plugin acts as a client, communicating with the connector via REST endpoints. Special thanks to my friend [Carl Alexander](https://carlalexander.ca) for the connector.
+Git Updater takes a different approach to OAuth. Instead of implementing the full OAuth flow directly inside the WordPress plugin, it delegates that work to an external connector service at [https://git-updater.com](https://git-updater.com). The plugin acts as a client, communicating with the connector through REST endpoints. A huge thanks to my friend [Carl Alexander](https://carlalexander.ca) for building the connector.
 
-Supported Providers: GitHub, GitLab, Bitbucket, Gitea
+Git Updater supports OAuth authentication with GitHub, GitLab, Bitbucket, and Gitea. The OAuth token is read-only.
 
-#### Core Components
+### The Key Pieces
 
-  - src/Git_Updater/OAuth/OAuth_Connect.php - Central OAuth class handling connect/disconnect/callback/refresh flows
-  - src/Git_Updater/Traits/Basic_Auth_Loader.php - Injects auth headers and proactively refreshes tokens before API calls
-  - src/Git_Updater/API/API.php - Reactive token refresh on 401/403 errors
-  - src/Git_Updater/API/GitHub_API.php - Settings UI with OAuth connect button
+The OAuth system is built around a handful of core components. `OAuth_Connect.php` is the central class that orchestrates the connect, disconnect, callback, and token refresh flows. `Basic_Auth_Loader.php` handles injecting auth headers into API requests and proactively refreshing tokens before they expire. When a request still fails, `API.php` catches 401 or 403 errors and triggers a reactive token refresh. Finally, the appropriate API add-on provides the settings UI where users click the OAuth connect button.
 
-#### Authentication Flow
+### How the Flow Works
 
-  1. Connect: Generates CSRF state token → redirects to connector → connector handles OAuth dance → callback exchanges code for tokens
-  2. Token Storage: Stored in WordPress site options under {provider}_access_token, {provider}_refresh_token, etc. An
-  {provider}_is_oauth_token string sentinel distinguishes OAuth from PATs
-  3. Proactive Refresh: Checked before API calls in Basic_Auth_Loader::add_auth_header()
-  4. Reactive Refresh: Triggered on 401/403 responses in API::api()
-  5. Disconnect: Removes all provider tokens from options
+When a user connects a provider, Git Updater generates a CSRF state token and redirects them to the connector service. The connector handles the actual OAuth dance, then sends the user back with an authorization code. The plugin exchanges that code for access and refresh tokens, which get stored in WordPress site options. A special `{provider}_is_oauth_token` sentinel value distinguishes OAuth tokens from personal access tokens.
 
-#### Security Features
+To keep things smooth, the plugin refreshes tokens proactively before making API calls. If that still fails, it catches the error and retries. Disconnecting simply removes all stored tokens for that provider.
 
-  - CSRF protection with single-use state tokens (10-min TTL)
-  - manage_options capability checks
-  - Input sanitization on all $_GET/$_POST
-  - wp_safe_redirect() for post-action redirects
+### Security
 
-#### Gitea-Specific
+Security is baked in throughout the flow. CSRF protection uses single-use state tokens with a 10-minute time-to-live. Only users with `manage_options` capability can initiate connections. All `$_GET` and `$_POST` input is sanitized, and the plugin uses `wp_safe_redirect()` for any post-action redirects.
 
-Requires additional gitea_server and gitea_client_id options passed to the connector
+### Gitea Notes
 
-#### Test Coverage
+Gitea requires a couple of extra options. You'll need to provide both `gitea_server` and `gitea_client_id` to the connector for the OAuth flow to work correctly. This is because Gitea is self-hosted.
 
-Comprehensive suite in tests/test-oauth-connect.php (50+ tests) plus related tests in test-api.php, test-basic-auth-loader.php, and test-github-api.php
+### Test Coverage
 
-The design keeps client secrets on the connector service, never exposing them to the WordPress site.
+The OAuth system is well tested with over 50 tests.
+
+The whole design keeps client secrets on the connector service, never exposing them to the WordPress site.
