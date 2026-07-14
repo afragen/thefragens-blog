@@ -42,6 +42,6 @@ Download the file to your Tools folder at the root level of your Radio UserLand 
     
 - [Root Updates Report](../assets/publicTools/rootUpdatesReport.root) Root Updates Report will read the current days updates from logs in a guest database (GDB) or all root updates from the outline. Root Updates Report will use either the GDB log or the outline log depending on your selections in the `user.log.prefs` table. It will preferentially use the GDB if both are checked. It does not utilize the text file.
     
-- [Scripts](./radio-userland-scripts)
+- [Scripts](radio-userland-scripts)
     
     This page contains scripts for Radio 8.

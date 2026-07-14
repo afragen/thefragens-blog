@@ -20,6 +20,8 @@ When a user connects a provider, Git Updater generates a CSRF state token and re
 
 To keep things smooth, the plugin refreshes tokens proactively before making API calls. If that still fails, it catches the error and retries. Disconnecting simply removes all stored tokens for that provider.
 
+In testing, it seems that the GitHub OAuth token doesn't seem to have an expiration, while OAuth tokens for Bitbucket and GitLab have a 2 hours expiration. Not to worry as token re-authorization is automatic.
+
 ### Security
 
 Security is baked in throughout the flow. CSRF protection uses single-use state tokens with a 10-minute time-to-live. Only users with `manage_options` capability can initiate connections. All `$_GET` and `$_POST` input is sanitized, and the plugin uses `wp_safe_redirect()` for any post-action redirects.

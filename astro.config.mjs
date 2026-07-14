@@ -71,6 +71,12 @@ function remarkAutoGallery() {
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://thefragens.com',
+	// Astro 7 changed the default of `compressHTML` from `true` (HTML-aware) to
+	// `'jsx'` (JSX rules, which strips spaces between adjacent inline elements).
+	// This site relies on the old HTML-aware whitespace handling for visual
+	// spacing in cards, pagination, and other inline-heavy layouts, so we
+	// explicitly opt back into `true` to match the v6 behavior.
+	compressHTML: true,
 	integrations: [mdx({ remarkPlugins: [remarkAutoGallery, remarkEmoji] }), sitemap(), pagefind(), seoGraph()],
 	markdown: {
 		remarkPlugins: [remarkEmoji],
