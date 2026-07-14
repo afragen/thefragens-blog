@@ -6,7 +6,6 @@ import pagefind from 'astro-pagefind';
 import seoGraph from '@jdevalk/astro-seo-graph/integration';
 import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'node:url';
-import remarkEmoji from 'remark-emoji';
 
 /**
  * Remark plugin: auto-inject `import Gallery from '@components/AutoGallery.astro'`
