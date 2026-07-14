@@ -76,9 +76,8 @@ export default defineConfig({
 	// spacing in cards, pagination, and other inline-heavy layouts, so we
 	// explicitly opt back into `true` to match the v6 behavior.
 	compressHTML: true,
-	integrations: [mdx({ remarkPlugins: [remarkAutoGallery, remarkEmoji] }), sitemap(), pagefind(), seoGraph()],
+	integrations: [ sitemap(), pagefind(), seoGraph()],
 	markdown: {
-		remarkPlugins: [remarkEmoji],
 		shikiConfig: {
 			theme: 'github-light',
 		},
