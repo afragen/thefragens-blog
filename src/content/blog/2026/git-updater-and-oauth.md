@@ -8,11 +8,11 @@ draft: true
 
 Git Updater takes a different approach to OAuth. Instead of implementing the full OAuth flow directly inside the WordPress plugin, it delegates that work to an external connector service at [https://git-updater.com](https://git-updater.com). The plugin acts as a client, communicating with the connector through REST endpoints. A huge thanks to my friend [Carl Alexander](https://carlalexander.ca) for building the connector.
 
-Git Updater supports OAuth authentication with GitHub, GitLab, Bitbucket, and Gitea. The OAuth token is read-only.
+Git Updater supports OAuth authentication with GitHub, GitLab, Bitbucket, and Gitea. The OAuth token is read-only by design.
 
 ### The Key Pieces
 
-The OAuth system is built around a handful of core components. `OAuth_Connect.php` is the central class that orchestrates the connect, disconnect, callback, and token refresh flows. `Basic_Auth_Loader.php` handles injecting auth headers into API requests and proactively refreshing tokens before they expire. When a request still fails, `API.php` catches 401 or 403 errors and triggers a reactive token refresh. Finally, the appropriate API add-on provides the settings UI where users click the OAuth connect button.
+The OAuth system is built around a handful of core components. `OAuth_Connect.php` is the central class that orchestrates the connect, disconnect, callback, and token refresh flows. `Basic_Auth_Loader.php` handles injecting auth headers into API requests and proactively refreshing tokens before they expire. When a request still fails, `API.php` catches 401 or 403 errors and triggers a reactive token refresh. Finally, the appropriate API Add-On provides the settings UI where users click the OAuth connect button.
 
 ### How the Flow Works
 
@@ -20,7 +20,7 @@ When a user connects a provider, Git Updater generates a CSRF state token and re
 
 To keep things smooth, the plugin refreshes tokens proactively before making API calls. If that still fails, it catches the error and retries. Disconnecting simply removes all stored tokens for that provider.
 
-In testing, it seems that the GitHub OAuth token doesn't seem to have an expiration, while OAuth tokens for Bitbucket and GitLab have a 2 hours expiration. Not to worry as token re-authorization is automatic.
+In testing, it seems that the GitHub OAuth token doesn't seem to have an expiration, while OAuth tokens for Bitbucket and GitLab have a 2 hours expiration. Not to worry as token refresh is automatic.
 
 ### Security
 
@@ -28,7 +28,7 @@ Security is baked in throughout the flow. CSRF protection uses single-use state 
 
 ### Gitea Notes
 
-Gitea requires a couple of extra options. You'll need to provide both `gitea_server` and `gitea_client_id` to the connector for the OAuth flow to work correctly. This is because Gitea is self-hosted.
+Gitea requires a couple of extra options. You'll need to provide both `gitea_server` and `gitea_client_id` to the connector for the OAuth flow to work correctly. This is because Gitea is only self-hosted.
 
 ### Test Coverage
 
