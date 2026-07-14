@@ -2,8 +2,10 @@
 dist/
 
 # generated types
+.agents/
 .astro/
 .claude/
+.commandcode/
 
 # dependencies
 node_modules/
