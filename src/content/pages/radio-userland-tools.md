@@ -41,7 +41,3 @@ Download the file to your Tools folder at the root level of your Radio UserLand 
 - [pLessFix](../assets/publicTools/pLessFix.root) Fixes the multiple `<p>` tags that seem to be inserted upon upstreaming. This has now been fixed in Radio and the tool is no longer necessary. The code is still available if anyone wants to use it for ideas.
     
 - [Root Updates Report](../assets/publicTools/rootUpdatesReport.root) Root Updates Report will read the current days updates from logs in a guest database (GDB) or all root updates from the outline. Root Updates Report will use either the GDB log or the outline log depending on your selections in the `user.log.prefs` table. It will preferentially use the GDB if both are checked. It does not utilize the text file.
-    
-- [Scripts](../radio-userland-tools.md)
-    
-    This page contains scripts for Radio 8.
