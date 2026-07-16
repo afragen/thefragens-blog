@@ -52,7 +52,7 @@ The REST API endpoint returns a JSON response that provides all the information 
 
 **Step 1:** _Integrate your plugin or theme with Git Updater Lite_
 
-- Run `composer require afragen/git-updater-lite:^2`
+- Run `composer require afragen/git-updater-lite:^3`
 
 - Add the `Update URI: <update server URI>` header to your plugin or theme headers. Where `<update server URI>` is the domain to the update server, eg `https://git-updater.com`.
 
@@ -69,7 +69,7 @@ require_once __DIR__ . '/vendor/afragen/git-updater-lite/Lite.php';
 
 - Have a publicly accessible WordPress installation, such as the plugin's website.
 
-- Install and activate Git Updater 12.9.0 or later.
+- Install and activate Git Updater 13.0.1 or later.
 
 - Install your plugin or theme via the Git Updater Additions tab.
 
