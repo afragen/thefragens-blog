@@ -23,7 +23,7 @@ For instance, the [Gutenberg - Nightly](https://github.com/bph/gutenberg) plugin
 
 - **release asset** - true
 
-`[https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg](https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg)`
+[https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg](https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg)
 
 There is an associated REST endpoint that flushes the repository specific cache from the Update API Server and can be used in a GitHub repository webhook that runs on a release. This would cause the Update API response to regenerate with the latest data from GitHub.
 
