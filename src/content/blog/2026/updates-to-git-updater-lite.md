@@ -1,5 +1,5 @@
 ---
-title: "Git Updater Lite version 3"
+title: "Git Updater Lite v3"
 pubDate: '2026-09-05'
 description: "Git Updater Lite is a Composer-distributed client library that lets plugin and theme developers receive automatic updates from a Git Updater server without exposing access tokens. Updates use HMAC-SHA256 signed URLs with a two-step download process for secure token-free delivery."
 categories: ['git-updater']
