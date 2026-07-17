@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import pagefind from 'astro-pagefind';
 import seoGraph from '@jdevalk/astro-seo-graph/integration';
 import { defineConfig } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import { fileURLToPath } from 'node:url';
 
 /**
@@ -78,7 +79,7 @@ export default defineConfig({
 	compressHTML: true,
 	integrations: [ mdx(), sitemap(), pagefind(), seoGraph()],
 	markdown: {
-		remarkPlugins: [remarkAutoGallery],
+		processor: unified({ remarkPlugins: [remarkAutoGallery] }),
 		shikiConfig: {
 			theme: 'github-light',
 		},
