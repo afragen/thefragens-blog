@@ -1,6 +1,6 @@
 ---
 title: "Git Updater and OAuth"
-pubDate: '2026-07-25'
+pubDate: '2026-07-21'
 description: "Git Updater delegates OAuth flows to an external connector service, keeping client secrets off the WordPress site while providing seamless token-based authentication for GitHub, GitLab, Bitbucket, and Gitea."
 categories: ['git-updater']
 draft: true
