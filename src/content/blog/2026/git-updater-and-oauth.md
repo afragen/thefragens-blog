@@ -1,10 +1,12 @@
 ---
 title: "Git Updater and OAuth"
-pubDate: '2026-06-05'
+pubDate: '2026-07-25'
 description: "Git Updater delegates OAuth flows to an external connector service, keeping client secrets off the WordPress site while providing seamless token-based authentication for GitHub, GitLab, Bitbucket, and Gitea."
 categories: ['git-updater']
 draft: true
 ---
+
+I've been wanting to bring OAuth to Git Updater for several years now. Honestly it's only because of AI and specifically [CommandCode](https://commandcode.ai) that it and many of the coming new features and improvements are happening.
 
 Git Updater takes a different approach to OAuth. Instead of implementing the full OAuth flow directly inside the WordPress plugin, it delegates that work to an external connector service at [https://git-updater.com](https://git-updater.com). The plugin acts as a client, communicating with the connector through REST endpoints. A huge thanks to my friend [Carl Alexander](https://carlalexander.ca) for building the connector.
 
@@ -15,6 +17,8 @@ Git Updater supports OAuth authentication with GitHub, GitLab, Bitbucket, and Gi
 The OAuth system is built around a handful of core components. `OAuth_Connect.php` is the central class that orchestrates the connect, disconnect, callback, and token refresh flows. `Basic_Auth_Loader.php` handles injecting auth headers into API requests and proactively refreshing tokens before they expire. When a request still fails, `API.php` catches 401 or 403 errors and triggers a reactive token refresh. Finally, the appropriate API Add-On provides the settings UI where users click the OAuth connect button.
 
 ### How the Flow Works
+
+If a user currently has a saved personal access token updating to a OAuth token is not available until they have first disconnected/unsaved their personal access token.
 
 When a user connects a provider, Git Updater generates a CSRF state token and redirects them to the connector service. The connector handles the actual OAuth dance, then sends the user back with an authorization code. The plugin exchanges that code for access and refresh tokens, which get stored in WordPress site options. A special `{provider}_is_oauth_token` sentinel value distinguishes OAuth tokens from personal access tokens.
 

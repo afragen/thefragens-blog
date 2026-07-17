@@ -1,6 +1,6 @@
 ---
 title: "Git Updater Lite version 3"
-pubDate: '2026-06-05'
+pubDate: '2026-09-05'
 description: "Git Updater Lite is a Composer-distributed client library that lets plugin and theme developers receive automatic updates from a Git Updater server without exposing access tokens. Updates use HMAC-SHA256 signed URLs with a two-step download process for secure token-free delivery."
 categories: ['git-updater']
 draft: true
@@ -15,6 +15,8 @@ The system follows a simple server/client model. On the server side, you have th
 ### The Core Pieces
 
 The client side is a single file, `Lite.php`, which contains the complete client library. On the server side, there are three key components. `REST_API.php` handles the REST endpoints for update checks, download tokens, and the download proxy. `Lite_Domains.php` manages domain validation settings, and `Additions/Settings.php` provides the "Uses Git Updater Lite" checkbox for marking packages. This is where the developer registers their plugin or theme with Git Updater, indicating that it uses the Lite client for updates and where Git Updater gets the API data for the package.
+
+This involves an update to Git Updater v14.1 or greater for the site running as the [Update API Server](../../2025/update-api-server)
 
 ### Getting Started
 
