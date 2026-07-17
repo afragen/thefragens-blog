@@ -10,12 +10,15 @@ import { fileURLToPath } from 'node:url';
 
 /**
  * Remark plugin: auto-inject `import Gallery from '@components/AutoGallery.astro'`
- * into any MDX file that uses <Gallery> without importing it.
+ * into any MDX file that uses <Gallery> without importing it, and add a stable
+ * `postId` prop (derived from the file path under src/content/blog/) so the
+ * gallery resolves its images by content-collection id instead of the request
+ * URL — which is unreliable during prerender on hosts like Cloudflare Pages.
  * This lets gallery posts contain just <Gallery title="..." columns={3} />
- * with no boilerplate imports or export consts.
+ * with no boilerplate imports, exports, or runtime URL parsing.
  */
 function remarkAutoGallery() {
-	return (tree) => {
+	return (tree, file) => {
 		// Recursively check if any node is a <Gallery> JSX element
 		function hasGalleryJSX(nodes) {
 			for (const node of nodes) {
@@ -31,6 +34,38 @@ function remarkAutoGallery() {
 		}
 
 		if (!hasGalleryJSX(tree.children)) return
+
+		// Derive the content-collection id from the file path, e.g.
+		//   src/content/blog/2026/pressconf-2026/index.mdx
+		//     → "2026/pressconf-2026"
+		let postId = ''
+		const filePath = (file?.data?.astro?.source ?? file?.path ?? '').toString()
+		const m = filePath.match(/src[\\/]content[\\/]blog[\\/](.+?)(?:[\\/]index)?\.mdx?$/)
+		if (m) postId = m[1]
+
+		// Add (or set) the postId attribute on every <Gallery> element
+		function addPostIdToGalleries(nodes) {
+			for (const node of nodes) {
+				if (
+					(node.type === 'mdxJsxFlowElement' || node.type === 'mdxJsxTextElement') &&
+					node.name === 'Gallery'
+				) {
+					const hasPostId = node.attributes?.some(
+						(a) => a.type === 'mdxJsxAttribute' && a.name === 'postId'
+					)
+					if (!hasPostId && postId) {
+						node.attributes = node.attributes || []
+						node.attributes.push({
+							type: 'mdxJsxAttribute',
+							name: 'postId',
+							value: { type: 'mdxJsxAttributeValueExpression', value: JSON.stringify(postId), data: { estree: { type: 'Program', body: [{ type: 'ExpressionStatement', expression: { type: 'Literal', value: postId, raw: JSON.stringify(postId) } }], sourceType: 'module' } } },
+						})
+					}
+				}
+				if (node.children) addPostIdToGalleries(node.children)
+			}
+		}
+		addPostIdToGalleries(tree.children)
 
 		// Skip if Gallery is already imported
 		const alreadyImported = tree.children.some(
