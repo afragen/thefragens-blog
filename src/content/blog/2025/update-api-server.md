@@ -23,10 +23,10 @@ For instance, the [Gutenberg - Nightly](https://github.com/bph/gutenberg) plugin
 
 - **release asset** - true
 
-[https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg](https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg)
+[https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg](https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg&channel=development)
 
 There is an associated REST endpoint that flushes the repository specific cache from the Update API Server and can be used in a GitHub repository webhook that runs on a release. This would cause the Update API response to regenerate with the latest data from GitHub.
 
-`https://test.thefragens.net/wp-json/git-updater/v1/flush-repo-cache/?slug=gutenberg`
+`https://test.thefragens.net/wp-json/git-updater/v1/flush-repo-cache/?slug=gutenberg&key=xxxxxxxxx`
 
 Git Updater Lite lightly caches the Update API response and only regenerates it at similar times as Core does for plugin update checks.
