@@ -32,6 +32,6 @@ Security is a first-class concern here. The server stores all access tokens for 
 
 ### Configuration
 
-On the server, you'll find a "Uses Git Updater Lite" checkbox in the Additions tab for each package. There's also a Lite Client Domains tab where you can list authorized base domains per slug, with support for subdomain matching. A few filter hooks are available for customizing the API URL, transient timeout, and authorized domains.
+On the server, you'll find a "Uses Git Updater Lite" checkbox in the Additions tab for each package. You will need to re-enter the data for your package in the Additions tab so all the data will be present. There's also a Lite Client Domains tab where you can list authorized base domains per slug, with support for subdomain matching. Leaving the Lite Client Domains empty places no restrictions on who can update using this method. A few filter hooks are available for customizing the API URL, transient timeout, and authorized domains.
 
-On the client side, all you need is the Update URI header in your plugin or theme. The library handles everything else.
+On the client side, all you need is the Update URI header in your plugin or theme and Git Updater Lite installed. The library handles everything else.
