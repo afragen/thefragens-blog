@@ -1,0 +1,69 @@
+---
+/**
+ * Aside.astro
+ *
+ * A callout/admonition component, inspired by Starlight's `<Aside>`.
+ * Can be used directly in MDX blog posts:
+ *
+ *   <Aside type="tip" title="Watch out!">
+ *     A warning aside with a custom title.
+ *   </Aside>
+ *
+ * Also rendered automatically from `:::` directives via the remark-asides plugin.
+ *
+ * Props:
+ *   type   – 'note' | 'tip' | 'caution' | 'danger'  (default: 'note')
+ *   title  – custom title text (default: capitalized variant name)
+ *   icon   – override the icon by variant name (e.g. 'note', 'tip') or raw SVG path
+ */
+import type { AsideVariant } from '../integrations/aside-utils.js';
+import { asideIconPaths, defaultAsideTitle, isAsideVariant } from '../integrations/aside-utils.js';
+
+interface Props {
+	type?: AsideVariant;
+	title?: string;
+	icon?: string;
+}
+
+const { type = 'note', title, icon } = Astro.props;
+
+if (!isAsideVariant(type)) {
+	throw new Error(
+		`Invalid \`type\` prop passed to <Aside>. Received: "${type}". ` +
+			`Expected one of: ${['note', 'tip', 'caution', 'danger'].join(', ')}`
+	);
+}
+
+const resolvedTitle = title || defaultAsideTitle(type);
+
+// Determine the icon path: custom icon (variant name or raw path) or default for the type
+let iconPath: string;
+if (icon) {
+	if (isAsideVariant(icon)) {
+		iconPath = asideIconPaths[icon];
+	} else {
+		// Treat as raw SVG path data
+		iconPath = icon;
+	}
+} else {
+	iconPath = asideIconPaths[type];
+}
+---
+
+<aside class={`aside aside--${type}`} aria-label={resolvedTitle}>
+	<p class="aside__title" aria-hidden="true">
+		<svg
+			class="aside__icon"
+			viewBox="0 0 24 24"
+			width={16}
+			height={16}
+			fill="currentColor"
+		>
+			<path d={iconPath} />
+		</svg>
+		{resolvedTitle}
+	</p>
+	<div class="aside__content">
+		<slot />
+	</div>
+</aside>

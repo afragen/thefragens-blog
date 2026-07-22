@@ -27,7 +27,9 @@ In testing, it seems that the GitHub OAuth token doesn't seem to have an expirat
 
 If token refresh fails it could be that your login to Bitbucket or GitLab has timed out and you will need to disconnect and re-connect to Bitbucket or GitLab. This may happen after several weeks.
 
+:::caution
 If your logs show _Bad Credentials_ errors, simply disconnect and reconnect your OAuth token.
+:::
 
 ### Security
 

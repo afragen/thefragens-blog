@@ -7,6 +7,8 @@ import seoGraph from '@jdevalk/astro-seo-graph/integration';
 import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import { fileURLToPath } from 'node:url';
+import remarkDirective from 'remark-directive';
+import { remarkAsides } from './src/integrations/remark-asides.js';
 
 /**
  * Remark plugin: auto-inject `import Gallery from '@components/AutoGallery.astro'`
@@ -18,6 +20,7 @@ function remarkAutoGallery() {
 	return (tree) => {
 		// Recursively check if any node is a <Gallery> JSX element
 		function hasGalleryJSX(nodes) {
+			if (!Array.isArray(nodes)) return false
 			for (const node of nodes) {
 				if (
 					(node.type === 'mdxJsxFlowElement' || node.type === 'mdxJsxTextElement') &&
@@ -79,7 +82,7 @@ export default defineConfig({
 	compressHTML: true,
 	integrations: [ mdx(), sitemap(), pagefind(), seoGraph()],
 	markdown: {
-		processor: unified({ remarkPlugins: [remarkAutoGallery] }),
+		processor: unified({ remarkPlugins: [remarkDirective, remarkAsides, remarkAutoGallery] }),
 		shikiConfig: {
 			theme: 'github-light',
 		},

@@ -1,0 +1,97 @@
+/*
+ * Callout (aside) styles — inspired by Starlight's asides.
+ * Uses colors from src/palette.json for each variant.
+ *
+ * Classes `aside`/`aside--variant` are the primary classes.
+ * `starlight-aside`/`starlight-aside--variant` are aliases for
+ * compatibility with Starlight-style markup.
+ */
+
+:root {
+	--aside-note-bg: #dbeafe;
+	--aside-note-border: #2563eb;
+	--aside-note-text: #1e40af;
+	--aside-tip-bg: #ede9fe;
+	--aside-tip-border: #7c3aed;
+	--aside-tip-text: #5b21b6;
+	--aside-caution-bg: #ffedd5;
+	--aside-caution-border: #c2410c;
+	--aside-caution-text: #92400e;
+	--aside-danger-bg: #fee2e2;
+	--aside-danger-border: #dc2626;
+	--aside-danger-text: #7f1d1d;
+}
+
+.aside,
+.starlight-aside {
+	padding: 1rem 1.25rem;
+	border-left: 4px solid var(--aside-border);
+	background-color: var(--aside-bg);
+	border-radius: 4px;
+	margin: 1.5rem 0;
+}
+
+.aside--note,
+.starlight-aside--note {
+	--aside-border: var(--aside-note-border);
+	--aside-bg: var(--aside-note-bg);
+	--aside-text: var(--aside-note-text);
+}
+
+.aside--tip,
+.starlight-aside--tip {
+	--aside-border: var(--aside-tip-border);
+	--aside-bg: var(--aside-tip-bg);
+	--aside-text: var(--aside-tip-text);
+}
+
+.aside--caution,
+.starlight-aside--caution {
+	--aside-border: var(--aside-caution-border);
+	--aside-bg: var(--aside-caution-bg);
+	--aside-text: var(--aside-caution-text);
+}
+
+.aside--danger,
+.starlight-aside--danger {
+	--aside-border: var(--aside-danger-border);
+	--aside-bg: var(--aside-danger-bg);
+	--aside-text: var(--aside-danger-text);
+}
+
+.aside__title,
+.starlight-aside__title {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-weight: 600;
+	margin: 0 0 0.5rem 0;
+	color: var(--aside-text);
+}
+
+.aside__icon,
+.starlight-aside__icon {
+	width: 1em;
+	height: 1em;
+	flex-shrink: 0;
+}
+
+.aside__title + .aside__content,
+.starlight-aside__title + .starlight-aside__content {
+	margin-top: 0.5rem;
+}
+
+.aside__content:empty,
+.starlight-aside__content:empty {
+	display: none;
+}
+
+.aside__content a,
+.starlight-aside__content a {
+	color: var(--aside-text);
+}
+
+.aside__content code,
+.starlight-aside__content code {
+	background-color: rgba(0, 0, 0, 0.05);
+}
