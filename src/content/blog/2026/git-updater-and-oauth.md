@@ -29,6 +29,8 @@ If token refresh fails it could be that your login to Bitbucket or GitLab has ti
 
 :::caution
 If your logs show _Bad Credentials_ errors, simply disconnect and reconnect your OAuth token.
+
+After several weeks, you may need to manually re-connect your OAuth connection as token refresh expires after a period of time.
 :::
 
 ### Security
