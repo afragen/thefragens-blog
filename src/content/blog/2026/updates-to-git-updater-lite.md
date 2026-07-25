@@ -1,9 +1,8 @@
 ---
 title: "Git Updater Lite v3"
-pubDate: '2026-09-05'
+pubDate: '2026-07-25'
 description: "Git Updater Lite is a Composer-distributed client library that lets plugin and theme developers receive automatic updates from a Git Updater server without exposing access tokens. Updates use HMAC-SHA256 signed URLs with a two-step download process for secure token-free delivery."
 categories: ['git-updater']
-draft: true
 ---
 
 Git Updater Lite is a standalone client library that lets plugin and theme developers receive automatic updates from a server running the full Git Updater plugin. It's distributed via Composer as a single PHP file that gets embedded directly into the developer's plugin or theme (package).
@@ -32,6 +31,6 @@ Security is a first-class concern here. The server stores all access tokens for 
 
 ### Configuration
 
-On the server, you'll find a "Uses Git Updater Lite" checkbox in the Additions tab for each package. You will need to re-enter the data for your package in the Additions tab so all the data will be present. There's also a Lite Client Domains tab where you can list authorized base domains per slug, with support for subdomain matching. Leaving the Lite Client Domains empty places no restrictions on who can update using this method. A few filter hooks are available for customizing the API URL, transient timeout, and authorized domains.
+On the server, you'll find a "Uses Git Updater Lite" checkbox in the Additions tab for each package. You will need to re-enter the data for your package in the Additions tab so all the data will be present. There's also a Lite Client Domains tab where you can list authorized base domains per slug, with support for subdomain matching. This is helpful for private packages where you want to limit who gets the update. Leaving the Lite Client Domains empty places no restrictions on who can update using this method. A few filter hooks are available for customizing the API URL, transient timeout, and authorized domains.
 
 On the client side, all you need is the Update URI header in your plugin or theme and Git Updater Lite installed. The library handles everything else.
