@@ -27,7 +27,7 @@ Starting with version 3.0, downloads use a two-step process. Instead of handing 
 
 ### Security
 
-Security is a first-class concern here. The server stores all access tokens for GitHub, GitLab, Bitbucket, and Gitea. When streaming packages through the proxy, tokens are never exposed. Downloads use HMAC-SHA256 signed URLs with a short 60-second TTL. For private packages, you can optionally enable domain validation through the `Lite_Domains` class to restrict which domains can receive updates. The `auth_header` and token credentials are never returned to Lite clients or exposed via REST endpoints.
+Security is a first-class concern here. The server, [Git Updater running on the developer's site](../../2025/update-api-server), stores all access tokens for GitHub, GitLab, Bitbucket, and Gitea. When streaming packages through the proxy, tokens are never exposed. Downloads use HMAC-SHA256 signed URLs with a short 60-second TTL. For private packages, you can optionally enable domain validation through the `Lite_Domains` class to restrict which domains can receive updates. The `auth_header` and token credentials are never returned to Lite clients or exposed via REST endpoints.
 
 ### Configuration
 

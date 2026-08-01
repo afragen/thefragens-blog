@@ -25,7 +25,9 @@ To keep things smooth, the plugin refreshes tokens proactively before making API
 
 In testing, it seems that the GitHub OAuth token has an 8 hour expiration, while OAuth tokens for Bitbucket and GitLab have a 2 hours expiration. Not to worry as token refresh is automatic.
 
-If token refresh fails it could be that your login to Bitbucket or GitLab has timed out and you will need to disconnect and re-connect to Bitbucket or GitLab. This may happen after several weeks. I try to capture this type of failure and automatically remove the stale token leaving the Connect OAuth provider button displayed. There should also be an admin notice.
+If token refresh fails it could be that your login to the specific git host has timed out and you will need to disconnect and re-connect to generate a new token. This may happen after several weeks. I try to capture this type of failure and automatically remove the stale token leaving the Connect OAuth provider button displayed. There should also be an admin notice.
+
+GitHub may require a toggling of the settings on GitHub.com for the _Save_ button to activate.
 
 :::caution
 After several weeks, you may need to manually re-connect your OAuth connection as token refresh expires after a period of time. Hopefully you should see an admin notice about this with the OAuth showing the Connect button.

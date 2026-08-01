@@ -11,7 +11,7 @@ Git Updater does not act as the update server. Updates come directly from the as
 
 With the coming release of Git Updater v12.9.0, Git Updater will be able to server an Update API response for a plugin that is integrated and installed on the same site or a plugin that is _virtually_ integrated with Git Updater via the [Additions](https://git-updater.com/knowledge-base/git-updater-additions/) tab. The same applies to themes.
 
-With a virtual integration via the Additions tab, the plugin doesn't need to have direct integration with Git Updater. It doesn't even need to be installed on the site. It only needs 4 pieces of data: the repository URI, the repository slug, the primary branch, and whether or not there is an associated release asset for the repository.
+With a virtual integration via the Additions tab, the plugin doesn't need to have direct integration with Git Updater. It doesn't even need to be installed on the site. It only needs 5 pieces of data: the repository URI, the repository slug, the primary branch, whether or not there is an associated release asset for the repository, and that it is using Git Updater Lite.
 
 For instance, the [Gutenberg - Nightly](https://github.com/bph/gutenberg) plugin put together by the Gutenberg Team and Birgit Pauli-Haack ([Gutenberg Times](https://gutenbergtimes.com)).
 
@@ -22,6 +22,8 @@ For instance, the [Gutenberg - Nightly](https://github.com/bph/gutenberg) plugin
 - **primary branch** - trunk
 
 - **release asset** - true
+
+- **Uses Git Updater Lite** - true
 
 [https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg](https://test.thefragens.net/wp-json/git-updater/v1/update-api/?slug=gutenberg&channel=development)
 
