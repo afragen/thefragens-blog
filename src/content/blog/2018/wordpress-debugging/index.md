@@ -38,7 +38,7 @@ In this _member’s only_ post, Tom explains many of the individual settings tha
 
 [WP Debugging](https://github.com/afragen/wp-debugging) is a plugin I wrote to automatically add many of WordPress’ built-in settings on plugin activation and remove them on plugin deactivation. The plugin uses the WP-CLI command to add and remove constants from the `wp-config.php` file. WP Debugging should be available in the Plugins Repository soon.
 
-There are two _optional_ plugin dependencies that request to be installed, [Query Monitor](https://wordpress.org/plugins/query-monitor/) by John Billion and [Debug Bar.](https://wordpress.org/plugins/debug-bar/) The notice for these dismisses for 45 days.
+There are two _optional_ plugin dependencies that request to be installed, [Query Monitor](https://wordpress.org/plugins/query-monitor/) by John Blackbourn and [Debug Bar.](https://wordpress.org/plugins/debug-bar/) The notice for these dismisses for 45 days.
 
 Query Monitor is an established development plugin that provides a wealth of information for debugging. Debug Bar is another excellent development plugin by Automattic.
 
