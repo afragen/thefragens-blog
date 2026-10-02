@@ -46,7 +46,12 @@ function altFromFilename(src: string): string {
     .replace(/[-_]/g, ' ')
 }
 
-const items = await Promise.all(images.map(async (img) => {
+// Natural (alphanumeric) order by filename so "2" precedes "11".
+const sortedImages = [...images].sort((a, b) =>
+  a.src.localeCompare(b.src, undefined, { numeric: true, sensitivity: 'base' })
+)
+
+const items = await Promise.all(sortedImages.map(async (img) => {
   const full = await getImage({ src: img, format: 'webp', quality: 85 })
   return {
     img,
