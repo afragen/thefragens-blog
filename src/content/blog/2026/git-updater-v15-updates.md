@@ -59,7 +59,7 @@ None of these change how normal, public updates work.
 
 The plugin is now clean on PHP 8.5 and 8.6, with deprecation warnings fixed and a CI check that catches new ones early.
 
-The Add-On list itself is now a responsive card grid: two cards per row on medium screens, three on wide ones, and a clean single column on phones.
+The Add-Ons list itself is now a responsive card grid: two cards per row on medium screens, three on wide ones, and a clean single column on phones.
 
 ## What you need to do
 
