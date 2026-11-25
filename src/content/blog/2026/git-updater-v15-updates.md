@@ -13,9 +13,7 @@ Here's what's changing.
 
 Managing packages on the **Additions** tab is now much friendlier.
 
-You can **Quick Edit** a package right in the list. No more opening it in a separate form just to change a setting. Adding a new package has moved to its own page, so the list stays focused on what you already have. Thanks @helgatheviking
-
-The list itself is now a responsive card grid: two cards per row on medium screens, three on wide ones, and a clean single column on phones.
+You can **Quick Edit** a package right in the list. No more deleting and recreating it just to change a setting. Adding a new package has moved to its own page, so the list stays focused on what you already have. Thanks @helgatheviking
 
 We also made the Additions data more resilient. A damaged or hand-edited entry might have been to be able to crash the Additions tab, the Plugins and Themes screens, and the REST API. Now those bad rows are simply skipped and cleaned up the next time you save.
 
@@ -60,6 +58,8 @@ None of these change how normal, public updates work.
 ## Ready for the future
 
 The plugin is now clean on PHP 8.5 and 8.6, with deprecation warnings fixed and a CI check that catches new ones early.
+
+The Add-On list itself is now a responsive card grid: two cards per row on medium screens, three on wide ones, and a clean single column on phones.
 
 ## What you need to do
 
